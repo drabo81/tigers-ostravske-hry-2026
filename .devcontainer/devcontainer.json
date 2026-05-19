@@ -1,0 +1,43 @@
+{
+  "name": "Tigers Playoff Viewer + Claude Code",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22",
+
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  // Persistuje OAuth token Claude Code přes Rebuild Container.
+  // Smazaný Codespace = nový volume = znovu přihlášení.
+  "mounts": [
+    "source=claude-config-${devcontainerId},target=/home/node/.claude,type=volume"
+  ],
+
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y jq && sudo chown -R node:node /home/node/.claude && corepack enable && pnpm install --frozen-lockfile && npm install -g @anthropic-ai/claude-code",
+
+  "postAttachCommand": "echo '→ Spusť: claude   (přihlášení přes Claude.ai — zkopíruj URL do prohlížeče, paste kód zpět)'",
+
+  "remoteUser": "node",
+  "containerUser": "node",
+
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Static preview (python3 -m http.server)",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
