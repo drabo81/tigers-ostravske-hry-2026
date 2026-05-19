@@ -1,0 +1,51 @@
+name: Scrape
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  # Opt-in do Node.js 24 runnerů (Node 20 je deprecated od září 2026).
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm verze je definovaná v package.json přes "packageManager" — žádný `version:`
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - run: pnpm install --prod --frozen-lockfile
+
+      - id: scrape
+        run: pnpm scrape
+        continue-on-error: true
+
+      - name: Commit if changed
+        run: |
+          git config user.name "scraper-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/
+          if git diff --quiet --cached; then
+            echo "No changes to commit"
+          else
+            git commit -m "data: scrape $(date -u +%Y-%m-%dT%H:%MZ) [${{ steps.scrape.outcome }}]"
+            git push
+          fi
+
+      - name: Fail if scraper failed
+        if: steps.scrape.outcome != 'success'
+        run: |
+          echo "Scraper exited with status: ${{ steps.scrape.outcome }}"
+          exit 1
