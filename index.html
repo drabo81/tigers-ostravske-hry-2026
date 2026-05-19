@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FBC Tigers Poruba B13 — Ostravské hry 2026</title>
+
+  <!-- Performance optimization: preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://esm.sh">
+  <link rel="dns-prefetch" href="https://api.counterapi.dev">
+  <link rel="dns-prefetch" href="https://api.github.com">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Přejít na obsah</a>
+
+  <header class="site-header">
+    <h1>FBC Tigers Poruba B13</h1>
+    <p class="subtitle">Ostravské hry 2026 — kategorie B13 5+1, skupina MH</p>
+    <div class="next-match" id="next-match"></div>
+    <div class="status">
+      <span id="last-updated">Načítám…</span>
+      <button id="refresh-btn" type="button" aria-label="Aktualizovat data z ostravskehry.cz">↻ Aktualizovat data</button>
+      <label class="data-mode">
+        <span>Zdroj:</span>
+        <select id="data-mode-select" aria-label="Vybrat zdroj dat (live nebo demo scénář)"></select>
+      </label>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="section-tigers">
+      <h2>Zápasy</h2>
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-btn active" data-filter="tigers" role="tab" aria-selected="true">Tigers</button>
+        <button class="filter-btn" data-filter="all" role="tab" aria-selected="false">Vše (B13 5+1)</button>
+      </div>
+      <div id="tigers-content"><p>Načítám…</p></div>
+    </section>
+
+    <section id="section-table">
+      <h2>Tabulka skupiny MH</h2>
+      <div id="table-content"><p>Načítám…</p></div>
+    </section>
+
+    <section id="section-bracket">
+      <h2>Cesta Tigers turnajem</h2>
+      <div class="bracket-scroll">
+        <pre id="bracket-content" class="mermaid">flowchart TD
+  loading["Načítám pavouka…"]
+        </pre>
+      </div>
+    </section>
+
+    <section id="section-all-matches">
+      <h2>Všechny zápasy skupiny MH</h2>
+      <div id="all-matches-content"><p>Načítám…</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <strong>Neoficiální fanouškovská stránka</strong>
+        <p>Toto je amatérská stránka pro rodiče, hráče a fanoušky FBC Tigers Poruba B13. Nemá žádný oficiální vztah ke klubu ani organizátorovi turnaje.</p>
+        <p>Oficiální klub: <a href="https://fbctigersporuba.cz/" rel="noopener">fbctigersporuba.cz</a></p>
+      </div>
+      <div class="footer-col">
+        <strong>Zdroje dat</strong>
+        <p>Výsledky a rozpis: <a href="https://ostravskehry.cz/" rel="noopener">ostravskehry.cz</a><br>
+           Aktualizace každých 15 min přes GitHub Actions.</p>
+        <p>Zdrojový kód: <a href="https://github.com/drabo81/tigers-ostravske-hry-2026" rel="noopener">GitHub</a></p>
+      </div>
+      <div class="footer-col">
+        <strong>Návštěvníci</strong>
+        <p class="visitor-stats">
+          <span class="visitor-num" id="visitor-count">…</span><br>
+          <span class="visitor-label">návštěvníků</span>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>FBC Tigers Poruba B13 — Ostravské hry 2026</span>
+      <span>·</span>
+      <span>Made with 🐅 by fans</span>
+      <span class="build-info" id="build-info"></span>
+    </div>
+  </footer>
+
+  <div id="toast-container" aria-live="polite" role="status"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
