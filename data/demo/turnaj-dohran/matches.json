@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-19T13:16:41.957Z",
+  "scraped_at": "2026-05-19T19:12:26.609Z",
   "matches": [
     {
       "id": 2294,
@@ -1546,8 +1546,8 @@
         "away": 4,
         "status": "final"
       },
-      "_homeOriginal": "",
-      "_awayOriginal": ""
+      "_homeOriginal": "SF1",
+      "_awayOriginal": "SF2"
     },
     {
       "id": 2759,
@@ -1597,8 +1597,8 @@
         "away": 3,
         "status": "final"
       },
-      "_homeOriginal": "",
-      "_awayOriginal": ""
+      "_homeOriginal": "SF1",
+      "_awayOriginal": "SF2"
     }
   ]
 }

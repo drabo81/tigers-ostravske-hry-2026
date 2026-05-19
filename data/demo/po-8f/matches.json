@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-19T13:16:41.648Z",
+  "scraped_at": "2026-05-19T19:12:26.454Z",
   "matches": [
     {
       "id": 2294,
@@ -1523,11 +1523,11 @@
       "group": null,
       "phase": "FINAL-A",
       "venue": "SH Sareza Přívoz Ostrava",
-      "home": "",
-      "away": "",
+      "home": "SF1",
+      "away": "SF2",
       "score": null,
-      "_homeOriginal": "",
-      "_awayOriginal": ""
+      "_homeOriginal": "SF1",
+      "_awayOriginal": "SF2"
     },
     {
       "id": 2759,
@@ -1562,11 +1562,11 @@
       "group": null,
       "phase": "FINAL-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "",
-      "away": "",
+      "home": "SF1",
+      "away": "SF2",
       "score": null,
-      "_homeOriginal": "",
-      "_awayOriginal": ""
+      "_homeOriginal": "SF1",
+      "_awayOriginal": "SF2"
     }
   ]
 }
