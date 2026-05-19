@@ -1,6 +1,7 @@
 import { parseTable, parseMatches, normalizeTeamName } from './lib/parser.js';
 import { tigersBracketPath, renderStaticBracket, isPlaceholderCell } from './lib/bracket.js';
 import { fetchViaProxy } from './lib/proxy.js';
+import { hasMetaChanged } from './lib/poll.js';
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 import svgPanZoom from 'https://esm.sh/svg-pan-zoom@3.6.1';
 
@@ -22,10 +23,10 @@ mermaid.initialize({
 
 const TIGERS_FRAGMENT = 'tigers poruba';
 const REFRESH_DEBOUNCE_MS = 5_000;
-
-// Výchozí timeout pro JSON loading — při síťových problémech se automaticky retry
-const DEFAULT_LOAD_TIMEOUT_MS = 8_000;
-const DEFAULT_LOAD_RETRIES = 2;
+const POLL_INTERVAL_MS = 90_000;
+// After 3 consecutive errors, back off for 5 min to spare GH Pages CDN during outages.
+const POLL_MAX_ERRORS = 3;
+const POLL_BACKOFF_MS = 5 * 60_000;
 
 const $ = (id) => document.getElementById(id);
 
@@ -395,7 +396,9 @@ async function populateDataModeSelect() {
   select.addEventListener('change', async () => {
     currentDataMode = select.value;
     localStorage.setItem(DATA_MODE_STORAGE_KEY, currentDataMode);
+    stopPolling();
     await initialLoad();
+    startPolling();
   });
 }
 
@@ -463,6 +466,48 @@ async function bumpVisitorCount() {
   }
 }
 
+// ─── Auto-refresh polling ─────────────────────────────────────────────────────
+let pollTimerId = null;
+let pollErrorCount = 0;
+
+async function pollOnce() {
+  if (currentDataMode !== 'live' || document.hidden) return;
+
+  try {
+    const meta = await loadJson('meta.json');
+    if (hasMetaChanged(lastData.meta, meta)) {
+      const [table, matches] = await Promise.all([
+        loadJson('table.json'),
+        loadJson('matches.json'),
+      ]);
+      lastData = { table, matches, meta };
+      await renderAll(table, matches, meta);
+    }
+    pollErrorCount = 0;
+  } catch (e) {
+    console.warn('auto-refresh poll error:', e);
+    pollErrorCount++;
+    if (pollErrorCount >= POLL_MAX_ERRORS) {
+      stopPolling();
+      setTimeout(startPolling, POLL_BACKOFF_MS);
+    }
+  }
+}
+
+function startPolling() {
+  if (currentDataMode !== 'live') return;
+  stopPolling();
+  pollErrorCount = 0;
+  pollTimerId = setInterval(pollOnce, POLL_INTERVAL_MS);
+}
+
+function stopPolling() {
+  if (pollTimerId !== null) {
+    clearInterval(pollTimerId);
+    pollTimerId = null;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   $('refresh-btn').addEventListener('click', forceRefresh);
   populateDataModeSelect();
@@ -481,5 +526,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  initialLoad();
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && currentDataMode === 'live') pollOnce();
+  });
+  initialLoad().then(startPolling);
 });
