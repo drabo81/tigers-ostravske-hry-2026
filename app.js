@@ -1,5 +1,5 @@
 import { parseTable, parseMatches, normalizeTeamName } from './lib/parser.js';
-import { tigersBracketPath, renderStaticBracket, isPlaceholderCell } from './lib/bracket.js';
+import { tigersBracketPath, renderStaticBracket, isPlaceholderCell, matchCardHtml, renderPhaseList } from './lib/bracket.js';
 import { fetchViaProxy } from './lib/proxy.js';
 import { hasMetaChanged } from './lib/poll.js';
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -138,31 +138,6 @@ function renderTable(table) {
 
 let tigersFilterMode = 'tigers';
 
-function matchCardHtml(m, isTigersMatch) {
-  const homePh = isPlaceholderCell(m.home);
-  const awayPh = isPlaceholderCell(m.away);
-  const hasPlaceholder = homePh || awayPh;
-
-  let body;
-  if (m.score) {
-    body = `<div class="score"><strong>${escapeHtml(m.home)}</strong> <span class="score-num">${m.score.home} : ${m.score.away}</span> <strong>${escapeHtml(m.away)}</strong></div>`;
-  } else if (hasPlaceholder && isTigersMatch) {
-    // Tigers do tohohle zápasu postupují, ale soupeř/strana ještě není známý
-    body = `<div class="vs"><strong>FBC TIGERS PORUBA</strong> – <em>soupeř bude určen</em> <span class="pending">(zatím nehrané)</span></div>`;
-  } else if (hasPlaceholder) {
-    body = `<div class="vs"><em>soupeři budou určeni</em> <span class="pending">(zatím nehrané)</span></div>`;
-  } else {
-    body = `<div class="vs"><strong>${escapeHtml(m.home)}</strong> – <strong>${escapeHtml(m.away)}</strong> <span class="pending">(zatím nehrané)</span></div>`;
-  }
-
-  const klass = `match-card${isTigersMatch ? ' is-tigers' : ''}${!m.score ? ' is-pending' : ''}`;
-  return `<div class="${klass}">
-    <div><span class="phase">${m.phase === 'group' ? `${m.group ?? 'MH'} skupina` : m.phase}</span>
-      <span class="when">${fmtDate(m.date)} ${m.time ?? ''} — ${escapeHtml(m.venue ?? '')}</span></div>
-    ${body}
-  </div>`;
-}
-
 function renderTigersMatches(matches, table) {
   let list;
   if (tigersFilterMode === 'tigers') {
@@ -201,38 +176,61 @@ function renderAllMatches(matches) {
   </table>`;
 }
 
+const VIEW_KEY = 'tigers.bracketView';
+const MOBILE_MQ = '(max-width: 599px)';
+
+function resolveBracketView() {
+  const stored = localStorage.getItem(VIEW_KEY);
+  if (stored === 'pavouk' || stored === 'seznam') return stored;
+  return window.matchMedia(MOBILE_MQ).matches ? 'seznam' : 'pavouk';
+}
+
 let bracketPanZoom = null;
 
 async function renderBracket(matches, table) {
-  const mermaidSrc = renderStaticBracket(matches, table);
+  const view = resolveBracketView();
   const container = $('bracket-content');
-  container.removeAttribute('data-processed');
-  container.textContent = mermaidSrc;
-  if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
-  try {
-    await mermaid.run({ nodes: [container] });
-    const svg = container.querySelector('svg');
-    if (svg) {
-      // Mermaid nastaví inline width/height na konkrétní px; pro pan-zoom potřebujeme
-      // 100% rozměry, ať SVG vyplní wrapper.
-      svg.removeAttribute('width');
-      svg.removeAttribute('height');
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-      svg.style.maxWidth = 'none';
-      bracketPanZoom = svgPanZoom(svg, {
-        controlIconsEnabled: true,    // tlačítka +/-/reset
-        fit: true,                    // auto-fit na load
-        center: true,
-        minZoom: 0.2,
-        maxZoom: 8,
-        zoomScaleSensitivity: 0.3,
-        contain: false,
-      });
-    }
-  } catch (e) {
-    console.error('mermaid render failed', e);
+  const scroll = container.closest('.bracket-scroll');
+
+  document.querySelectorAll('.bracket-view-toggle [data-view]').forEach(btn => {
+    btn.setAttribute('aria-selected', String(btn.dataset.view === view));
+  });
+
+  if (view === 'pavouk') {
+    if (scroll) scroll.classList.remove('is-seznam');
+    const mermaidSrc = renderStaticBracket(matches, table);
+    container.removeAttribute('data-processed');
     container.textContent = mermaidSrc;
+    if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
+    try {
+      await mermaid.run({ nodes: [container] });
+      const svg = container.querySelector('svg');
+      if (svg) {
+        // Mermaid nastaví inline width/height na konkrétní px; pro pan-zoom potřebujeme
+        // 100% rozměry, ať SVG vyplní wrapper.
+        svg.removeAttribute('width');
+        svg.removeAttribute('height');
+        svg.style.width = '100%';
+        svg.style.height = '100%';
+        svg.style.maxWidth = 'none';
+        bracketPanZoom = svgPanZoom(svg, {
+          controlIconsEnabled: true,
+          fit: true,
+          center: true,
+          minZoom: 0.2,
+          maxZoom: 8,
+          zoomScaleSensitivity: 0.3,
+          contain: false,
+        });
+      }
+    } catch (e) {
+      console.error('mermaid render failed', e);
+      container.textContent = renderStaticBracket(matches, table);
+    }
+  } else {
+    if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
+    if (scroll) scroll.classList.add('is-seznam');
+    container.innerHTML = renderPhaseList(matches, table);
   }
 }
 
@@ -513,6 +511,14 @@ document.addEventListener('DOMContentLoaded', () => {
   populateDataModeSelect();
   bumpVisitorCount();
   loadBuildInfo();
+  document.querySelectorAll('.bracket-view-toggle [data-view]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      localStorage.setItem(VIEW_KEY, btn.dataset.view);
+      if (lastData.matches && lastData.table) {
+        renderBracket(lastData.matches, lastData.table);
+      }
+    });
+  });
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       tigersFilterMode = btn.dataset.filter;

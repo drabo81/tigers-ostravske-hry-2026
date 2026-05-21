@@ -239,7 +239,7 @@ tr.tigers-row td { color: var(--dark); }
   touch-action: none;              /* lepší mobile pan-zoom */
   position: relative;
 }
-pre.mermaid {
+#bracket-content.mermaid {
   margin: 0;
   width: 100%;
   height: 100%;
@@ -247,7 +247,7 @@ pre.mermaid {
   font-size: 13px;
   overflow: hidden;
 }
-.bracket-scroll pre.mermaid svg {
+.bracket-scroll #bracket-content svg {
   width: 100%;
   height: 100%;
   max-width: none;
@@ -392,4 +392,87 @@ footer {
   #tigers-content { max-height: 40vh; }
   .bracket-scroll { height: 40vh; }
   main { padding: 0.5rem; }
+}
+
+/* ── Bracket view toggle ─────────────────────────────────────────── */
+.bracket-view-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.bracket-view-toggle button {
+  background: none;
+  border: 1px solid var(--gray);
+  padding: 0.35rem 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+  color: #777;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  min-height: 44px;
+}
+.bracket-view-toggle button:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+}
+.bracket-view-toggle button[aria-selected="true"] {
+  background: var(--orange);
+  color: #fff;
+  border-color: var(--orange);
+  font-weight: 700;
+}
+
+/* seznam mód — bracket-scroll výška auto */
+.bracket-scroll.is-seznam {
+  height: auto;
+  overflow: visible;
+}
+.bracket-scroll.is-seznam #bracket-content {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  font-size: inherit;
+  white-space: normal;
+}
+
+/* ── Phase list ──────────────────────────────────────────────────── */
+.phase-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.phase-list details {
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.phase-list summary {
+  cursor: pointer;
+  padding: 0.25rem 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+.phase-list summary::-webkit-details-marker { display: none; }
+.phase-list summary::before {
+  content: '▶';
+  font-size: 0.7rem;
+  color: #888;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+.phase-list details[open] > summary::before { transform: rotate(90deg); }
+.phase-meta {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  font-weight: 400;
+}
+.phase-meta.tigers {
+  color: var(--orange);
+  opacity: 1;
+  font-weight: 600;
 }

@@ -47,10 +47,14 @@
 
     <section id="section-bracket">
       <h2>Cesta Tigers turnajem</h2>
+      <div class="bracket-view-toggle" role="tablist" aria-label="Zobrazení pavouka">
+        <button type="button" data-view="pavouk" role="tab" aria-selected="true">🌳 Pavouk</button>
+        <button type="button" data-view="seznam" role="tab" aria-selected="false">📋 Seznam</button>
+      </div>
       <div class="bracket-scroll">
-        <pre id="bracket-content" class="mermaid">flowchart TD
+        <div id="bracket-content" class="mermaid">flowchart TD
   loading["Načítám pavouka…"]
-        </pre>
+        </div>
       </div>
     </section>
 
