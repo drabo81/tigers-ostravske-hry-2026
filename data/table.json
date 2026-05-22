@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T17:01:11.925Z",
+  "scraped_at": "2026-05-22T17:11:12.566Z",
   "groups": {
     "MA": [
       {
@@ -379,16 +379,16 @@
       {
         "rank": 3,
         "team": "Florbal Včelín",
-        "scored": 2,
-        "conceded": 3,
-        "points": 0
+        "scored": 6,
+        "conceded": 7,
+        "points": 1
       },
       {
         "rank": 4,
         "team": "SVČ Odry",
-        "scored": 2,
-        "conceded": 11,
-        "points": 0
+        "scored": 6,
+        "conceded": 15,
+        "points": 1
       }
     ],
     "SF": [
