@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T10:51:12.809Z",
+  "scraped_at": "2026-05-22T11:26:12.347Z",
   "groups": {
     "MA": [
       {
@@ -252,15 +252,15 @@
       {
         "rank": 2,
         "team": "Prague Tigers",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 4,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 3,
         "team": "FBŠ HATTRICK BRNO",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 4,
         "points": 0
       },
       {
@@ -665,9 +665,9 @@
       {
         "rank": 1,
         "team": "TJ Slovan Havířov",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 2,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 2,
@@ -686,8 +686,8 @@
       {
         "rank": 4,
         "team": "Florbal Vsetín",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 2,
         "points": 0
       }
     ],

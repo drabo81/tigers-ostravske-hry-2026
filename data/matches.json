@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T11:21:14.655Z",
+  "scraped_at": "2026-05-22T11:26:12.347Z",
   "matches": [
     {
       "id": 2294,
@@ -162,7 +162,7 @@
       "home": "SOKOLI Pardubice",
       "away": "FBC Dobruška",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 1,
         "status": "live"
       }
@@ -176,17 +176,6 @@
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "Florbal MB Black",
       "away": "Zlín Lions",
-      "score": null
-    },
-    {
-      "id": 2306,
-      "date": "2026-05-22",
-      "time": "13:30",
-      "group": "MC",
-      "phase": "group",
-      "venue": "SH TJ Ostrava (Varenská)",
-      "home": "ACEMA Sparta Praha RED",
-      "away": "Sokol Brno I EMKOCase Gullivers",
       "score": null
     },
     {
@@ -209,6 +198,17 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "Florbal Vsetín",
       "away": "Florbal MB White",
+      "score": null
+    },
+    {
+      "id": 2306,
+      "date": "2026-05-22",
+      "time": "13:30",
+      "group": "MC",
+      "phase": "group",
+      "venue": "SH TJ Ostrava (Varenská)",
+      "home": "ACEMA Sparta Praha RED",
+      "away": "Sokol Brno I EMKOCase Gullivers",
       "score": null
     },
     {
