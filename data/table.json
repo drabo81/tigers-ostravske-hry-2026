@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T13:01:12.699Z",
+  "scraped_at": "2026-05-22T13:06:15.706Z",
   "groups": {
     "MA": [
       {
@@ -342,16 +342,16 @@
       {
         "rank": 2,
         "team": "Warriors Bratislava",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 12,
         "points": 0
       },
       {
         "rank": 3,
         "team": "TROOPERS",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 12,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 4,
