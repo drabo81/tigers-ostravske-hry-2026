@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T08:41:13.104Z",
+  "scraped_at": "2026-05-22T08:41:55.818Z",
   "matches": [
     {
       "id": 2294,
@@ -42,7 +42,7 @@
       "home": "FBC Hlučín",
       "away": "FBC Vikings Kopřivnice",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
