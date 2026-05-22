@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T15:56:10.729Z",
+  "scraped_at": "2026-05-22T16:01:12.959Z",
   "matches": [
     {
       "id": 2294,
@@ -327,7 +327,7 @@
       "home": "Florbal MB White",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 3,
+        "home": 4,
         "away": 3,
         "status": "live"
       }
@@ -343,7 +343,7 @@
       "away": "1. SC NATIOS Vítkovice Blue",
       "score": {
         "home": 0,
-        "away": 13,
+        "away": 15,
         "status": "live"
       }
     },
@@ -417,8 +417,8 @@
       "home": "FBC Vítkov U13",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 1,
-        "away": 0,
+        "home": 2,
+        "away": 4,
         "status": "live"
       }
     },

@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:56:10.729Z",
+  "scraped_at": "2026-05-22T16:01:12.959Z",
   "groups": {
     "MA": [
       {
@@ -319,15 +319,15 @@
       {
         "rank": 3,
         "team": "Florbal Rosice",
-        "scored": 6,
-        "conceded": 2,
-        "points": 3
+        "scored": 13,
+        "conceded": 8,
+        "points": 6
       },
       {
         "rank": 4,
         "team": "FBC Mohelnice",
-        "scored": 4,
-        "conceded": 3,
+        "scored": 10,
+        "conceded": 10,
         "points": 3
       }
     ],
