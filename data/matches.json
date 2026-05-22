@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T12:51:16.398Z",
+  "scraped_at": "2026-05-22T12:56:14.171Z",
   "matches": [
     {
       "id": 2294,
@@ -238,7 +238,7 @@
       "away": "ACEMA Sparta Praha YELLOW",
       "score": {
         "home": 3,
-        "away": 3,
+        "away": 4,
         "status": "live"
       }
     },
