@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T16:21:11.479Z",
+  "scraped_at": "2026-05-22T16:34:00.385Z",
   "groups": {
     "MA": [
       {
@@ -139,15 +139,15 @@
       {
         "rank": 3,
         "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 2,
-        "conceded": 15,
-        "points": 0
+        "scored": 14,
+        "conceded": 20,
+        "points": 3
       },
       {
         "rank": 4,
         "team": "FBC Vítkov U13",
-        "scored": 2,
-        "conceded": 7,
+        "scored": 7,
+        "conceded": 19,
         "points": 0
       }
     ],

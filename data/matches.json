@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T16:31:12.087Z",
+  "scraped_at": "2026-05-22T16:34:00.385Z",
   "matches": [
     {
       "id": 2294,
@@ -408,21 +408,6 @@
       }
     },
     {
-      "id": 2321,
-      "date": "2026-05-22",
-      "time": "18:00",
-      "group": "ME",
-      "phase": "group",
-      "venue": "SH ČPP Aréna Ostrava",
-      "home": "FBC Vítkov U13",
-      "away": "FBC ČPP Bystroň Group Ostrava",
-      "score": {
-        "home": 5,
-        "away": 12,
-        "status": "live"
-      }
-    },
-    {
       "id": 2322,
       "date": "2026-05-22",
       "time": "18:00",
@@ -435,6 +420,21 @@
         "home": 4,
         "away": 1,
         "status": "live"
+      }
+    },
+    {
+      "id": 2321,
+      "date": "2026-05-22",
+      "time": "18:00",
+      "group": "ME",
+      "phase": "group",
+      "venue": "SH ČPP Aréna Ostrava",
+      "home": "FBC Vítkov U13",
+      "away": "FBC ČPP Bystroň Group Ostrava",
+      "score": {
+        "home": 5,
+        "away": 12,
+        "status": "final"
       }
     },
     {
