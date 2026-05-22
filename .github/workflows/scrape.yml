@@ -2,7 +2,10 @@ name: Scrape & Validate
 
 on:
   schedule:
+    # Baseline — vždy běží, zachytí změny rozpisu mimo turnaj.
     - cron: '*/15 * * * *'
+    # Dense — během turnaje (gated v prvním kroku přes data/matches.json).
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -22,25 +25,41 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Dense cron (*/5) běží jen v turnajovém okně odvozeném z data/matches.json.
+      # Baseline cron (*/15) a workflow_dispatch běží vždy.
+      - name: Decide whether to scrape
+        id: gate
+        run: |
+          if [ "${{ github.event.schedule }}" = "*/5 * * * *" ]; then
+            node scripts/in-tournament-window.mjs
+          else
+            echo "proceed=true" >> $GITHUB_OUTPUT
+          fi
+
       # pnpm verze je definovaná v package.json přes "packageManager" — žádný `version:`
       - uses: pnpm/action-setup@v4
+        if: steps.gate.outputs.proceed == 'true'
 
       - uses: actions/setup-node@v4
+        if: steps.gate.outputs.proceed == 'true'
         with:
           node-version: '22'
           cache: 'pnpm'
 
       - run: pnpm install --prod --frozen-lockfile
+        if: steps.gate.outputs.proceed == 'true'
 
       - name: Run tests
+        if: steps.gate.outputs.proceed == 'true'
         run: pnpm test
 
       - id: scrape
+        if: steps.gate.outputs.proceed == 'true'
         run: pnpm scrape
         continue-on-error: true
 
       - name: Validate generated JSON
-        if: steps.scrape.outcome == 'success'
+        if: steps.gate.outputs.proceed == 'true' && steps.scrape.outcome == 'success'
         run: |
           set -e
           echo "Validating data/table.json..."
@@ -52,6 +71,7 @@ jobs:
           echo "All JSON files are valid!"
 
       - name: Commit if changed
+        if: steps.gate.outputs.proceed == 'true'
         run: |
           git config user.name "scraper-bot"
           git config user.email "bot@users.noreply.github.com"
@@ -66,7 +86,7 @@ jobs:
           fi
 
       - name: Fail if scraper failed
-        if: steps.scrape.outcome != 'success'
+        if: steps.gate.outputs.proceed == 'true' && steps.scrape.outcome != 'success'
         run: |
           echo "Scraper exited with status: ${{ steps.scrape.outcome }}"
           exit 1
