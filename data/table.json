@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T10:36:11.758Z",
+  "scraped_at": "2026-05-22T10:41:10.444Z",
   "groups": {
     "MA": [
       {
@@ -275,16 +275,16 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 2,
+        "conceded": 5,
         "points": 0
       },
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 2,
+        "points": 3
       },
       {
         "rank": 3,
@@ -305,8 +305,8 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 3,
+        "conceded": 4,
         "points": 0
       },
       {
@@ -326,18 +326,18 @@
       {
         "rank": 4,
         "team": "FBC Mohelnice",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 4,
+        "conceded": 3,
+        "points": 3
       }
     ],
     "SD": [
       {
         "rank": 1,
         "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 3,
+        "points": 3
       },
       {
         "rank": 2,
@@ -356,8 +356,8 @@
       {
         "rank": 4,
         "team": "Asper Šumperk",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 3,
+        "conceded": 5,
         "points": 0
       }
     ],

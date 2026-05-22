@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T10:36:11.758Z",
+  "scraped_at": "2026-05-22T10:41:10.444Z",
   "matches": [
     {
       "id": 2294,
@@ -147,7 +147,7 @@
       "home": "SK K2 Prostějov modří",
       "away": "FBK Valašské Meziříčí",
       "score": {
-        "home": 3,
+        "home": 7,
         "away": 1,
         "status": "live"
       }
