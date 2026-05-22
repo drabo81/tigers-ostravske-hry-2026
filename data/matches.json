@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T14:46:14.274Z",
+  "scraped_at": "2026-05-22T14:51:13.026Z",
   "matches": [
     {
       "id": 2294,
@@ -294,7 +294,7 @@
       "away": "SK K2 Prostějov modří",
       "score": {
         "home": 1,
-        "away": 3,
+        "away": 4,
         "status": "live"
       }
     },
@@ -309,7 +309,7 @@
       "away": "Panthers Otrokovice",
       "score": {
         "home": 1,
-        "away": 2,
+        "away": 3,
         "status": "live"
       }
     },
