@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T11:16:12.765Z",
+  "scraped_at": "2026-05-22T11:21:14.655Z",
   "matches": [
     {
       "id": 2294,
@@ -163,7 +163,7 @@
       "away": "FBC Dobruška",
       "score": {
         "home": 2,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
