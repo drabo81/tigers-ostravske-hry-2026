@@ -71,3 +71,31 @@ test('parseMatches: deduplicated by id (no double-counting from mobile + desktop
   const unique = new Set(ids);
   assert.equal(ids.length, unique.size, 'duplicate match ids found');
 });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Fixture s probíhajícím turnajem — některé zápasy mají "Právě probíhá" span
+// ─────────────────────────────────────────────────────────────────────────────
+const duringHtml = readFileSync(
+  new URL('./fixtures/2026-05-22-during-tournament-matches.html', import.meta.url),
+  'utf8'
+);
+const duringResult = parseMatches(parseHTML(duringHtml).document);
+
+test('parseMatches: live match (#2294) has score.status === "live"', () => {
+  const m = duringResult.matches.find(x => x.id === 2294);
+  assert.ok(m, 'match 2294 not found in during-tournament fixture');
+  assert.ok(m.score, 'match 2294 should have a score object');
+  assert.equal(m.score.status, 'live', `expected status "live", got "${m.score.status}"`);
+});
+
+test('parseMatches: live match has numeric score values', () => {
+  const m = duringResult.matches.find(x => x.id === 2294);
+  assert.equal(typeof m.score.home, 'number');
+  assert.equal(typeof m.score.away, 'number');
+});
+
+test('parseMatches: not-yet-started match has null score (during-tournament fixture)', () => {
+  // Zápas s časem v anchor (např. 09:45) zatím nezačal
+  const notStarted = duringResult.matches.find(x => x.score === null);
+  assert.ok(notStarted, 'expected at least one not-yet-started match');
+});

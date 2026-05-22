@@ -207,6 +207,20 @@ tr.tigers-row td { color: var(--dark); }
 
 .match-card.is-tigers { border-left: 4px solid var(--orange); }
 .match-card.is-pending { border-left-color: var(--gray); background: #fafafa; }
+.match-card.is-live { border-left: 4px solid #d33; background: #fff7f7; }
+.match-card .live-badge {
+  display: inline-block;
+  background: #d33;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
 .match-card .when { font-size: 0.85rem; color: #555; }
 .match-card .vs { margin: 0.35rem 0; }
 .match-card .vs .pending { color: #999; font-weight: normal; font-size: 0.85rem; }
