@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T09:26:14.367Z",
+  "scraped_at": "2026-05-22T09:31:11.884Z",
   "matches": [
     {
       "id": 2294,
@@ -86,7 +86,11 @@
       "venue": "SH Sareza Přívoz Ostrava",
       "home": "TROOPERS",
       "away": "FBS Olomouc červení",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 2,
+        "status": "live"
+      }
     },
     {
       "id": 2300,
@@ -98,7 +102,7 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 2,
+        "home": 4,
         "away": 0,
         "status": "live"
       }
@@ -113,7 +117,7 @@
       "home": "Panthers Otrokovice",
       "away": "Fbc Šternberk",
       "score": {
-        "home": 5,
+        "home": 6,
         "away": 1,
         "status": "live"
       }
