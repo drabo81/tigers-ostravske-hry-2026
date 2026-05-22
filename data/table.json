@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T18:56:16.741Z",
+  "scraped_at": "2026-05-22T19:01:19.012Z",
   "groups": {
     "MA": [
       {
@@ -635,15 +635,15 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov Black",
-        "scored": 16,
-        "conceded": 1,
-        "points": 3
+        "scored": 26,
+        "conceded": 3,
+        "points": 6
       },
       {
         "rank": 2,
         "team": "Floorball Academy Trnava",
-        "scored": 1,
-        "conceded": 4,
+        "scored": 3,
+        "conceded": 14,
         "points": 0
       },
       {
@@ -679,15 +679,15 @@
       {
         "rank": 3,
         "team": "TJ Sokol Jaroměř",
-        "scored": 5,
+        "scored": 10,
         "conceded": 2,
-        "points": 3
+        "points": 6
       },
       {
         "rank": 4,
         "team": "Florbal Vsetín",
         "scored": 1,
-        "conceded": 2,
+        "conceded": 7,
         "points": 0
       }
     ],
@@ -725,15 +725,15 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 3,
-        "conceded": 1,
-        "points": 3
+        "scored": 11,
+        "conceded": 2,
+        "points": 6
       },
       {
         "rank": 2,
         "team": "SK K2 Prostějov",
-        "scored": 0,
-        "conceded": 4,
+        "scored": 1,
+        "conceded": 12,
         "points": 0
       },
       {
