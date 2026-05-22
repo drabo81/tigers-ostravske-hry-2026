@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T19:16:12.864Z",
+  "scraped_at": "2026-05-22T19:30:30.048Z",
   "groups": {
     "MA": [
       {
@@ -785,16 +785,16 @@
       {
         "rank": 1,
         "team": "Dinoco",
-        "scored": 14,
-        "conceded": 0,
+        "scored": 16,
+        "conceded": 4,
         "points": 3
       },
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 7,
-        "conceded": 0,
-        "points": 3
+        "scored": 11,
+        "conceded": 2,
+        "points": 6
       },
       {
         "rank": 3,
