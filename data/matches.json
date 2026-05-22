@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T12:01:21.130Z",
+  "scraped_at": "2026-05-22T12:06:10.879Z",
   "matches": [
     {
       "id": 2294,
@@ -177,7 +177,7 @@
       "home": "Florbal MB Black",
       "away": "Zlín Lions",
       "score": {
-        "home": 6,
+        "home": 7,
         "away": 0,
         "status": "live"
       }
@@ -192,8 +192,8 @@
       "home": "ACEMA Sparta Praha RED",
       "away": "Sokol Brno I EMKOCase Gullivers",
       "score": {
-        "home": 2,
-        "away": 5,
+        "home": 3,
+        "away": 7,
         "status": "live"
       }
     },
@@ -208,7 +208,7 @@
       "away": "FBC Gepardi Brno",
       "score": {
         "home": 1,
-        "away": 10,
+        "away": 11,
         "status": "live"
       }
     },
@@ -222,7 +222,7 @@
       "home": "Florbal Vsetín",
       "away": "Florbal MB White",
       "score": {
-        "home": 3,
+        "home": 4,
         "away": 3,
         "status": "live"
       }
