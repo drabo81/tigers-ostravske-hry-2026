@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T14:36:12.383Z",
+  "scraped_at": "2026-05-22T14:41:16.026Z",
   "groups": {
     "MA": [
       {
@@ -672,16 +672,16 @@
       {
         "rank": 2,
         "team": "FbC Young Arrows Sp. Nová Ves",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 2,
+        "conceded": 5,
         "points": 0
       },
       {
         "rank": 3,
         "team": "TJ Sokol Jaroměř",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 2,
+        "points": 3
       },
       {
         "rank": 4,

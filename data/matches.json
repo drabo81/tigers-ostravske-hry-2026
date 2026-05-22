@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T14:36:12.383Z",
+  "scraped_at": "2026-05-22T14:41:16.026Z",
   "matches": [
     {
       "id": 2294,
@@ -294,7 +294,7 @@
       "away": "SK K2 Prostějov modří",
       "score": {
         "home": 0,
-        "away": 1,
+        "away": 2,
         "status": "live"
       }
     },
@@ -307,7 +307,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Vikings Kopřivnice",
       "away": "Panthers Otrokovice",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 1,
+        "status": "live"
+      }
     },
     {
       "id": 2315,
