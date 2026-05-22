@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T09:11:12.946Z",
+  "scraped_at": "2026-05-22T09:16:12.925Z",
   "matches": [
     {
       "id": 2294,
@@ -89,6 +89,17 @@
       "score": null
     },
     {
+      "id": 2302,
+      "date": "2026-05-22",
+      "time": "11:15",
+      "group": "MG",
+      "phase": "group",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "SK K2 Prostějov bílí",
+      "away": "FBC Letka Toman Finance Group",
+      "score": null
+    },
+    {
       "id": 2300,
       "date": "2026-05-22",
       "time": "11:15",
@@ -108,18 +119,11 @@
       "venue": "SH TJ Ostrava (Varenská)",
       "home": "Panthers Otrokovice",
       "away": "Fbc Šternberk",
-      "score": null
-    },
-    {
-      "id": 2302,
-      "date": "2026-05-22",
-      "time": "11:15",
-      "group": "MG",
-      "phase": "group",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "SK K2 Prostějov bílí",
-      "away": "FBC Letka Toman Finance Group",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2303,
