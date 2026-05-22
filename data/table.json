@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:46:18.282Z",
+  "scraped_at": "2026-05-22T15:51:17.066Z",
   "groups": {
     "MA": [
       {
@@ -349,15 +349,15 @@
       {
         "rank": 3,
         "team": "TROOPERS",
-        "scored": 12,
-        "conceded": 1,
-        "points": 3
+        "scored": 15,
+        "conceded": 2,
+        "points": 6
       },
       {
         "rank": 4,
         "team": "Asper Šumperk",
-        "scored": 3,
-        "conceded": 5,
+        "scored": 4,
+        "conceded": 8,
         "points": 0
       }
     ],
