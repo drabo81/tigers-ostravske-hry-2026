@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T15:36:12.105Z",
+  "scraped_at": "2026-05-22T15:41:13.350Z",
   "matches": [
     {
       "id": 2294,
@@ -328,7 +328,7 @@
       "away": "Florbal MB Black",
       "score": {
         "home": 0,
-        "away": 5,
+        "away": 6,
         "status": "live"
       }
     },
@@ -343,7 +343,7 @@
       "away": "SK K2 Prostějov bílí",
       "score": {
         "home": 1,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -357,7 +357,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "MVIL Ostrava",
       "score": {
-        "home": 7,
+        "home": 10,
         "away": 1,
         "status": "live"
       }
@@ -373,7 +373,7 @@
       "away": "1. SC NATIOS Vítkovice Blue",
       "score": {
         "home": 0,
-        "away": 6,
+        "away": 8,
         "status": "live"
       }
     },
@@ -388,7 +388,7 @@
       "away": "ACEMA Sparta Praha RED",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -402,7 +402,7 @@
       "home": "Fbc Šternberk",
       "away": "FBC Hlučín",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
