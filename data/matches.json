@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T10:51:12.809Z",
+  "scraped_at": "2026-05-22T11:06:12.214Z",
   "matches": [
     {
       "id": 2294,
@@ -162,7 +162,7 @@
       "home": "SOKOLI Pardubice",
       "away": "FBC Dobruška",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
