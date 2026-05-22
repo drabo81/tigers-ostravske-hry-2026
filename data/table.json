@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T19:01:19.012Z",
+  "scraped_at": "2026-05-22T19:16:12.864Z",
   "groups": {
     "MA": [
       {
@@ -545,8 +545,8 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 5,
-        "conceded": 2,
+        "scored": 7,
+        "conceded": 12,
         "points": 3
       },
       {
@@ -566,9 +566,9 @@
       {
         "rank": 4,
         "team": "Asper Šumperk",
-        "scored": 4,
-        "conceded": 0,
-        "points": 3
+        "scored": 14,
+        "conceded": 2,
+        "points": 6
       }
     ],
     "DD": [
