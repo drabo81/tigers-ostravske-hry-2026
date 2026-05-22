@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T18:16:11.274Z",
+  "scraped_at": "2026-05-22T18:25:25.562Z",
   "groups": {
     "MA": [
       {
@@ -552,15 +552,15 @@
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 2,
+        "scored": 6,
         "conceded": 5,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 3,
         "team": "Hornets Brno U17",
         "scored": 0,
-        "conceded": 4,
+        "conceded": 8,
         "points": 0
       },
       {
