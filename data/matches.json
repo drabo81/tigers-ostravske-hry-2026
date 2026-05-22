@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T09:16:12.925Z",
+  "scraped_at": "2026-05-22T09:21:17.149Z",
   "matches": [
     {
       "id": 2294,
@@ -30,21 +30,6 @@
         "home": 32,
         "away": 0,
         "status": "final"
-      }
-    },
-    {
-      "id": 2298,
-      "date": "2026-05-22",
-      "time": "10:30",
-      "group": "ME",
-      "phase": "group",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "1. SC NATIOS Vítkovice White",
-      "away": "FBC Vítkov U13",
-      "score": {
-        "home": 7,
-        "away": 2,
-        "status": "live"
       }
     },
     {
@@ -78,6 +63,21 @@
       }
     },
     {
+      "id": 2298,
+      "date": "2026-05-22",
+      "time": "10:30",
+      "group": "ME",
+      "phase": "group",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "1. SC NATIOS Vítkovice White",
+      "away": "FBC Vítkov U13",
+      "score": {
+        "home": 7,
+        "away": 2,
+        "status": "final"
+      }
+    },
+    {
       "id": 2299,
       "date": "2026-05-22",
       "time": "11:15",
@@ -89,17 +89,6 @@
       "score": null
     },
     {
-      "id": 2302,
-      "date": "2026-05-22",
-      "time": "11:15",
-      "group": "MG",
-      "phase": "group",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "SK K2 Prostějov bílí",
-      "away": "FBC Letka Toman Finance Group",
-      "score": null
-    },
-    {
       "id": 2300,
       "date": "2026-05-22",
       "time": "11:15",
@@ -108,7 +97,11 @@
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "FBC TIGERS PORUBA",
       "away": "FBC Intevo Třinec červení",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2301,
@@ -120,7 +113,22 @@
       "home": "Panthers Otrokovice",
       "away": "Fbc Šternberk",
       "score": {
-        "home": 1,
+        "home": 3,
+        "away": 1,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2302,
+      "date": "2026-05-22",
+      "time": "11:15",
+      "group": "MG",
+      "phase": "group",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "SK K2 Prostějov bílí",
+      "away": "FBC Letka Toman Finance Group",
+      "score": {
+        "home": 0,
         "away": 0,
         "status": "live"
       }
