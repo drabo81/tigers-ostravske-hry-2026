@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T13:51:12.070Z",
+  "scraped_at": "2026-05-22T13:56:09.283Z",
   "matches": [
     {
       "id": 2294,
@@ -266,7 +266,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBS Olomouc červení",
       "away": "Salibandy Club Ostrava",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2312,
