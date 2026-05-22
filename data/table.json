@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T17:31:13.642Z",
+  "scraped_at": "2026-05-22T17:41:14.571Z",
   "groups": {
     "MA": [
       {
@@ -455,16 +455,16 @@
       {
         "rank": 1,
         "team": "TJ Slovan Havířov",
-        "scored": 1,
-        "conceded": 5,
+        "scored": 3,
+        "conceded": 8,
         "points": 0
       },
       {
         "rank": 2,
         "team": "SOKOLI Pardubice",
-        "scored": 4,
-        "conceded": 5,
-        "points": 0
+        "scored": 7,
+        "conceded": 7,
+        "points": 3
       },
       {
         "rank": 3,
@@ -695,15 +695,15 @@
       {
         "rank": 1,
         "team": "FBC Český Těšín",
-        "scored": 3,
-        "conceded": 8,
-        "points": 0
+        "scored": 10,
+        "conceded": 12,
+        "points": 3
       },
       {
         "rank": 2,
         "team": "Panthers Praha WHITE",
-        "scored": 2,
-        "conceded": 6,
+        "scored": 6,
+        "conceded": 13,
         "points": 0
       },
       {
