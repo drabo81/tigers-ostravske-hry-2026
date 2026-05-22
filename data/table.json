@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T11:26:12.347Z",
+  "scraped_at": "2026-05-22T11:31:09.993Z",
   "groups": {
     "MA": [
       {
@@ -102,16 +102,16 @@
       {
         "rank": 2,
         "team": "FBC Dobruška",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 4,
         "points": 0
       },
       {
         "rank": 3,
         "team": "SOKOLI Pardubice",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 4,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 4,
@@ -545,15 +545,15 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 2,
+        "points": 3
       },
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 2,
+        "conceded": 5,
         "points": 0
       },
       {
@@ -695,8 +695,8 @@
       {
         "rank": 1,
         "team": "FBC Český Těšín",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 3,
+        "conceded": 8,
         "points": 0
       },
       {
@@ -716,9 +716,9 @@
       {
         "rank": 4,
         "team": "FBS Olomouc",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 8,
+        "conceded": 3,
+        "points": 3
       }
     ],
     "JA": [
