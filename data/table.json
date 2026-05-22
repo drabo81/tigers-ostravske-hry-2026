@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:36:12.105Z",
+  "scraped_at": "2026-05-22T15:46:18.282Z",
   "groups": {
     "MA": [
       {
@@ -19,15 +19,15 @@
       {
         "rank": 3,
         "team": "Florbal MB Black",
-        "scored": 7,
+        "scored": 15,
         "conceded": 0,
-        "points": 3
+        "points": 6
       },
       {
         "rank": 4,
         "team": "FBC Spartak Bílovec",
         "scored": 0,
-        "conceded": 32,
+        "conceded": 40,
         "points": 0
       }
     ],
