@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T07:56:00.038Z",
+  "scraped_at": "2026-05-22T08:35:50.828Z",
   "matches": [
     {
       "id": 2294,
@@ -27,9 +27,9 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Spartak Bílovec",
       "score": {
-        "home": 5,
+        "home": 32,
         "away": 0,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -44,17 +44,6 @@
       "score": null
     },
     {
-      "id": 2297,
-      "date": "2026-05-22",
-      "time": "10:30",
-      "group": "MB",
-      "phase": "group",
-      "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
-      "home": "Salibandy Club Ostrava",
-      "away": "FBC Intevo Třinec bílí",
-      "score": null
-    },
-    {
       "id": 2298,
       "date": "2026-05-22",
       "time": "10:30",
@@ -63,6 +52,17 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "1. SC NATIOS Vítkovice White",
       "away": "FBC Vítkov U13",
+      "score": null
+    },
+    {
+      "id": 2297,
+      "date": "2026-05-22",
+      "time": "10:30",
+      "group": "MB",
+      "phase": "group",
+      "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
+      "home": "Salibandy Club Ostrava",
+      "away": "FBC Intevo Třinec bílí",
       "score": null
     },
     {

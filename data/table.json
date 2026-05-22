@@ -1,13 +1,13 @@
 {
-  "scraped_at": "2026-05-22T07:43:34.799Z",
+  "scraped_at": "2026-05-22T08:35:50.828Z",
   "groups": {
     "MA": [
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 0,
+        "scored": 32,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 2,
@@ -27,7 +27,7 @@
         "rank": 4,
         "team": "FBC Spartak Bílovec",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 32,
         "points": 0
       }
     ],
@@ -725,9 +725,9 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 3,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 2,
@@ -746,8 +746,8 @@
       {
         "rank": 4,
         "team": "IBK Uličnici",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 3,
         "points": 0
       }
     ],
@@ -755,9 +755,9 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov",
-        "scored": 0,
-        "conceded": 0,
-        "points": 1
+        "scored": 5,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 2,
@@ -776,18 +776,18 @@
       {
         "rank": 4,
         "team": "MSK Orlová",
-        "scored": 0,
-        "conceded": 0,
-        "points": 1
+        "scored": 1,
+        "conceded": 5,
+        "points": 0
       }
     ],
     "JC": [
       {
         "rank": 1,
         "team": "Dinoco",
-        "scored": 0,
+        "scored": 14,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 2,
@@ -807,7 +807,7 @@
         "rank": 4,
         "team": "FBC TJ Sokol Frenštát p.R.",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 14,
         "points": 0
       }
     ],
@@ -859,15 +859,15 @@
       {
         "rank": 3,
         "team": "TJ Slovan Havířov",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 3,
+        "points": 3
       },
       {
         "rank": 4,
         "team": "FbC KOVO KM Frýdek-Místek",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 3,
+        "conceded": 5,
         "points": 0
       }
     ]
