@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T16:34:00.385Z",
+  "scraped_at": "2026-05-22T16:36:12.455Z",
   "groups": {
     "MA": [
       {
@@ -125,16 +125,16 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
-        "scored": 7,
-        "conceded": 2,
+        "scored": 9,
+        "conceded": 6,
         "points": 3
       },
       {
         "rank": 2,
         "team": "FBC Gepardi Brno",
-        "scored": 15,
-        "conceded": 2,
-        "points": 3
+        "scored": 19,
+        "conceded": 4,
+        "points": 6
       },
       {
         "rank": 3,
@@ -365,16 +365,16 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov",
-        "scored": 11,
-        "conceded": 2,
+        "scored": 14,
+        "conceded": 6,
         "points": 3
       },
       {
         "rank": 2,
         "team": "FBC Liberec",
-        "scored": 3,
-        "conceded": 2,
-        "points": 3
+        "scored": 7,
+        "conceded": 5,
+        "points": 6
       },
       {
         "rank": 3,

@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T16:34:00.385Z",
+  "scraped_at": "2026-05-22T16:36:12.455Z",
   "matches": [
     {
       "id": 2294,
@@ -408,21 +408,6 @@
       }
     },
     {
-      "id": 2322,
-      "date": "2026-05-22",
-      "time": "18:00",
-      "group": "ME",
-      "phase": "group",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "FBC Gepardi Brno",
-      "away": "1. SC NATIOS Vítkovice White",
-      "score": {
-        "home": 4,
-        "away": 1,
-        "status": "live"
-      }
-    },
-    {
       "id": 2321,
       "date": "2026-05-22",
       "time": "18:00",
@@ -434,6 +419,21 @@
       "score": {
         "home": 5,
         "away": 12,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2322,
+      "date": "2026-05-22",
+      "time": "18:00",
+      "group": "ME",
+      "phase": "group",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "FBC Gepardi Brno",
+      "away": "1. SC NATIOS Vítkovice White",
+      "score": {
+        "home": 4,
+        "away": 2,
         "status": "final"
       }
     },
