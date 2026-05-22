@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T10:46:14.913Z",
+  "scraped_at": "2026-05-22T10:51:12.809Z",
   "matches": [
     {
       "id": 2294,
@@ -161,7 +161,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "SOKOLI Pardubice",
       "away": "FBC Dobruška",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2305,
