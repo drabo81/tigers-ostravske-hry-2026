@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T18:25:25.562Z",
+  "scraped_at": "2026-05-22T18:46:11.285Z",
   "groups": {
     "MA": [
       {
@@ -845,8 +845,8 @@
       {
         "rank": 1,
         "team": "FBC Slovácko",
-        "scored": 1,
-        "conceded": 3,
+        "scored": 3,
+        "conceded": 6,
         "points": 0
       },
       {
@@ -866,9 +866,9 @@
       {
         "rank": 4,
         "team": "FbC KOVO KM Frýdek-Místek",
-        "scored": 3,
-        "conceded": 5,
-        "points": 0
+        "scored": 6,
+        "conceded": 7,
+        "points": 3
       }
     ]
   }
