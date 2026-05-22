@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:11:13.957Z",
+  "scraped_at": "2026-05-22T15:16:15.846Z",
   "groups": {
     "MA": [
       {
@@ -95,15 +95,15 @@
       {
         "rank": 1,
         "team": "SK K2 Prostějov modří",
-        "scored": 8,
-        "conceded": 1,
-        "points": 3
+        "scored": 15,
+        "conceded": 5,
+        "points": 6
       },
       {
         "rank": 2,
         "team": "FBC Dobruška",
-        "scored": 1,
-        "conceded": 4,
+        "scored": 5,
+        "conceded": 11,
         "points": 0
       },
       {
