@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T18:46:11.285Z",
+  "scraped_at": "2026-05-22T18:51:11.262Z",
   "matches": [
     {
       "id": 2294,
@@ -478,7 +478,7 @@
       "away": "FBC TIGERS PORUBA",
       "score": {
         "home": 1,
-        "away": 5,
+        "away": 6,
         "status": "live"
       }
     },
