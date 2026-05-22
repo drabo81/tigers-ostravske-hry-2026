@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T11:41:13.866Z",
+  "scraped_at": "2026-05-22T11:46:12.646Z",
   "matches": [
     {
       "id": 2294,
@@ -177,7 +177,7 @@
       "home": "Florbal MB Black",
       "away": "Zlín Lions",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
@@ -207,8 +207,8 @@
       "home": "FBC ČPP Bystroň Group Ostrava",
       "away": "FBC Gepardi Brno",
       "score": {
-        "home": 0,
-        "away": 2,
+        "home": 1,
+        "away": 4,
         "status": "live"
       }
     },
