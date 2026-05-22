@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T15:16:15.846Z",
+  "scraped_at": "2026-05-22T15:21:11.252Z",
   "matches": [
     {
       "id": 2294,
@@ -283,8 +283,8 @@
       "away": "SOKOLI Pardubice",
       "score": {
         "home": 2,
-        "away": 2,
-        "status": "live"
+        "away": 3,
+        "status": "final"
       }
     },
     {
@@ -340,17 +340,6 @@
       "score": null
     },
     {
-      "id": 2319,
-      "date": "2026-05-22",
-      "time": "17:15",
-      "group": "MC",
-      "phase": "group",
-      "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "Torpedo Havířov",
-      "away": "ACEMA Sparta Praha RED",
-      "score": null
-    },
-    {
       "id": 2315,
       "date": "2026-05-22",
       "time": "17:15",
@@ -375,7 +364,22 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "MVIL Ostrava",
       "score": {
-        "home": 1,
+        "home": 2,
+        "away": 0,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2319,
+      "date": "2026-05-22",
+      "time": "17:15",
+      "group": "MC",
+      "phase": "group",
+      "venue": "SH Střední škola Technická a Dopravní Ostrava",
+      "home": "Torpedo Havířov",
+      "away": "ACEMA Sparta Praha RED",
+      "score": {
+        "home": 0,
         "away": 0,
         "status": "live"
       }

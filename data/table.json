@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:16:15.846Z",
+  "scraped_at": "2026-05-22T15:21:11.252Z",
   "groups": {
     "MA": [
       {
@@ -109,15 +109,15 @@
       {
         "rank": 3,
         "team": "SOKOLI Pardubice",
-        "scored": 4,
-        "conceded": 1,
-        "points": 3
+        "scored": 7,
+        "conceded": 3,
+        "points": 6
       },
       {
         "rank": 4,
         "team": "FBK Valašské Meziříčí",
-        "scored": 1,
-        "conceded": 8,
+        "scored": 3,
+        "conceded": 11,
         "points": 0
       }
     ],
