@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T18:52:36.600Z",
+  "scraped_at": "2026-05-22T18:56:16.741Z",
   "groups": {
     "MA": [
       {
@@ -852,15 +852,15 @@
       {
         "rank": 2,
         "team": "Florbal MB",
-        "scored": 3,
-        "conceded": 1,
-        "points": 3
+        "scored": 9,
+        "conceded": 3,
+        "points": 6
       },
       {
         "rank": 3,
         "team": "TJ Slovan Havířov",
-        "scored": 5,
-        "conceded": 3,
+        "scored": 7,
+        "conceded": 9,
         "points": 3
       },
       {
