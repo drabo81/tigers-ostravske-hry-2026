@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: scrape-and-demos
+  group: scrape
   cancel-in-progress: false
 
 env:
@@ -70,53 +70,4 @@ jobs:
         run: |
           echo "Scraper exited with status: ${{ steps.scrape.outcome }}"
           exit 1
-
-  regenerate-demos:
-    runs-on: ubuntu-latest
-    name: Regenerate demo scenarios
-    needs: scrape
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'pnpm'
-
-      - run: pnpm install --prod --frozen-lockfile
-
-      - name: Generate demo scenarios
-        run: node scripts/generate-demos.mjs
-        continue-on-error: true
-
-      - name: Validate demo JSON
-        run: |
-          set -e
-          echo "Validating data/demo/index.json..."
-          jq . data/demo/index.json > /dev/null && echo "✓ index.json is valid"
-          for dir in data/demo/*/; do
-            slug=$(basename "$dir")
-            for file in "table.json" "matches.json" "meta.json"; do
-              if [ -f "$dir$file" ]; then
-                jq . "$dir$file" > /dev/null && echo "✓ demo/$slug/$file is valid"
-              fi
-            done
-          done
-          echo "All demo JSON files are valid!"
-
-      - name: Commit demos if changed
-        run: |
-          git config user.name "scraper-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add data/demo/
-          if git diff --quiet --cached; then
-            echo "No demo changes"
-          else
-            git commit -m "demos: regenerate scenarios"
-            # Scrape job mohl pushnout mezi spuštěním tohoto jobu a teď — dohnat
-            git pull --rebase origin main
-            git push
-          fi
 
