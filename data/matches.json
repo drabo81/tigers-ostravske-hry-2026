@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T16:26:12.288Z",
+  "scraped_at": "2026-05-22T16:31:12.087Z",
   "matches": [
     {
       "id": 2294,
@@ -417,8 +417,8 @@
       "home": "FBC Vítkov U13",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 4,
-        "away": 10,
+        "home": 5,
+        "away": 12,
         "status": "live"
       }
     },
@@ -432,7 +432,7 @@
       "home": "FBC Gepardi Brno",
       "away": "1. SC NATIOS Vítkovice White",
       "score": {
-        "home": 3,
+        "home": 4,
         "away": 1,
         "status": "live"
       }
