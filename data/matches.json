@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T16:01:12.959Z",
+  "scraped_at": "2026-05-22T16:06:18.943Z",
   "matches": [
     {
       "id": 2294,
@@ -327,8 +327,8 @@
       "home": "Florbal MB White",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 4,
-        "away": 3,
+        "home": 5,
+        "away": 4,
         "status": "live"
       }
     },
@@ -342,8 +342,8 @@
       "home": "Zlín Lions",
       "away": "1. SC NATIOS Vítkovice Blue",
       "score": {
-        "home": 0,
-        "away": 15,
+        "home": 1,
+        "away": 18,
         "status": "live"
       }
     },
@@ -417,8 +417,8 @@
       "home": "FBC Vítkov U13",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 2,
-        "away": 4,
+        "home": 3,
+        "away": 5,
         "status": "live"
       }
     },
@@ -432,7 +432,7 @@
       "home": "FBC Gepardi Brno",
       "away": "1. SC NATIOS Vítkovice White",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
