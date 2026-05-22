@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T14:21:11.343Z",
+  "scraped_at": "2026-05-22T14:31:12.093Z",
   "matches": [
     {
       "id": 2294,
@@ -269,7 +269,7 @@
       "score": {
         "home": 4,
         "away": 2,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -292,7 +292,11 @@
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
       "home": "FBC Dobruška",
       "away": "SK K2 Prostějov modří",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2314,

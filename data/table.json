@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T14:26:11.699Z",
+  "scraped_at": "2026-05-22T14:31:12.093Z",
   "groups": {
     "MA": [
       {
@@ -35,16 +35,16 @@
       {
         "rank": 1,
         "team": "Salibandy Club Ostrava",
-        "scored": 1,
-        "conceded": 5,
+        "scored": 3,
+        "conceded": 9,
         "points": 0
       },
       {
         "rank": 2,
         "team": "FBS Olomouc červení",
-        "scored": 4,
-        "conceded": 4,
-        "points": 1
+        "scored": 8,
+        "conceded": 6,
+        "points": 4
       },
       {
         "rank": 3,
@@ -522,15 +522,15 @@
       {
         "rank": 2,
         "team": "TJ Kobylisy",
-        "scored": 0,
+        "scored": 4,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 3,
         "team": "Zlín Lions",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 4,
         "points": 0
       },
       {
@@ -792,15 +792,15 @@
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 0,
+        "scored": 7,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 3,
         "team": "Hornets Brno U19",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 7,
         "points": 0
       },
       {
