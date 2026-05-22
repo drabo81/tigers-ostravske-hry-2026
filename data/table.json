@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T13:11:10.488Z",
+  "scraped_at": "2026-05-22T13:41:12.272Z",
   "groups": {
     "MA": [
       {
@@ -462,16 +462,16 @@
       {
         "rank": 2,
         "team": "SOKOLI Pardubice",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 4,
+        "conceded": 5,
         "points": 0
       },
       {
         "rank": 3,
         "team": "Sokol Brno I EMKOCase Gullivers",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 4,
+        "points": 3
       },
       {
         "rank": 4,
@@ -582,16 +582,16 @@
       {
         "rank": 2,
         "team": "Panthers Praha BLACK",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 8,
+        "conceded": 8,
+        "points": 1
       },
       {
         "rank": 3,
         "team": "FBC Gepardi Brno",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 8,
+        "conceded": 8,
+        "points": 1
       },
       {
         "rank": 4,
@@ -816,7 +816,7 @@
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 5,
         "points": 0
       },
       {
@@ -836,9 +836,9 @@
       {
         "rank": 4,
         "team": "1.FBK Sršni Rožnov p/R",
-        "scored": 0,
+        "scored": 5,
         "conceded": 0,
-        "points": 0
+        "points": 3
       }
     ],
     "JE": [
