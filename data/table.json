@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T09:58:22.851Z",
+  "scraped_at": "2026-05-22T10:01:13.001Z",
   "groups": {
     "MA": [
       {
@@ -185,9 +185,9 @@
       {
         "rank": 1,
         "team": "FBC Letka Toman Finance Group",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 4,
+        "conceded": 2,
+        "points": 3
       },
       {
         "rank": 2,
@@ -206,8 +206,8 @@
       {
         "rank": 4,
         "team": "SK K2 Prostějov bílí",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 2,
+        "conceded": 4,
         "points": 0
       }
     ],
@@ -341,7 +341,7 @@
       },
       {
         "rank": 2,
-        "team": "FBC Lions Bratislava",
+        "team": "Warriors Bratislava",
         "scored": 0,
         "conceded": 0,
         "points": 0
