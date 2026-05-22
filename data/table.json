@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:21:11.252Z",
+  "scraped_at": "2026-05-22T15:30:30.179Z",
   "groups": {
     "MA": [
       {
@@ -283,15 +283,15 @@
         "rank": 2,
         "team": "SKV",
         "scored": 5,
-        "conceded": 2,
+        "conceded": 13,
         "points": 3
       },
       {
         "rank": 3,
         "team": "ŠSK Očov Hodonín",
-        "scored": 3,
+        "scored": 14,
         "conceded": 7,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 4,
