@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T12:07:49.583Z",
+  "scraped_at": "2026-05-22T12:11:10.926Z",
   "groups": {
     "MA": [
       {
@@ -575,9 +575,9 @@
       {
         "rank": 1,
         "team": "Salibandy Club Ostrava",
-        "scored": 0,
+        "scored": 3,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 2,
@@ -597,7 +597,7 @@
         "rank": 4,
         "team": "FBC Lutín",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 3,
         "points": 0
       }
     ],
@@ -635,9 +635,9 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov Black",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 16,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 2,
@@ -656,8 +656,8 @@
       {
         "rank": 4,
         "team": "Florbal Rosice",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 16,
         "points": 0
       }
     ],
