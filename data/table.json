@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:01:15.905Z",
+  "scraped_at": "2026-05-22T15:11:13.957Z",
   "groups": {
     "MA": [
       {
@@ -169,15 +169,15 @@
       {
         "rank": 3,
         "team": "Panthers Otrokovice",
-        "scored": 7,
-        "conceded": 1,
-        "points": 3
+        "scored": 12,
+        "conceded": 5,
+        "points": 6
       },
       {
         "rank": 4,
         "team": "FBC Vikings Kopřivnice",
-        "scored": 0,
-        "conceded": 8,
+        "scored": 4,
+        "conceded": 13,
         "points": 0
       }
     ],
@@ -259,16 +259,16 @@
       {
         "rank": 3,
         "team": "FBŠ HATTRICK BRNO",
-        "scored": 1,
-        "conceded": 4,
-        "points": 0
+        "scored": 2,
+        "conceded": 5,
+        "points": 1
       },
       {
         "rank": 4,
         "team": "FBS Olomouc",
-        "scored": 3,
-        "conceded": 4,
-        "points": 0
+        "scored": 4,
+        "conceded": 5,
+        "points": 1
       }
     ],
     "SB": [
@@ -276,7 +276,7 @@
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
         "scored": 2,
-        "conceded": 5,
+        "conceded": 22,
         "points": 0
       },
       {
@@ -296,9 +296,9 @@
       {
         "rank": 4,
         "team": "FBC Přerov",
-        "scored": 7,
+        "scored": 24,
         "conceded": 3,
-        "points": 3
+        "points": 6
       }
     ],
     "SC": [
@@ -755,15 +755,15 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov",
-        "scored": 5,
+        "scored": 11,
         "conceded": 1,
-        "points": 3
+        "points": 6
       },
       {
         "rank": 2,
         "team": "TROOPERS",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 6,
         "points": 0
       },
       {
