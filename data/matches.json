@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T16:41:12.150Z",
+  "scraped_at": "2026-05-22T16:51:10.293Z",
   "matches": [
     {
       "id": 2294,
@@ -447,7 +447,7 @@
       "home": "FBC Letka Toman Finance Group",
       "away": "Florbal Vsetín",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
