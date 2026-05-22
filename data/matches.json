@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T09:51:11.059Z",
+  "scraped_at": "2026-05-22T09:56:10.984Z",
   "matches": [
     {
       "id": 2294,
@@ -78,21 +78,6 @@
       }
     },
     {
-      "id": 2299,
-      "date": "2026-05-22",
-      "time": "11:15",
-      "group": "MB",
-      "phase": "group",
-      "venue": "SH Sareza Přívoz Ostrava",
-      "home": "TROOPERS",
-      "away": "FBS Olomouc červení",
-      "score": {
-        "home": 2,
-        "away": 4,
-        "status": "live"
-      }
-    },
-    {
       "id": 2300,
       "date": "2026-05-22",
       "time": "11:15",
@@ -102,7 +87,7 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 7,
+        "home": 10,
         "away": 1,
         "status": "live"
       }
@@ -118,8 +103,23 @@
       "away": "FBC Letka Toman Finance Group",
       "score": {
         "home": 2,
-        "away": 3,
+        "away": 4,
         "status": "live"
+      }
+    },
+    {
+      "id": 2299,
+      "date": "2026-05-22",
+      "time": "11:15",
+      "group": "MB",
+      "phase": "group",
+      "venue": "SH Sareza Přívoz Ostrava",
+      "home": "TROOPERS",
+      "away": "FBS Olomouc červení",
+      "score": {
+        "home": 4,
+        "away": 4,
+        "status": "final"
       }
     },
     {
