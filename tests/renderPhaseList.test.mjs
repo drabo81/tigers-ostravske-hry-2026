@@ -75,7 +75,7 @@ test('renderPhaseList: výhra v 16F → Čtvrtfinále A (8F-A) je rozbalené jak
   // Find the 8F-A block
   const eightFABlock = blocks.find(b => b.includes('Čtvrtfinále A'));
   assert.ok(eightFABlock, 'Čtvrtfinále A block not found');
-  assert.ok(eightFABlock.trimStart().startsWith(' open>'), 'Čtvrtfinále A should be open as upcoming phase');
+  assert.ok(eightFABlock.trimStart().startsWith('open>'), 'Čtvrtfinále A should be open as upcoming phase');
 });
 
 test('renderPhaseList: placeholdery — fáze bez reálných zápasů obsahuje text "soupeři budou určeni"', () => {
