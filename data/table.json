@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T18:11:10.330Z",
+  "scraped_at": "2026-05-22T18:16:11.274Z",
   "groups": {
     "MA": [
       {
@@ -605,16 +605,16 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 0,
-        "conceded": 13,
+        "scored": 1,
+        "conceded": 18,
         "points": 0
       },
       {
         "rank": 2,
         "team": "UKS Salezjanie Poznań",
-        "scored": 1,
-        "conceded": 6,
-        "points": 0
+        "scored": 6,
+        "conceded": 7,
+        "points": 3
       },
       {
         "rank": 3,
@@ -649,15 +649,15 @@
       {
         "rank": 3,
         "team": "Florbal MB",
-        "scored": 4,
+        "scored": 17,
         "conceded": 1,
-        "points": 3
+        "points": 6
       },
       {
         "rank": 4,
         "team": "Florbal Rosice",
         "scored": 1,
-        "conceded": 16,
+        "conceded": 29,
         "points": 0
       }
     ],
