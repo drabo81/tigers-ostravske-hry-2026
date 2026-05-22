@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T18:51:11.262Z",
+  "scraped_at": "2026-05-22T18:52:36.600Z",
   "groups": {
     "MA": [
       {
@@ -215,15 +215,15 @@
       {
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
-        "scored": 10,
-        "conceded": 1,
-        "points": 3
+        "scored": 16,
+        "conceded": 2,
+        "points": 6
       },
       {
         "rank": 2,
         "team": "ACEMA Sparta Praha YELLOW",
-        "scored": 4,
-        "conceded": 3,
+        "scored": 5,
+        "conceded": 9,
         "points": 3
       },
       {
