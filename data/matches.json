@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T16:21:11.479Z",
+  "scraped_at": "2026-05-22T16:26:12.288Z",
   "matches": [
     {
       "id": 2294,
@@ -433,7 +433,7 @@
       "away": "1. SC NATIOS Vítkovice White",
       "score": {
         "home": 3,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
