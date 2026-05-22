@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T14:41:16.026Z",
+  "scraped_at": "2026-05-22T14:46:14.274Z",
   "matches": [
     {
       "id": 2294,
@@ -293,8 +293,8 @@
       "home": "FBC Dobruška",
       "away": "SK K2 Prostějov modří",
       "score": {
-        "home": 0,
-        "away": 2,
+        "home": 1,
+        "away": 3,
         "status": "live"
       }
     },
@@ -308,8 +308,8 @@
       "home": "FBC Vikings Kopřivnice",
       "away": "Panthers Otrokovice",
       "score": {
-        "home": 0,
-        "away": 1,
+        "home": 1,
+        "away": 2,
         "status": "live"
       }
     },
