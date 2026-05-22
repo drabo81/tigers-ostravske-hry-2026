@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-19T18:23:11.116Z",
+  "scraped_at": "2026-05-22T07:43:34.799Z",
   "groups": {
     "MA": [
       {
@@ -65,8 +65,8 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 4,
+        "conceded": 6,
         "points": 0
       },
       {
@@ -86,9 +86,9 @@
       {
         "rank": 4,
         "team": "Torpedo Havířov",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 6,
+        "conceded": 4,
+        "points": 3
       }
     ],
     "MD": [
@@ -395,9 +395,9 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 0,
+        "scored": 14,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 2,
@@ -417,7 +417,7 @@
         "rank": 4,
         "team": "Z.F.K. Petrovice",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 14,
         "points": 0
       }
     ],
@@ -485,9 +485,9 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 4,
+        "conceded": 2,
+        "points": 3
       },
       {
         "rank": 2,
@@ -506,8 +506,8 @@
       {
         "rank": 4,
         "team": "FBC Vikings Kopřivnice",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 2,
+        "conceded": 4,
         "points": 0
       }
     ],

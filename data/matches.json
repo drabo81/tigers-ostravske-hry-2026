@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-19T18:23:11.116Z",
+  "scraped_at": "2026-05-22T07:43:34.799Z",
   "matches": [
     {
       "id": 2294,
@@ -11,7 +11,11 @@
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "MVIL Ostrava",
       "away": "Torpedo Havířov",
-      "score": null
+      "score": {
+        "home": 4,
+        "away": 6,
+        "status": "final"
+      }
     },
     {
       "id": 2295,
