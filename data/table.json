@@ -1,19 +1,19 @@
 {
-  "scraped_at": "2026-05-22T16:16:12.616Z",
+  "scraped_at": "2026-05-22T16:21:11.479Z",
   "groups": {
     "MA": [
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 32,
-        "conceded": 0,
-        "points": 3
+        "scored": 51,
+        "conceded": 1,
+        "points": 6
       },
       {
         "rank": 2,
         "team": "Zlín Lions",
-        "scored": 0,
-        "conceded": 7,
+        "scored": 1,
+        "conceded": 26,
         "points": 0
       },
       {
@@ -335,15 +335,15 @@
       {
         "rank": 1,
         "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 5,
-        "conceded": 3,
-        "points": 3
+        "scored": 15,
+        "conceded": 5,
+        "points": 6
       },
       {
         "rank": 2,
         "team": "Warriors Bratislava",
-        "scored": 1,
-        "conceded": 12,
+        "scored": 3,
+        "conceded": 22,
         "points": 0
       },
       {
