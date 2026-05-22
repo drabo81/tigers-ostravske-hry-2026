@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T15:30:30.179Z",
+  "scraped_at": "2026-05-22T15:31:16.486Z",
   "matches": [
     {
       "id": 2294,
@@ -318,17 +318,6 @@
       }
     },
     {
-      "id": 2316,
-      "date": "2026-05-22",
-      "time": "17:15",
-      "group": "MG",
-      "phase": "group",
-      "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
-      "home": "Florbal MB White",
-      "away": "SK K2 Prostějov bílí",
-      "score": null
-    },
-    {
       "id": 2315,
       "date": "2026-05-22",
       "time": "17:15",
@@ -342,6 +331,17 @@
         "away": 5,
         "status": "live"
       }
+    },
+    {
+      "id": 2316,
+      "date": "2026-05-22",
+      "time": "17:15",
+      "group": "MG",
+      "phase": "group",
+      "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
+      "home": "Florbal MB White",
+      "away": "SK K2 Prostějov bílí",
+      "score": null
     },
     {
       "id": 2317,
@@ -369,7 +369,7 @@
       "away": "1. SC NATIOS Vítkovice Blue",
       "score": {
         "home": 0,
-        "away": 1,
+        "away": 2,
         "status": "live"
       }
     },
