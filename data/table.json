@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T15:30:30.179Z",
+  "scraped_at": "2026-05-22T15:36:12.105Z",
   "groups": {
     "MA": [
       {
@@ -245,16 +245,16 @@
       {
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
-        "scored": 4,
-        "conceded": 3,
+        "scored": 9,
+        "conceded": 18,
         "points": 3
       },
       {
         "rank": 2,
         "team": "Prague Tigers",
-        "scored": 4,
-        "conceded": 1,
-        "points": 3
+        "scored": 19,
+        "conceded": 6,
+        "points": 6
       },
       {
         "rank": 3,
