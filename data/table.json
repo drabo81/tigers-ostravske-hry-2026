@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T09:21:17.149Z",
+  "scraped_at": "2026-05-22T09:51:11.059Z",
   "groups": {
     "MA": [
       {
@@ -162,16 +162,16 @@
       {
         "rank": 2,
         "team": "Fbc Šternberk",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 1,
+        "conceded": 7,
         "points": 0
       },
       {
         "rank": 3,
         "team": "Panthers Otrokovice",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 7,
+        "conceded": 1,
+        "points": 3
       },
       {
         "rank": 4,
