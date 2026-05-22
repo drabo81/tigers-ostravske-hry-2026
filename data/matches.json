@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T08:56:11.736Z",
+  "scraped_at": "2026-05-22T09:01:12.800Z",
   "matches": [
     {
       "id": 2294,
@@ -72,7 +72,7 @@
       "home": "1. SC NATIOS Vítkovice White",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 4,
+        "home": 6,
         "away": 2,
         "status": "live"
       }
