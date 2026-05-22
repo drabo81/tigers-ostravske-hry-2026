@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T11:31:09.993Z",
+  "scraped_at": "2026-05-22T11:36:16.225Z",
   "matches": [
     {
       "id": 2294,
@@ -168,28 +168,6 @@
       }
     },
     {
-      "id": 2307,
-      "date": "2026-05-22",
-      "time": "13:30",
-      "group": "ME",
-      "phase": "group",
-      "venue": "SH Třebovice",
-      "home": "FBC ČPP Bystroň Group Ostrava",
-      "away": "FBC Gepardi Brno",
-      "score": null
-    },
-    {
-      "id": 2308,
-      "date": "2026-05-22",
-      "time": "13:30",
-      "group": "MG",
-      "phase": "group",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "Florbal Vsetín",
-      "away": "Florbal MB White",
-      "score": null
-    },
-    {
       "id": 2305,
       "date": "2026-05-22",
       "time": "13:30",
@@ -198,7 +176,11 @@
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "Florbal MB Black",
       "away": "Zlín Lions",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2306,
@@ -211,7 +193,37 @@
       "away": "Sokol Brno I EMKOCase Gullivers",
       "score": {
         "home": 0,
-        "away": 1,
+        "away": 2,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2307,
+      "date": "2026-05-22",
+      "time": "13:30",
+      "group": "ME",
+      "phase": "group",
+      "venue": "SH Třebovice",
+      "home": "FBC ČPP Bystroň Group Ostrava",
+      "away": "FBC Gepardi Brno",
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2308,
+      "date": "2026-05-22",
+      "time": "13:30",
+      "group": "MG",
+      "phase": "group",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "Florbal Vsetín",
+      "away": "Florbal MB White",
+      "score": {
+        "home": 0,
+        "away": 0,
         "status": "live"
       }
     },
