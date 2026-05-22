@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T16:56:17.718Z",
+  "scraped_at": "2026-05-22T17:01:11.925Z",
   "groups": {
     "MA": [
       {
@@ -425,16 +425,16 @@
       {
         "rank": 1,
         "team": "FBC Hlučín",
-        "scored": 0,
-        "conceded": 5,
-        "points": 0
+        "scored": 4,
+        "conceded": 9,
+        "points": 1
       },
       {
         "rank": 2,
         "team": "Florbal MB",
-        "scored": 1,
-        "conceded": 7,
-        "points": 0
+        "scored": 5,
+        "conceded": 11,
+        "points": 1
       },
       {
         "rank": 3,
