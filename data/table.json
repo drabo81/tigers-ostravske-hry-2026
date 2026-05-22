@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T12:11:10.926Z",
+  "scraped_at": "2026-05-22T12:16:12.114Z",
   "groups": {
     "MA": [
       {
@@ -13,15 +13,15 @@
         "rank": 2,
         "team": "Zlín Lions",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 7,
         "points": 0
       },
       {
         "rank": 3,
         "team": "Florbal MB Black",
-        "scored": 0,
+        "scored": 7,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 4,
@@ -132,15 +132,15 @@
       {
         "rank": 2,
         "team": "FBC Gepardi Brno",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 15,
+        "conceded": 2,
+        "points": 3
       },
       {
         "rank": 3,
         "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 2,
+        "conceded": 15,
         "points": 0
       },
       {
@@ -192,16 +192,16 @@
       {
         "rank": 2,
         "team": "Florbal MB White",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 5,
+        "points": 1
       },
       {
         "rank": 3,
         "team": "Florbal Vsetín",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 5,
+        "conceded": 5,
+        "points": 1
       },
       {
         "rank": 4,
