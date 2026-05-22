@@ -1,7 +1,7 @@
 # Tigers — Ostravské hry 2026
 
 > Neoficiální fanouškovská stránka s live výsledky FBC Tigers Poruba B13 na turnaji Ostravské hry 2026.
-> Statický web hostovaný na GitHub Pages, automaticky aktualizovaný každých 15 minut.
+> Statický web hostovaný na GitHub Pages, automaticky aktualizovaný každých 5 minut během turnaje (jinak každých 15 min).
 
 🔗 **Live**: <https://drabo81.github.io/tigers-ostravske-hry-2026/>
 
@@ -57,7 +57,7 @@
 | Bracket diagram | Mermaid v10 (CDN) + svg-pan-zoom | inline `<pre class="mermaid">` |
 | Scraping (Node) | `linkedom` (lightweight DOM) | `scripts/scrape.mjs` |
 | Live refresh (browser) | nativní `DOMParser` + 3× CORS proxy | `lib/proxy.js` |
-| CI/CD | GitHub Actions cron `*/15 * * * *` | `.github/workflows/scrape.yml` |
+| CI/CD | GitHub Actions cron `*/15` (baseline) + `*/5` (turnaj) + Cloudflare Worker `*/5` (záloha) | `.github/workflows/scrape.yml`, `infra/cloudflare-cron/` |
 | Hosting | GitHub Pages (zdarma) | branch `main` / root |
 | Visitor counter | counterapi.dev (zdarma, bez registrace) | `app.js → bumpVisitorCount` |
 
