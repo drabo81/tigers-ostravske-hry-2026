@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T14:51:13.026Z",
+  "scraped_at": "2026-05-22T14:56:11.907Z",
   "matches": [
     {
       "id": 2294,
@@ -281,7 +281,11 @@
       "venue": "SH Třebovice",
       "home": "FBK Valašské Meziříčí",
       "away": "SOKOLI Pardubice",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2313,
@@ -294,7 +298,7 @@
       "away": "SK K2 Prostějov modří",
       "score": {
         "home": 1,
-        "away": 4,
+        "away": 5,
         "status": "live"
       }
     },
