@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T17:41:14.571Z",
+  "scraped_at": "2026-05-22T18:01:18.656Z",
   "groups": {
     "MA": [
       {
@@ -575,16 +575,16 @@
       {
         "rank": 1,
         "team": "Salibandy Club Ostrava",
-        "scored": 3,
-        "conceded": 0,
+        "scored": 4,
+        "conceded": 8,
         "points": 3
       },
       {
         "rank": 2,
         "team": "Panthers Praha BLACK",
-        "scored": 8,
-        "conceded": 8,
-        "points": 1
+        "scored": 16,
+        "conceded": 9,
+        "points": 4
       },
       {
         "rank": 3,
@@ -619,16 +619,16 @@
       {
         "rank": 3,
         "team": "T.B.C. Králův Dvůr",
-        "scored": 6,
-        "conceded": 1,
-        "points": 3
+        "scored": 9,
+        "conceded": 4,
+        "points": 4
       },
       {
         "rank": 4,
         "team": "Fbc Šternberk",
-        "scored": 13,
-        "conceded": 0,
-        "points": 3
+        "scored": 16,
+        "conceded": 3,
+        "points": 4
       }
     ],
     "DF": [
