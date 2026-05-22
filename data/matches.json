@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T17:21:11.280Z",
+  "scraped_at": "2026-05-22T17:45:26.943Z",
   "matches": [
     {
       "id": 2294,
@@ -461,7 +461,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Intevo Třinec červení",
       "away": "FBS Olomouc bílí",
-      "score": null
+      "score": {
+        "home": 2,
+        "away": 1,
+        "status": "live"
+      }
     },
     {
       "id": 2325,
