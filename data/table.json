@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T17:26:15.292Z",
+  "scraped_at": "2026-05-22T17:31:13.642Z",
   "groups": {
     "MA": [
       {
@@ -439,15 +439,15 @@
       {
         "rank": 3,
         "team": "Bulldogs Brno",
-        "scored": 7,
-        "conceded": 1,
-        "points": 3
+        "scored": 15,
+        "conceded": 4,
+        "points": 6
       },
       {
         "rank": 4,
         "team": "Florbal Vsetín",
-        "scored": 5,
-        "conceded": 0,
+        "scored": 8,
+        "conceded": 8,
         "points": 3
       }
     ],
