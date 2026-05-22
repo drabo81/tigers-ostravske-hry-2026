@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T14:01:12.355Z",
+  "scraped_at": "2026-05-22T14:21:11.343Z",
   "groups": {
     "MA": [
       {
@@ -560,15 +560,15 @@
         "rank": 3,
         "team": "Hornets Brno U17",
         "scored": 0,
-        "conceded": 0,
+        "conceded": 4,
         "points": 0
       },
       {
         "rank": 4,
         "team": "Asper Šumperk",
-        "scored": 0,
+        "scored": 4,
         "conceded": 0,
-        "points": 0
+        "points": 3
       }
     ],
     "DD": [
@@ -769,15 +769,15 @@
       {
         "rank": 3,
         "team": "FBC Uničov",
-        "scored": 0,
+        "scored": 3,
         "conceded": 0,
-        "points": 0
+        "points": 3
       },
       {
         "rank": 4,
         "team": "MSK Orlová",
         "scored": 1,
-        "conceded": 5,
+        "conceded": 8,
         "points": 0
       }
     ],
