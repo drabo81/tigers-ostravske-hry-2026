@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T10:01:13.001Z",
+  "scraped_at": "2026-05-22T10:06:12.582Z",
   "matches": [
     {
       "id": 2294,
@@ -146,7 +146,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "SK K2 Prostějov modří",
       "away": "FBK Valašské Meziříčí",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2304,
