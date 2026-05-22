@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T12:06:10.879Z",
+  "scraped_at": "2026-05-22T12:07:49.583Z",
   "matches": [
     {
       "id": 2294,
@@ -183,21 +183,6 @@
       }
     },
     {
-      "id": 2306,
-      "date": "2026-05-22",
-      "time": "13:30",
-      "group": "MC",
-      "phase": "group",
-      "venue": "SH TJ Ostrava (Varenská)",
-      "home": "ACEMA Sparta Praha RED",
-      "away": "Sokol Brno I EMKOCase Gullivers",
-      "score": {
-        "home": 3,
-        "away": 7,
-        "status": "live"
-      }
-    },
-    {
       "id": 2307,
       "date": "2026-05-22",
       "time": "13:30",
@@ -208,7 +193,7 @@
       "away": "FBC Gepardi Brno",
       "score": {
         "home": 1,
-        "away": 11,
+        "away": 13,
         "status": "live"
       }
     },
@@ -225,6 +210,21 @@
         "home": 4,
         "away": 3,
         "status": "live"
+      }
+    },
+    {
+      "id": 2306,
+      "date": "2026-05-22",
+      "time": "13:30",
+      "group": "MC",
+      "phase": "group",
+      "venue": "SH TJ Ostrava (Varenská)",
+      "home": "ACEMA Sparta Praha RED",
+      "away": "Sokol Brno I EMKOCase Gullivers",
+      "score": {
+        "home": 3,
+        "away": 7,
+        "status": "final"
       }
     },
     {

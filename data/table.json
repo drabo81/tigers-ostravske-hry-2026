@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T11:36:16.225Z",
+  "scraped_at": "2026-05-22T12:07:49.583Z",
   "groups": {
     "MA": [
       {
@@ -72,15 +72,15 @@
       {
         "rank": 2,
         "team": "Sokol Brno I EMKOCase Gullivers",
-        "scored": 0,
-        "conceded": 0,
-        "points": 0
+        "scored": 7,
+        "conceded": 3,
+        "points": 3
       },
       {
         "rank": 3,
         "team": "ACEMA Sparta Praha RED",
-        "scored": 0,
-        "conceded": 0,
+        "scored": 3,
+        "conceded": 7,
         "points": 0
       },
       {
