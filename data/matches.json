@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T09:04:49.979Z",
+  "scraped_at": "2026-05-22T09:11:12.946Z",
   "matches": [
     {
       "id": 2294,
@@ -33,6 +33,21 @@
       }
     },
     {
+      "id": 2298,
+      "date": "2026-05-22",
+      "time": "10:30",
+      "group": "ME",
+      "phase": "group",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "1. SC NATIOS Vítkovice White",
+      "away": "FBC Vítkov U13",
+      "score": {
+        "home": 7,
+        "away": 2,
+        "status": "live"
+      }
+    },
+    {
       "id": 2296,
       "date": "2026-05-22",
       "time": "10:30",
@@ -42,9 +57,9 @@
       "home": "FBC Hlučín",
       "away": "FBC Vikings Kopřivnice",
       "score": {
-        "home": 6,
+        "home": 8,
         "away": 0,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -59,22 +74,7 @@
       "score": {
         "home": 1,
         "away": 5,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2298,
-      "date": "2026-05-22",
-      "time": "10:30",
-      "group": "ME",
-      "phase": "group",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "1. SC NATIOS Vítkovice White",
-      "away": "FBC Vítkov U13",
-      "score": {
-        "home": 6,
-        "away": 2,
-        "status": "live"
+        "status": "final"
       }
     },
     {
