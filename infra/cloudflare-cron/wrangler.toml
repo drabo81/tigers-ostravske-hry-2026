@@ -1,0 +1,12 @@
+name = "tigers-scrape-cron"
+main = "src/index.js"
+compatibility_date = "2026-05-01"
+
+# Cron trigger každých 5 minut. Worker uvnitř rozhoduje, jestli skutečně
+# dispatchne — mimo turnajové okno nedělá nic.
+[triggers]
+crons = ["*/5 * * * *"]
+
+# GH_DISPATCH_PAT se nastavuje přes:
+#   npx wrangler secret put GH_DISPATCH_PAT
+# Viz README.md.

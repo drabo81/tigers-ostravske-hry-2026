@@ -7,6 +7,11 @@ on:
     # Dense — během turnaje (gated v prvním kroku přes data/matches.json).
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    inputs:
+      cf_cron:
+        description: 'Spuštěno Cloudflare Worker cronem (gated stejně jako */5)'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -25,12 +30,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Dense cron (*/5) běží jen v turnajovém okně odvozeném z data/matches.json.
-      # Baseline cron (*/15) a workflow_dispatch běží vždy.
+      # Dense cron (*/5) a Cloudflare Worker dispatch (cf_cron=true) běží jen
+      # v turnajovém okně odvozeném z data/matches.json. Baseline cron (*/15)
+      # a ruční workflow_dispatch (cf_cron=false) běží vždy.
       - name: Decide whether to scrape
         id: gate
         run: |
-          if [ "${{ github.event.schedule }}" = "*/5 * * * *" ]; then
+          if [ "${{ github.event.schedule }}" = "*/5 * * * *" ] || [ "${{ github.event.inputs.cf_cron }}" = "true" ]; then
             node scripts/in-tournament-window.mjs
           else
             echo "proceed=true" >> $GITHUB_OUTPUT
