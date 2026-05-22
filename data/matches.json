@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T09:21:17.149Z",
+  "scraped_at": "2026-05-22T09:26:14.367Z",
   "matches": [
     {
       "id": 2294,
@@ -98,7 +98,7 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
@@ -113,7 +113,7 @@
       "home": "Panthers Otrokovice",
       "away": "Fbc Šternberk",
       "score": {
-        "home": 3,
+        "home": 5,
         "away": 1,
         "status": "live"
       }
@@ -128,8 +128,8 @@
       "home": "SK K2 Prostějov bílí",
       "away": "FBC Letka Toman Finance Group",
       "score": {
-        "home": 0,
-        "away": 0,
+        "home": 1,
+        "away": 1,
         "status": "live"
       }
     },
