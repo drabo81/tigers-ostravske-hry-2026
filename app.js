@@ -1,5 +1,5 @@
 import { parseTable, parseMatches, normalizeTeamName } from './lib/parser.js';
-import { tigersBracketPath, renderStaticBracket, isPlaceholderCell, matchCardHtml, renderPhaseList } from './lib/bracket.js';
+import { tigersBracketPath, renderStaticBracket, isPlaceholderCell, matchCardHtml, renderPhaseList, resolvePlaceholder } from './lib/bracket.js';
 import { fetchViaProxy } from './lib/proxy.js';
 import { hasMetaChanged } from './lib/poll.js';
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -152,7 +152,7 @@ function renderTigersMatches(matches, table) {
     return;
   }
   const tigersIds = new Set(tigersBracketPath(matches, table).map(m => m.id));
-  const cards = list.map(m => matchCardHtml(m, tigersIds.has(m.id))).join('');
+  const cards = list.map(m => matchCardHtml(m, tigersIds.has(m.id), matches, table)).join('');
   $('tigers-content').innerHTML = cards;
 }
 
@@ -263,13 +263,17 @@ function renderNextMatch(matches, table) {
     return;
   }
 
-  const homePh = isPlaceholderCell(upcoming.home);
-  const awayPh = isPlaceholderCell(upcoming.away);
+  // Buňky můžou být ještě placeholder (typicky po pádu do Play-off B). Rozlož je na
+  // reálná jména, ať poznáme Tigers i soupeře.
+  const home = resolvePlaceholder(upcoming.home, matches, table);
+  const away = resolvePlaceholder(upcoming.away, matches, table);
+  const homePh = isPlaceholderCell(home);
+  const awayPh = isPlaceholderCell(away);
   let opponent;
-  if (isTigers(upcoming.home))      opponent = upcoming.away;
-  else if (isTigers(upcoming.away)) opponent = upcoming.home;
-  else if (homePh || awayPh)        opponent = 'soupeř bude určen';
-  else                              opponent = `${upcoming.home} – ${upcoming.away}`;
+  if (isTigers(home))      opponent = awayPh ? 'soupeř bude určen' : away;
+  else if (isTigers(away)) opponent = homePh ? 'soupeř bude určen' : home;
+  else if (homePh || awayPh) opponent = 'soupeř bude určen';
+  else                       opponent = `${home} – ${away}`;
 
   const phaseLabel = upcoming.phase === 'group' ? `${upcoming.group ?? 'MH'} skupina` : upcoming.phase;
 

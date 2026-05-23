@@ -172,3 +172,34 @@ test('renderStaticBracket: 4F-A uzly sledují linii dál po vítězích 8F-A —
   // QF_A2 = linie H2: WIN BETA vyhrál 8F-A → pokračuje do 4F-A
   assert.ok(nodeLabel(src, 'QF_A2').includes('WIN BETA'), 'QF_A2 → WIN BETA');
 });
+
+test('renderStaticBracket: pád do 4F-B ukáže Tigers + neurčeného soupeře (vítěz nehraného 8F-B)', () => {
+  // Tigers vyhráli 16F, prohráli 8F-A → padají do 4F-B. Soupeř ve 4F-B je vítěz 8F-B,
+  // které se ještě nehrálo → musí být "soupeř bude určen", NE hádaný tým ze seed-setu.
+  const table = { groups: { MH: [{ rank: 1, team: 'FBC TIGERS PORUBA', points: 9, scored: 20, conceded: 3 }] } };
+  const matches = { matches: [
+    { id: 1, phase: '16F-A', home: 'FBC TIGERS PORUBA', away: 'OPP', score: { home: 5, away: 1 } },
+    { id: 2, phase: '8F-A', home: 'FBC TIGERS PORUBA', away: 'WINNER', score: { home: 1, away: 4 } }, // prohra
+    // home = poražený 8F-A (Tigers), away = vítěz 8F-B (kód bez H, 8F-B nehráno)
+    { id: 3, phase: '4F-B', home: 'H1/D4-A2/E3', away: 'G1/C4-B2/F3', score: null },
+  ] };
+  const src = renderStaticBracket(matches, table);
+  const q = nodeLabel(src, 'QF_B1');
+  assert.ok(q.includes('FBC TIGERS PORUBA'), `QF_B1 má ukázat Tigers (poražený 8F-A): "${q}"`);
+  assert.ok(q.includes('soupeř bude určen'), `soupeř (vítěz nehraného 8F-B) má být neurčený: "${q}"`);
+  assert.ok(!/\b[A-H]\d+\b/.test(q), `QF_B1 nesmí ukázat hádaný kód soupeře: "${q}"`);
+});
+
+test('renderStaticBracket: 8F-B uzel na linii vítěze 16F ukáže poraženého (ne prázdno)', () => {
+  // Na linii H1 Tigers VYHRÁLI 16F → do 8F-B (poražení 16F-A) padl jejich soupeř.
+  // OF_B1 se proto nesmí hledat podle seedu (Tigers), ale podle poraženého 16F.
+  const table = { groups: { MH: [{ rank: 1, team: 'FBC TIGERS PORUBA', points: 9, scored: 20, conceded: 3 }] } };
+  const matches = { matches: [
+    { id: 1, phase: '16F-A', home: 'FBC TIGERS PORUBA', away: 'Porazeny 16', score: { home: 5, away: 1 } },
+    { id: 2, phase: '8F-B', home: 'Porazeny 16', away: 'Souper B', score: null },
+  ] };
+  const src = renderStaticBracket(matches, table);
+  const b1 = nodeLabel(src, 'OF_B1');
+  assert.ok(b1.includes('Porazeny 16'), `OF_B1 má ukázat poraženého H1 16F: "${b1}"`);
+  assert.ok(b1.includes('Souper B'), `OF_B1 má ukázat i jeho soupeře: "${b1}"`);
+});
