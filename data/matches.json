@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:45:28.795Z",
+  "scraped_at": "2026-05-23T07:50:26.781Z",
   "matches": [
     {
       "id": 2294,
@@ -643,7 +643,7 @@
       "away": "FBC Letka Toman Finance Group",
       "score": {
         "home": 1,
-        "away": 1,
+        "away": 2,
         "status": "live"
       }
     },
