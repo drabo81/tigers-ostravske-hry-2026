@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T06:45:34.055Z",
+  "scraped_at": "2026-05-23T06:50:31.009Z",
   "groups": {
     "MA": [
       {
@@ -276,7 +276,7 @@
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
         "scored": 2,
-        "conceded": 22,
+        "conceded": 33,
         "points": 0
       },
       {
@@ -289,9 +289,9 @@
       {
         "rank": 3,
         "team": "ŠSK Očov Hodonín",
-        "scored": 14,
+        "scored": 25,
         "conceded": 7,
-        "points": 3
+        "points": 6
       },
       {
         "rank": 4,
