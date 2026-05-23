@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:30:28.635Z",
+  "scraped_at": "2026-05-23T13:35:28.945Z",
   "matches": [
     {
       "id": 2294,
@@ -884,22 +884,7 @@
       "score": {
         "home": 1,
         "away": 8,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2552,
-      "date": "2026-05-23",
-      "time": "14:50",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "1. SC NATIOS Vítkovice White",
-      "away": "Zlín Lions",
-      "score": {
-        "home": 1,
-        "away": 4,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -911,6 +896,21 @@
       "venue": "SH Krasné Pole",
       "home": "Florbal MB White",
       "away": "Torpedo Havířov",
+      "score": {
+        "home": 1,
+        "away": 5,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2552,
+      "date": "2026-05-23",
+      "time": "14:50",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Střední škola Technická a Dopravní Ostrava",
+      "home": "1. SC NATIOS Vítkovice White",
+      "away": "Zlín Lions",
       "score": {
         "home": 1,
         "away": 5,
@@ -988,7 +988,7 @@
       "phase": "8F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
       "home": "1. SC NATIOS Vítkovice Blue",
-      "away": "H2/D3",
+      "away": "FBC Dobruška",
       "score": null
     },
     {
@@ -1021,7 +1021,7 @@
       "phase": "8F-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "SOKOLI Pardubice",
-      "away": "E2/A3",
+      "away": "Zlín Lions",
       "score": null
     },
     {
@@ -1098,7 +1098,7 @@
       "phase": "8F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Vítkov U13",
-      "away": "✖  H2/D3",
+      "away": "ACEMA Sparta Praha YELLOW",
       "score": null
     },
     {
@@ -1120,7 +1120,7 @@
       "phase": "8F-B",
       "venue": "Sportovní hala VŠB-TUO",
       "home": "FBC Intevo Třinec červení",
-      "away": "✖ E2/A3",
+      "away": "1. SC NATIOS Vítkovice White",
       "score": null
     },
     {
