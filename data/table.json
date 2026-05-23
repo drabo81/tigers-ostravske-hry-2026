@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T10:25:27.056Z",
+  "scraped_at": "2026-05-23T10:30:27.303Z",
   "groups": {
     "MA": [
       {
@@ -515,8 +515,8 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov Yellow",
-        "scored": 10,
-        "conceded": 3,
+        "scored": 12,
+        "conceded": 7,
         "points": 4
       },
       {
@@ -529,9 +529,9 @@
       {
         "rank": 3,
         "team": "Zlín Lions",
-        "scored": 5,
-        "conceded": 5,
-        "points": 3
+        "scored": 9,
+        "conceded": 7,
+        "points": 6
       },
       {
         "rank": 4,
@@ -635,9 +635,9 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov Black",
-        "scored": 26,
-        "conceded": 3,
-        "points": 6
+        "scored": 35,
+        "conceded": 5,
+        "points": 9
       },
       {
         "rank": 2,
@@ -649,8 +649,8 @@
       {
         "rank": 3,
         "team": "Florbal MB",
-        "scored": 17,
-        "conceded": 1,
+        "scored": 19,
+        "conceded": 10,
         "points": 6
       },
       {
@@ -665,9 +665,9 @@
       {
         "rank": 1,
         "team": "TJ Slovan Havířov",
-        "scored": 8,
-        "conceded": 3,
-        "points": 6
+        "scored": 10,
+        "conceded": 5,
+        "points": 7
       },
       {
         "rank": 2,
@@ -679,9 +679,9 @@
       {
         "rank": 3,
         "team": "TJ Sokol Jaroměř",
-        "scored": 10,
-        "conceded": 2,
-        "points": 6
+        "scored": 12,
+        "conceded": 4,
+        "points": 7
       },
       {
         "rank": 4,
