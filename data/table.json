@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T11:05:25.524Z",
+  "scraped_at": "2026-05-23T11:15:31.566Z",
   "groups": {
     "MA": [
       {
@@ -485,9 +485,9 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
-        "scored": 4,
-        "conceded": 3,
-        "points": 3
+        "scored": 14,
+        "conceded": 4,
+        "points": 6
       },
       {
         "rank": 2,
@@ -499,8 +499,8 @@
       {
         "rank": 3,
         "team": "FBK Piráti Sokol Chrudim",
-        "scored": 2,
-        "conceded": 14,
+        "scored": 3,
+        "conceded": 24,
         "points": 0
       },
       {
@@ -732,8 +732,8 @@
       {
         "rank": 2,
         "team": "SK K2 Prostějov",
-        "scored": 1,
-        "conceded": 12,
+        "scored": 2,
+        "conceded": 23,
         "points": 0
       },
       {
@@ -746,9 +746,9 @@
       {
         "rank": 4,
         "team": "IBK Uličnici",
-        "scored": 6,
-        "conceded": 5,
-        "points": 3
+        "scored": 17,
+        "conceded": 6,
+        "points": 6
       }
     ],
     "JB": [
@@ -792,9 +792,9 @@
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 11,
-        "conceded": 2,
-        "points": 6
+        "scored": 16,
+        "conceded": 5,
+        "points": 9
       },
       {
         "rank": 3,
@@ -806,8 +806,8 @@
       {
         "rank": 4,
         "team": "FBC TJ Sokol Frenštát p.R.",
-        "scored": 1,
-        "conceded": 15,
+        "scored": 4,
+        "conceded": 20,
         "points": 1
       }
     ],
@@ -815,8 +815,8 @@
       {
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
-        "scored": 0,
-        "conceded": 13,
+        "scored": 1,
+        "conceded": 15,
         "points": 0
       },
       {
@@ -829,9 +829,9 @@
       {
         "rank": 3,
         "team": "FBC Gepardi Brno",
-        "scored": 3,
-        "conceded": 13,
-        "points": 0
+        "scored": 5,
+        "conceded": 14,
+        "points": 3
       },
       {
         "rank": 4,
