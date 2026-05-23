@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T10:40:33.770Z",
+  "scraped_at": "2026-05-23T11:05:25.524Z",
   "groups": {
     "MA": [
       {
@@ -845,9 +845,9 @@
       {
         "rank": 1,
         "team": "FBC Slovácko",
-        "scored": 3,
-        "conceded": 6,
-        "points": 0
+        "scored": 7,
+        "conceded": 8,
+        "points": 3
       },
       {
         "rank": 2,
@@ -859,8 +859,8 @@
       {
         "rank": 3,
         "team": "TJ Slovan Havířov",
-        "scored": 7,
-        "conceded": 9,
+        "scored": 9,
+        "conceded": 13,
         "points": 3
       },
       {
