@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:30:26.545Z",
+  "scraped_at": "2026-05-23T12:35:32.060Z",
   "matches": [
     {
       "id": 2294,
@@ -738,17 +738,6 @@
       }
     },
     {
-      "id": 2559,
-      "date": "2026-05-23",
-      "time": "14:00",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "Sportovní hala VŠB-TUO",
-      "home": "ACEMA Sparta Praha RED",
-      "away": "Florbal Vsetín",
-      "score": null
-    },
-    {
       "id": 2539,
       "date": "2026-05-23",
       "time": "14:00",
@@ -758,7 +747,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 10,
+        "home": 12,
         "away": 0,
         "status": "live"
       }
@@ -773,7 +762,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 8,
+        "home": 9,
         "away": 1,
         "status": "live"
       }
@@ -788,7 +777,7 @@
       "home": "SOKOLI Pardubice",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 13,
+        "home": 14,
         "away": 0,
         "status": "live"
       }
@@ -818,23 +807,23 @@
       "home": "FBC Letka Toman Finance Group",
       "away": "MVIL Ostrava",
       "score": {
-        "home": 4,
+        "home": 5,
         "away": 3,
         "status": "live"
       }
     },
     {
-      "id": 2558,
+      "id": 2559,
       "date": "2026-05-23",
       "time": "14:00",
       "group": null,
       "phase": "16F-A",
-      "venue": "SH Třebovice",
-      "home": "Panthers Otrokovice",
-      "away": "Salibandy Club Ostrava",
+      "venue": "Sportovní hala VŠB-TUO",
+      "home": "ACEMA Sparta Praha RED",
+      "away": "Florbal Vsetín",
       "score": {
-        "home": 4,
-        "away": 0,
+        "home": 5,
+        "away": 4,
         "status": "live"
       }
     },
@@ -848,7 +837,7 @@
       "home": "SK K2 Prostějov modří",
       "away": "FBS Olomouc bílí",
       "score": {
-        "home": 9,
+        "home": 10,
         "away": 1,
         "status": "live"
       }
@@ -869,6 +858,21 @@
       }
     },
     {
+      "id": 2558,
+      "date": "2026-05-23",
+      "time": "14:00",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Třebovice",
+      "home": "Panthers Otrokovice",
+      "away": "Salibandy Club Ostrava",
+      "score": {
+        "home": 4,
+        "away": 0,
+        "status": "final"
+      }
+    },
+    {
       "id": 2540,
       "date": "2026-05-23",
       "time": "14:50",
@@ -877,17 +881,6 @@
       "venue": "Sportovní hala VŠB-TUO",
       "home": "ACEMA Sparta Praha YELLOW",
       "away": "FBC Dobruška",
-      "score": null
-    },
-    {
-      "id": 2546,
-      "date": "2026-05-23",
-      "time": "14:50",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Krasné Pole",
-      "home": "Florbal MB White",
-      "away": "Torpedo Havířov",
       "score": null
     },
     {
@@ -924,6 +917,21 @@
       "score": null
     },
     {
+      "id": 2546,
+      "date": "2026-05-23",
+      "time": "14:50",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Krasné Pole",
+      "home": "Florbal MB White",
+      "away": "Torpedo Havířov",
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
+    },
+    {
       "id": 2550,
       "date": "2026-05-23",
       "time": "15:40",
@@ -941,7 +949,7 @@
       "group": null,
       "phase": "8F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "F1/B4",
+      "home": "Panthers Otrokovice",
       "away": "C2/G3",
       "score": null
     },
@@ -1117,7 +1125,7 @@
       "group": null,
       "phase": "8F-B",
       "venue": "Sportovní hala VŠB-TUO",
-      "home": "✖ F1/B4",
+      "home": "Salibandy Club Ostrava",
       "away": "✖ C2/G3",
       "score": null
     },
