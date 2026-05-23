@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T10:35:26.621Z",
+  "scraped_at": "2026-05-23T10:40:33.770Z",
   "groups": {
     "MA": [
       {
@@ -695,8 +695,8 @@
       {
         "rank": 1,
         "team": "FBC Český Těšín",
-        "scored": 10,
-        "conceded": 12,
+        "scored": 11,
+        "conceded": 23,
         "points": 3
       },
       {
@@ -709,9 +709,9 @@
       {
         "rank": 3,
         "team": "SOKOLI Pardubice",
-        "scored": 10,
-        "conceded": 6,
-        "points": 4
+        "scored": 21,
+        "conceded": 7,
+        "points": 7
       },
       {
         "rank": 4,
