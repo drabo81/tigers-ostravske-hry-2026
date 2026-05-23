@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T14:15:26.106Z",
+  "scraped_at": "2026-05-23T14:25:31.529Z",
   "matches": [
     {
       "id": 2294,
@@ -959,7 +959,7 @@
       "score": {
         "home": 3,
         "away": 4,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1014,7 +1014,7 @@
       "phase": "8F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "Sokol Brno I EMKOCase Gullivers",
-      "away": "F2/B3",
+      "away": "TROOPERS",
       "score": null
     },
     {
@@ -1135,7 +1135,7 @@
       "phase": "8F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "SK K2 Prostějov bílí",
-      "away": "✖  F2/B3",
+      "away": "Fbc Šternberk",
       "score": null
     },
     {
