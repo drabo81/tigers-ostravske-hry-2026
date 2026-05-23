@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T06:15:32.382Z",
+  "scraped_at": "2026-05-23T06:20:28.758Z",
   "matches": [
     {
       "id": 2294,
@@ -537,8 +537,8 @@
       "home": "FBS Olomouc červení",
       "away": "FBC Intevo Třinec bílí",
       "score": {
-        "home": 1,
-        "away": 2,
+        "home": 2,
+        "away": 4,
         "status": "live"
       }
     },
