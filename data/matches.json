@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T17:35:14.431Z",
+  "scraped_at": "2026-05-23T17:40:26.958Z",
   "matches": [
     {
       "id": 2294,
@@ -1049,7 +1049,7 @@
       "score": {
         "home": 5,
         "away": 1,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1077,7 +1077,7 @@
       "home": "FBC Intevo Třinec bílí",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 5,
+        "home": 6,
         "away": 1,
         "status": "live"
       }
@@ -1101,7 +1101,7 @@
       "phase": "4F-A",
       "venue": "SH Sareza Přívoz Ostrava",
       "home": "Sokol Brno I EMKOCase Gullivers",
-      "away": "D1/E2/A3/H4",
+      "away": "SOKOLI Pardubice",
       "score": null
     },
     {
