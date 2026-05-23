@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:50:00.286Z",
+  "scraped_at": "2026-05-23T08:50:31.282Z",
   "groups": {
     "MA": [
       {
@@ -455,9 +455,9 @@
       {
         "rank": 1,
         "team": "TJ Slovan Havířov",
-        "scored": 3,
-        "conceded": 8,
-        "points": 0
+        "scored": 7,
+        "conceded": 12,
+        "points": 1
       },
       {
         "rank": 2,
@@ -469,9 +469,9 @@
       {
         "rank": 3,
         "team": "Sokol Brno I EMKOCase Gullivers",
-        "scored": 8,
-        "conceded": 6,
-        "points": 6
+        "scored": 12,
+        "conceded": 10,
+        "points": 7
       },
       {
         "rank": 4,
