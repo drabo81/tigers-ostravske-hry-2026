@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T07:25:30.757Z",
+  "scraped_at": "2026-05-23T07:30:29.433Z",
   "groups": {
     "MA": [
       {
@@ -125,9 +125,9 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice White",
-        "scored": 9,
-        "conceded": 6,
-        "points": 3
+        "scored": 14,
+        "conceded": 8,
+        "points": 6
       },
       {
         "rank": 2,
@@ -139,8 +139,8 @@
       {
         "rank": 3,
         "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 14,
-        "conceded": 20,
+        "scored": 16,
+        "conceded": 25,
         "points": 3
       },
       {
