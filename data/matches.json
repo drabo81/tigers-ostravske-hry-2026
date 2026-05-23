@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:15:00.419Z",
+  "scraped_at": "2026-05-23T12:25:31.230Z",
   "matches": [
     {
       "id": 2294,
@@ -758,7 +758,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 6,
+        "home": 9,
         "away": 0,
         "status": "live"
       }
@@ -773,8 +773,8 @@
       "home": "FBC Intevo Třinec bílí",
       "away": "FBC Vikings Kopřivnice",
       "score": {
-        "home": 3,
-        "away": 2,
+        "home": 5,
+        "away": 3,
         "status": "live"
       }
     },
@@ -788,7 +788,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 5,
+        "home": 8,
         "away": 1,
         "status": "live"
       }
@@ -803,7 +803,7 @@
       "home": "SOKOLI Pardubice",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 9,
+        "home": 12,
         "away": 0,
         "status": "live"
       }
@@ -818,8 +818,8 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBK Valašské Meziříčí",
       "score": {
-        "home": 0,
-        "away": 0,
+        "home": 1,
+        "away": 1,
         "status": "live"
       }
     },
@@ -833,8 +833,8 @@
       "home": "FBC Letka Toman Finance Group",
       "away": "MVIL Ostrava",
       "score": {
-        "home": 0,
-        "away": 1,
+        "home": 4,
+        "away": 3,
         "status": "live"
       }
     },
@@ -848,7 +848,7 @@
       "home": "Panthers Otrokovice",
       "away": "Salibandy Club Ostrava",
       "score": {
-        "home": 0,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
@@ -863,7 +863,7 @@
       "home": "SK K2 Prostějov modří",
       "away": "FBS Olomouc bílí",
       "score": {
-        "home": 5,
+        "home": 8,
         "away": 0,
         "status": "live"
       }
