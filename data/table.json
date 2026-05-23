@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:55:26.485Z",
+  "scraped_at": "2026-05-23T09:00:27.122Z",
   "groups": {
     "MA": [
       {
@@ -215,9 +215,9 @@
       {
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
-        "scored": 16,
-        "conceded": 2,
-        "points": 6
+        "scored": 27,
+        "conceded": 3,
+        "points": 9
       },
       {
         "rank": 2,
@@ -229,8 +229,8 @@
       {
         "rank": 3,
         "team": "FBS Olomouc bílí",
-        "scored": 8,
-        "conceded": 9,
+        "scored": 9,
+        "conceded": 20,
         "points": 1
       },
       {
@@ -252,9 +252,9 @@
       {
         "rank": 2,
         "team": "Prague Tigers",
-        "scored": 19,
-        "conceded": 6,
-        "points": 6
+        "scored": 23,
+        "conceded": 8,
+        "points": 9
       },
       {
         "rank": 3,
@@ -266,8 +266,8 @@
       {
         "rank": 4,
         "team": "FBS Olomouc",
-        "scored": 4,
-        "conceded": 5,
+        "scored": 6,
+        "conceded": 9,
         "points": 1
       }
     ],
@@ -312,9 +312,9 @@
       {
         "rank": 2,
         "team": "ACEMA Sparta Praha BLUE",
-        "scored": 5,
-        "conceded": 9,
-        "points": 2
+        "scored": 6,
+        "conceded": 21,
+        "points": 1
       },
       {
         "rank": 3,
@@ -326,9 +326,9 @@
       {
         "rank": 4,
         "team": "FBC Mohelnice",
-        "scored": 10,
-        "conceded": 10,
-        "points": 4
+        "scored": 22,
+        "conceded": 11,
+        "points": 6
       }
     ],
     "SD": [
@@ -395,9 +395,9 @@
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 19,
-        "conceded": 3,
-        "points": 6
+        "scored": 25,
+        "conceded": 4,
+        "points": 9
       },
       {
         "rank": 2,
@@ -409,8 +409,8 @@
       {
         "rank": 3,
         "team": "FBC Gepardi Brno",
-        "scored": 4,
-        "conceded": 7,
+        "scored": 5,
+        "conceded": 13,
         "points": 1
       },
       {
@@ -462,8 +462,8 @@
       {
         "rank": 2,
         "team": "SOKOLI Pardubice",
-        "scored": 7,
-        "conceded": 7,
+        "scored": 10,
+        "conceded": 13,
         "points": 3
       },
       {
@@ -476,9 +476,9 @@
       {
         "rank": 4,
         "team": "FBC Intevo Třinec",
-        "scored": 7,
-        "conceded": 4,
-        "points": 3
+        "scored": 13,
+        "conceded": 7,
+        "points": 6
       }
     ],
     "DA": [
