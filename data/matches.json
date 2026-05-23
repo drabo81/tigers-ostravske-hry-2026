@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T08:50:31.282Z",
+  "scraped_at": "2026-05-23T08:51:58.431Z",
   "matches": [
     {
       "id": 2294,
@@ -702,7 +702,7 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBS Olomouc bílí",
       "score": {
-        "home": 9,
+        "home": 10,
         "away": 1,
         "status": "live"
       }
