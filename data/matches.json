@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T17:15:29.258Z",
+  "scraped_at": "2026-05-23T17:20:22.740Z",
   "matches": [
     {
       "id": 2294,
@@ -1063,7 +1063,7 @@
       "away": "Florbal MB Black",
       "score": {
         "home": 1,
-        "away": 2,
+        "away": 3,
         "status": "live"
       }
     },
@@ -1077,7 +1077,7 @@
       "home": "FBC Intevo Třinec bílí",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
