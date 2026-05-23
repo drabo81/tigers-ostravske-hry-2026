@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:35:28.945Z",
+  "scraped_at": "2026-05-23T13:45:29.491Z",
   "matches": [
     {
       "id": 2294,
@@ -956,7 +956,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "Fbc Šternberk",
       "away": "TROOPERS",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2595,
