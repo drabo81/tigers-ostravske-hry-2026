@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:05:26.034Z",
+  "scraped_at": "2026-05-23T07:10:26.955Z",
   "matches": [
     {
       "id": 2294,
@@ -567,7 +567,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "Florbal MB Black",
       "score": {
-        "home": 5,
+        "home": 6,
         "away": 2,
         "status": "live"
       }
@@ -582,7 +582,7 @@
       "home": "FBC Hlučín",
       "away": "Panthers Otrokovice",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 2,
         "status": "live"
       }
@@ -597,7 +597,7 @@
       "home": "FBC Gepardi Brno",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 4,
+        "home": 6,
         "away": 1,
         "status": "live"
       }
