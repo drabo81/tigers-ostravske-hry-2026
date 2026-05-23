@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T07:20:30.156Z",
+  "scraped_at": "2026-05-23T07:25:30.757Z",
   "groups": {
     "MA": [
       {
@@ -12,9 +12,9 @@
       {
         "rank": 2,
         "team": "Zlín Lions",
-        "scored": 1,
-        "conceded": 26,
-        "points": 0
+        "scored": 8,
+        "conceded": 27,
+        "points": 3
       },
       {
         "rank": 3,
@@ -26,8 +26,8 @@
       {
         "rank": 4,
         "team": "FBC Spartak Bílovec",
-        "scored": 0,
-        "conceded": 40,
+        "scored": 1,
+        "conceded": 47,
         "points": 0
       }
     ],
@@ -36,7 +36,7 @@
         "rank": 1,
         "team": "Salibandy Club Ostrava",
         "scored": 3,
-        "conceded": 9,
+        "conceded": 11,
         "points": 0
       },
       {
@@ -49,9 +49,9 @@
       {
         "rank": 3,
         "team": "TROOPERS",
-        "scored": 7,
+        "scored": 9,
         "conceded": 15,
-        "points": 1
+        "points": 4
       },
       {
         "rank": 4,
@@ -132,9 +132,9 @@
       {
         "rank": 2,
         "team": "FBC Gepardi Brno",
-        "scored": 19,
-        "conceded": 4,
-        "points": 6
+        "scored": 29,
+        "conceded": 5,
+        "points": 9
       },
       {
         "rank": 3,
@@ -146,8 +146,8 @@
       {
         "rank": 4,
         "team": "FBC Vítkov U13",
-        "scored": 7,
-        "conceded": 19,
+        "scored": 8,
+        "conceded": 29,
         "points": 0
       }
     ],
@@ -162,9 +162,9 @@
       {
         "rank": 2,
         "team": "Fbc Šternberk",
-        "scored": 4,
-        "conceded": 9,
-        "points": 3
+        "scored": 6,
+        "conceded": 10,
+        "points": 6
       },
       {
         "rank": 3,
@@ -176,8 +176,8 @@
       {
         "rank": 4,
         "team": "FBC Vikings Kopřivnice",
-        "scored": 4,
-        "conceded": 13,
+        "scored": 5,
+        "conceded": 15,
         "points": 0
       }
     ],
@@ -372,9 +372,9 @@
       {
         "rank": 2,
         "team": "FBC Liberec",
-        "scored": 7,
-        "conceded": 5,
-        "points": 6
+        "scored": 11,
+        "conceded": 7,
+        "points": 9
       },
       {
         "rank": 3,
@@ -386,8 +386,8 @@
       {
         "rank": 4,
         "team": "SVČ Odry",
-        "scored": 6,
-        "conceded": 15,
+        "scored": 8,
+        "conceded": 19,
         "points": 1
       }
     ],
