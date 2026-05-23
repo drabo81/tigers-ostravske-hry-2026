@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T06:00:29.929Z",
+  "scraped_at": "2026-05-23T06:05:28.250Z",
   "matches": [
     {
       "id": 2294,
@@ -491,7 +491,11 @@
       "venue": "SH Sareza Přívoz Ostrava",
       "home": "Zlín Lions",
       "away": "FBC Spartak Bílovec",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2327,
@@ -502,7 +506,11 @@
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "FBC Dobruška",
       "away": "FBK Valašské Meziříčí",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2328,
@@ -530,7 +538,7 @@
       "away": "FBC Intevo Třinec bílí",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
