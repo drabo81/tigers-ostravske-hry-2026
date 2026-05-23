@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:56:47.907Z",
+  "scraped_at": "2026-05-23T07:58:25.330Z",
   "matches": [
     {
       "id": 2294,
@@ -672,7 +672,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 5,
+        "home": 6,
         "away": 0,
         "status": "live"
       }
