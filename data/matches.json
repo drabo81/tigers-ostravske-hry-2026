@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:15:29.544Z",
+  "scraped_at": "2026-05-23T07:20:30.156Z",
   "matches": [
     {
       "id": 2294,
@@ -492,8 +492,8 @@
       "home": "Zlín Lions",
       "away": "FBC Spartak Bílovec",
       "score": {
-        "home": 5,
-        "away": 0,
+        "home": 7,
+        "away": 1,
         "status": "live"
       }
     },
@@ -573,21 +573,6 @@
       }
     },
     {
-      "id": 2332,
-      "date": "2026-05-23",
-      "time": "08:45",
-      "group": "MF",
-      "phase": "group",
-      "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
-      "home": "FBC Hlučín",
-      "away": "Panthers Otrokovice",
-      "score": {
-        "home": 3,
-        "away": 4,
-        "status": "live"
-      }
-    },
-    {
       "id": 2333,
       "date": "2026-05-23",
       "time": "08:45",
@@ -612,8 +597,8 @@
       "home": "1. SC NATIOS Vítkovice White",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 4,
-        "away": 1,
+        "home": 5,
+        "away": 2,
         "status": "live"
       }
     },
@@ -628,8 +613,23 @@
       "away": "TROOPERS",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
+      }
+    },
+    {
+      "id": 2332,
+      "date": "2026-05-23",
+      "time": "08:45",
+      "group": "MF",
+      "phase": "group",
+      "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
+      "home": "FBC Hlučín",
+      "away": "Panthers Otrokovice",
+      "score": {
+        "home": 4,
+        "away": 4,
+        "status": "final"
       }
     },
     {

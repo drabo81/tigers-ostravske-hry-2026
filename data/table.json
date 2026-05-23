@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T06:50:31.009Z",
+  "scraped_at": "2026-05-23T07:20:30.156Z",
   "groups": {
     "MA": [
       {
@@ -155,9 +155,9 @@
       {
         "rank": 1,
         "team": "FBC Hlučín",
-        "scored": 10,
-        "conceded": 3,
-        "points": 3
+        "scored": 14,
+        "conceded": 7,
+        "points": 4
       },
       {
         "rank": 2,
@@ -169,9 +169,9 @@
       {
         "rank": 3,
         "team": "Panthers Otrokovice",
-        "scored": 12,
-        "conceded": 5,
-        "points": 6
+        "scored": 16,
+        "conceded": 9,
+        "points": 7
       },
       {
         "rank": 4,
