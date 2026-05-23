@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T11:35:26.498Z",
+  "scraped_at": "2026-05-23T11:55:26.408Z",
   "groups": {
     "MA": [
       {
@@ -852,9 +852,9 @@
       {
         "rank": 2,
         "team": "Florbal MB",
-        "scored": 9,
+        "scored": 13,
         "conceded": 3,
-        "points": 6
+        "points": 9
       },
       {
         "rank": 3,
@@ -867,7 +867,7 @@
         "rank": 4,
         "team": "FbC KOVO KM Frýdek-Místek",
         "scored": 6,
-        "conceded": 7,
+        "conceded": 11,
         "points": 3
       }
     ]
