@@ -207,3 +207,17 @@ test('renderStaticBracket: 8F-B uzel na linii vítěze 16F ukáže poraženého 
   assert.ok(b1.includes('Porazeny 16'), `OF_B1 má ukázat poraženého H1 16F: "${b1}"`);
   assert.ok(b1.includes('Souper B'), `OF_B1 má ukázat i jeho soupeře: "${b1}"`);
 });
+
+test('renderStaticBracket: B-větev sleduje poraženého 16F-A přes 8F-B do 4F-B (B-walk)', () => {
+  // Útěcha: poražený 16F-A na lince H1 hraje 8F-B; když vyhraje, postupuje do 4F-B.
+  // Placeholder kódy 4F-B odkazují na A-linii (nereálné) → uzel se musí dohledat B-walkem.
+  const table = { groups: { MH: [{ rank: 1, team: 'FBC TIGERS PORUBA', points: 9, scored: 20, conceded: 3 }] } };
+  const matches = { matches: [
+    { id: 1, phase: '16F-A', home: 'FBC TIGERS PORUBA', away: 'Vyrazeny tym', score: { home: 5, away: 1 } },
+    { id: 2, phase: '8F-B', home: 'Vyrazeny tym', away: 'B osma', score: { home: 4, away: 1 } }, // poražený 16F vyhrál 8F-B
+    { id: 3, phase: '4F-B', home: 'H1/D4-A2/E3', away: 'Vyrazeny tym', score: null },             // postup do 4F-B
+  ] };
+  const src = renderStaticBracket(matches, table);
+  const q = nodeLabel(src, 'QF_B1');
+  assert.ok(q.includes('Vyrazeny tym'), `QF_B1 má sledovat poraženého H1 16F do 4F-B: "${q}"`);
+});

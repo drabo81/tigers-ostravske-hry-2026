@@ -32,8 +32,11 @@ function randGroupScore() {
 const TIGERS = 'FBC TIGERS PORUBA';
 const POSITION_GROUPS = { A: 'MA', B: 'MB', C: 'MC', D: 'MD', E: 'ME', F: 'MF', G: 'MG', H: 'MH' };
 
-const matchData = JSON.parse(await readFile('data/matches.json', 'utf8'));
-const tableData = JSON.parse(await readFile('data/table.json', 'utf8'));
+// Čistý placeholder základ (všechny play-off zápasy jako kódy) — NE živá data, která už
+// jsou rozehraná a token-based rozklad by na nich selhal.
+const BASE_DIR = 'data/demo/_base';
+const matchData = JSON.parse(await readFile(`${BASE_DIR}/matches.json`, 'utf8'));
+const tableData = JSON.parse(await readFile(`${BASE_DIR}/table.json`, 'utf8'));
 
 // Uložit originální placeholdery PŘED jakoukoli modifikací cells.
 for (const m of matchData.matches) {
@@ -170,19 +173,16 @@ function resolveSingleCode(code) {
 const winners16 = new Map();  // sortedKey 2-token (např. "D4,H1") → winner team
 const losers16  = new Map();  // sortedKey 2-token → loser team
 const winners8A = new Map();  // sortedKey 4-token → winner of 8F-A
-const losers8A  = new Map();  // sortedKey 4-token → loser of 8F-A
-const winners8B = new Map();  // sortedKey 4-token → winner of 8F-B
 const winners4A = new Map();  // sortedKey 8-token → winner of 4F-A
-const winners4B_a = new Map(); // sortedKey 8-token → winner of 4F-B (typ A: 8F-A losers)
-const winners4B_b = new Map(); // sortedKey 8-token → winner of 4F-B (typ B: 8F-B winners)
 const winnersSFA = new Map(); // sortedKey 16-token → winner of SF-A
-const winnersSFB = new Map(); // sortedKey 16-token → winner of SF-B
 
+// Tigers (seed H1) jsou v demu šampioni A-větve — vyhrají každé kolo.
 const TIGERS_FATE = {
-  '16F-A': { won: true,  score: { home: 7, away: 2 } },
-  '8F-A':  { won: false, score: { home: 2, away: 5 } },
-  '4F-B':  { won: true,  score: { home: 4, away: 3 } },
-  'SF-B':  { won: true,  score: { home: 5, away: 4 } },
+  '16F-A':   { score: { home: 7, away: 2 } },
+  '8F-A':    { score: { home: 5, away: 3 } },
+  '4F-A':    { score: { home: 4, away: 2 } },
+  'SF-A':    { score: { home: 6, away: 4 } },
+  'FINAL-A': { score: { home: 3, away: 2 } },
 };
 
 function applyScore(m, tigersInvolved) {
@@ -217,7 +217,8 @@ for (const m of matchData.matches.filter(x => x.phase === '16F-A' && beforeCutof
   losers16.set(key, loser);
 }
 
-// ── 8F-A: home cell je "X/Y" composite = winner of 16F-A {X, Y} ──
+// ── 8F-A: home cell je "X/Y" composite = winner of 16F-A {X, Y}. Poražený VYPADÁVÁ
+//    (A-větev je čisté vyřazování — do B-větve se z A nepostupuje). ──
 for (const m of matchData.matches.filter(x => x.phase === '8F-A' && beforeCutoff(x))) {
   const hKey = sortedKey(cellTokens(m._homeOriginal));
   const aKey = sortedKey(cellTokens(m._awayOriginal));
@@ -225,21 +226,7 @@ for (const m of matchData.matches.filter(x => x.phase === '8F-A' && beforeCutoff
   m.away = winners16.get(aKey) ?? m._awayOriginal;
   applyScore(m, isTigersInMatch(m));
   const matchKey = pairKey(m._homeOriginal, m._awayOriginal);
-  const { winner, loser } = decideWinnerLoser(m);
-  winners8A.set(matchKey, winner);
-  losers8A.set(matchKey, loser);
-}
-
-// ── 8F-B: cells "✖ X/Y" composite = loser of 16F-A {X, Y} ──
-for (const m of matchData.matches.filter(x => x.phase === '8F-B' && beforeCutoff(x))) {
-  const hKey = sortedKey(cellTokens(m._homeOriginal));
-  const aKey = sortedKey(cellTokens(m._awayOriginal));
-  m.home = losers16.get(hKey) ?? m._homeOriginal;
-  m.away = losers16.get(aKey) ?? m._awayOriginal;
-  applyScore(m, isTigersInMatch(m));
-  const matchKey = pairKey(m._homeOriginal, m._awayOriginal);
-  const { winner } = decideWinnerLoser(m);
-  winners8B.set(matchKey, winner);
+  winners8A.set(matchKey, decideWinnerLoser(m).winner);
 }
 
 // ── 4F-A: cells "X/Y/Z/W" composite = winner of 8F-A {X, Y, Z, W} ──
@@ -249,108 +236,70 @@ for (const m of matchData.matches.filter(x => x.phase === '4F-A' && beforeCutoff
   m.home = winners8A.get(hKey) ?? m._homeOriginal;
   m.away = winners8A.get(aKey) ?? m._awayOriginal;
   applyScore(m, isTigersInMatch(m));
-  const matchKey = pairKey(m._homeOriginal, m._awayOriginal);
-  const { winner } = decideWinnerLoser(m);
-  winners4A.set(matchKey, winner);
-}
-
-// ── 4F-B: KAŽDÝ 4F-B placeholder "X/Y-Z/W" má dvě možné interpretace.
-//   Pokud ostravskehry udržuje 2 4F-B matches s identickými placeholdery, jeden přiřazuje
-//   8F-A loserům, druhý 8F-B vítězům. Strategie: pokud existuje Tigers ve 4F-B, ten dostane
-//   8F-A loser jako home; druhý 4F-B (stejné placeholdery, jiný venue/id) dostane 8F-B
-//   winner jako home. Jinak: první v pořadí podle ID dostane 8F-A loser branch.
-const fourBByCellKey = new Map();
-for (const m of matchData.matches.filter(x => x.phase === '4F-B' && beforeCutoff(x))) {
-  const hKey = sortedKey(cellTokens(m._homeOriginal));
-  const aKey = sortedKey(cellTokens(m._awayOriginal));
-  const pkey = `${hKey}|${aKey}`;
-  if (!fourBByCellKey.has(pkey)) fourBByCellKey.set(pkey, []);
-  fourBByCellKey.get(pkey).push(m);
-}
-for (const [, group] of fourBByCellKey) {
-  // group má 1 nebo 2 matches s identickými placeholdery
-  // Sort: ten s Tigers (nebo nejmenším id) první → 8F-A loser branch
-  group.sort((a, b) => {
-    const aTigers = a._homeOriginal === TIGERS || a._awayOriginal === TIGERS ? 0 : 1;
-    const bTigers = b._homeOriginal === TIGERS || b._awayOriginal === TIGERS ? 0 : 1;
-    return aTigers - bTigers || a.id - b.id;
-  });
-
-  group.forEach((m, idx) => {
-    const hKey = sortedKey(cellTokens(m._homeOriginal));
-    const aKey = sortedKey(cellTokens(m._awayOriginal));
-    if (idx === 0) {
-      // 8F-A loser branch
-      m.home = losers8A.get(hKey) ?? m._homeOriginal;
-      m.away = losers8A.get(aKey) ?? m._awayOriginal;
-    } else {
-      // 8F-B winner branch
-      m.home = winners8B.get(hKey) ?? m._homeOriginal;
-      m.away = winners8B.get(aKey) ?? m._awayOriginal;
-    }
-    applyScore(m, isTigersInMatch(m));
-    const matchKey = pairKey(m._homeOriginal, m._awayOriginal);
-    const { winner } = decideWinnerLoser(m);
-    if (idx === 0) winners4B_a.set(matchKey, winner);
-    else           winners4B_b.set(matchKey, winner);
-  });
+  winners4A.set(pairKey(m._homeOriginal, m._awayOriginal), decideWinnerLoser(m).winner);
 }
 
 // ── SF-A: 8-token composite cell = winner of 4F-A {set} ──
 for (const m of matchData.matches.filter(x => x.phase === 'SF-A' && beforeCutoff(x))) {
-  // SF-A má 4F-A vítěze ze 2 specifických 4F-A matches.
-  // Najdi 4F-A matches, jejichž ALL tokens jsou subsetem SF-A's full 16-token set,
-  // a vezmi 2 different sets (one for home cell, one for away cell).
   const hKey = sortedKey(cellTokens(m._homeOriginal));
   const aKey = sortedKey(cellTokens(m._awayOriginal));
   m.home = winners4A.get(hKey) ?? m._homeOriginal;
   m.away = winners4A.get(aKey) ?? m._awayOriginal;
   applyScore(m, isTigersInMatch(m));
-  const matchKey = pairKey(m._homeOriginal, m._awayOriginal);
-  const { winner } = decideWinnerLoser(m);
-  winnersSFA.set(matchKey, winner);
+  winnersSFA.set(pairKey(m._homeOriginal, m._awayOriginal), decideWinnerLoser(m).winner);
 }
 
-// ── SF-B: oba cells jsou stejné 8-token placeholder. Home = 4F-B typ A vítěz,
-//   away = 4F-B typ B vítěz. Pokud Tigers prošli typem A nebo B, dostávají odpovídající pozici. ──
-for (const m of matchData.matches.filter(x => x.phase === 'SF-B' && beforeCutoff(x))) {
+// ── B-VĚTEV (útěcha pro poražené 16F-A): 8F-B → 4F-B → SF-B → FINÁLE B. Poražení 16F-A
+//    hrají 8F-B; vítězové postupují do 4F-B atd. Placeholder kódy 4F-B/SF-B/FINÁLE B
+//    odkazují na A-linii (nereálné) — postupující proto přiřazujeme POŘADOVĚ (vítězové
+//    předchozího B-kola, seřazení podle id zápasu). Pro demo je to validní, plně určené
+//    rozlosování; renderer si týmy stejně dohledá podle jména. ──
+
+// 8F-B: cells "✖ X/Y" = poražený 16F-A {X, Y}.
+for (const m of matchData.matches.filter(x => x.phase === '8F-B' && beforeCutoff(x))) {
   const hKey = sortedKey(cellTokens(m._homeOriginal));
   const aKey = sortedKey(cellTokens(m._awayOriginal));
-  m.home = winners4B_a.get(hKey) ?? m._homeOriginal;
-  m.away = winners4B_b.get(aKey) ?? winners4B_a.get(aKey) ?? m._awayOriginal;
-  // Pokud Tigers vyhráli 4F-B typ A, jsou home — jinak swap pokud byli v typu B.
-  if (m.home !== TIGERS && m.away === TIGERS && TIGERS_FATE['SF-B']) {
-    // Tigers musí být home pro náš deterministický scénář
-    [m.home, m.away] = [m.away, m.home];
-  }
+  m.home = losers16.get(hKey) ?? m._homeOriginal;
+  m.away = losers16.get(aKey) ?? m._awayOriginal;
   applyScore(m, isTigersInMatch(m));
-  const matchKey = pairKey(m._homeOriginal, m._awayOriginal);
-  const { winner } = decideWinnerLoser(m);
-  winnersSFB.set(matchKey, winner);
 }
 
-// ── FINAL-A (13:00) ──
-// FINAL placeholdery v matches.json jsou prázdné — musíme vzít vítěze SF matches.
-function sfWinners(phase) {
-  const sfs = matchData.matches.filter(x => x.phase === phase && x.score)
+// Pomocník: vítězové fáze (odehrané) seřazení podle id zápasu.
+function winnersOf(phase) {
+  return matchData.matches
+    .filter(x => x.phase === phase && x.score)
+    .sort((a, b) => a.id - b.id)
+    .map(s => s.score.home > s.score.away ? s.home : s.away);
+}
+// Pomocník: naplní zápasy `phase` (seřazené podle id) dvojicemi z `feeders` a odehraje je.
+function fillBracketRound(phase, feeders) {
+  const ms = matchData.matches
+    .filter(x => x.phase === phase && beforeCutoff(x))
     .sort((a, b) => a.id - b.id);
-  return sfs.map(s => s.score.home > s.score.away ? s.home : s.away);
+  ms.forEach((m, i) => {
+    if (feeders[2 * i]) m.home = feeders[2 * i];
+    if (feeders[2 * i + 1]) m.away = feeders[2 * i + 1];
+    if (m.home && m.away) applyScore(m, isTigersInMatch(m));
+  });
 }
+fillBracketRound('4F-B', winnersOf('8F-B'));
+fillBracketRound('SF-B', winnersOf('4F-B'));
 
+// ── FINÁLE (placeholdery home/away jsou prázdné — bereme vítěze SF). ──
 const finalA = matchData.matches.find(x => x.phase === 'FINAL-A' && beforeCutoff(x));
 if (finalA) {
-  const [w1, w2] = sfWinners('SF-A');
+  const [w1, w2] = winnersOf('SF-A');
   if (w1) finalA.home = w1;
   if (w2) finalA.away = w2;
-  finalA.score = randPlayoffScore();
+  if (finalA.home && finalA.away) applyScore(finalA, isTigersInMatch(finalA)); // Tigers šampioni
 }
 
-const finalB = matchData.matches.find(x => x.phase === 'FINAL-B');
+const finalB = matchData.matches.find(x => x.phase === 'FINAL-B' && beforeCutoff(x));
 if (finalB) {
-  const [w1, w2] = sfWinners('SF-B');
+  const [w1, w2] = winnersOf('SF-B');
   if (w1) finalB.home = w1;
   if (w2) finalB.away = w2;
-  finalB.score = beforeCutoff(finalB) ? randPlayoffScore() : null;
+  if (finalB.home && finalB.away) applyScore(finalB, isTigersInMatch(finalB));
 }
 
 // _homeOriginal a _awayOriginal NECHÁVÁME — renderer je používá pro placeholder lookup.
