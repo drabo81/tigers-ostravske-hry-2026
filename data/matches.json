@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:00:27.700Z",
+  "scraped_at": "2026-05-23T07:02:33.608Z",
   "matches": [
     {
       "id": 2294,
@@ -568,7 +568,7 @@
       "away": "Florbal MB Black",
       "score": {
         "home": 4,
-        "away": 0,
+        "away": 2,
         "status": "live"
       }
     },
@@ -612,7 +612,7 @@
       "home": "1. SC NATIOS Vítkovice White",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 1,
         "status": "live"
       }
