@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T18:52:36.600Z",
+  "scraped_at": "2026-05-23T06:00:29.929Z",
   "matches": [
     {
       "id": 2294,
@@ -513,7 +513,11 @@
       "venue": "SH TJ Ostrava (Varenská)",
       "home": "SK K2 Prostějov modří",
       "away": "SOKOLI Pardubice",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2329,
@@ -524,7 +528,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBS Olomouc červení",
       "away": "FBC Intevo Třinec bílí",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2330,
