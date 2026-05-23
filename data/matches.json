@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T17:45:38.526Z",
+  "scraped_at": "2026-05-23T17:48:01.347Z",
   "matches": [
     {
       "id": 2294,
@@ -1079,7 +1079,7 @@
       "score": {
         "home": 8,
         "away": 2,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1090,7 +1090,7 @@
       "phase": "4F-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "1. SC NATIOS Vítkovice Blue",
-      "away": "B1/G2/C3/F4",
+      "away": "FBC Intevo Třinec bílí",
       "score": null
     },
     {
