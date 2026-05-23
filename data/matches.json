@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T09:10:30.378Z",
+  "scraped_at": "2026-05-23T09:20:32.353Z",
   "matches": [
     {
       "id": 2294,
@@ -774,7 +774,7 @@
       "phase": "16F-A",
       "venue": "SH ČPP Aréna Ostrava",
       "home": "SOKOLI Pardubice",
-      "away": "H4",
+      "away": "FBC Intevo Třinec červení",
       "score": null
     },
     {
@@ -784,7 +784,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Sareza Přívoz Ostrava",
-      "home": "H1",
+      "home": "FBC TIGERS PORUBA",
       "away": "FBK Valašské Meziříčí",
       "score": null
     },
@@ -829,7 +829,7 @@
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "SK K2 Prostějov modří",
-      "away": "H3",
+      "away": "FBS Olomouc bílí",
       "score": null
     },
     {
@@ -839,7 +839,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "Sportovní hala VŠB-TUO",
-      "home": "H2",
+      "home": "ACEMA Sparta Praha YELLOW",
       "away": "FBC Dobruška",
       "score": null
     },
