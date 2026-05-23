@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:50:31.426Z",
+  "scraped_at": "2026-05-23T13:55:25.259Z",
   "matches": [
     {
       "id": 2294,
@@ -957,7 +957,7 @@
       "home": "Fbc Šternberk",
       "away": "TROOPERS",
       "score": {
-        "home": 1,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
