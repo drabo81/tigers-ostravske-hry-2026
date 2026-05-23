@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:58:10.539Z",
+  "scraped_at": "2026-05-23T14:10:32.620Z",
   "matches": [
     {
       "id": 2294,
@@ -958,7 +958,7 @@
       "away": "TROOPERS",
       "score": {
         "home": 3,
-        "away": 1,
+        "away": 2,
         "status": "live"
       }
     },
