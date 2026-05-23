@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T08:51:58.431Z",
+  "scraped_at": "2026-05-23T08:55:26.485Z",
   "matches": [
     {
       "id": 2294,
@@ -678,21 +678,6 @@
       }
     },
     {
-      "id": 2339,
-      "date": "2026-05-23",
-      "time": "10:15",
-      "group": "MH",
-      "phase": "group",
-      "venue": "SH ČPP Aréna Ostrava",
-      "home": "ACEMA Sparta Praha YELLOW",
-      "away": "FBC Intevo Třinec červení",
-      "score": {
-        "home": 9,
-        "away": 4,
-        "status": "live"
-      }
-    },
-    {
       "id": 2340,
       "date": "2026-05-23",
       "time": "10:15",
@@ -708,6 +693,21 @@
       }
     },
     {
+      "id": 2339,
+      "date": "2026-05-23",
+      "time": "10:15",
+      "group": "MH",
+      "phase": "group",
+      "venue": "SH ČPP Aréna Ostrava",
+      "home": "ACEMA Sparta Praha YELLOW",
+      "away": "FBC Intevo Třinec červení",
+      "score": {
+        "home": 9,
+        "away": 5,
+        "status": "final"
+      }
+    },
+    {
       "id": 2341,
       "date": "2026-05-23",
       "time": "10:15",
@@ -718,8 +718,8 @@
       "away": "ACEMA Sparta Praha RED",
       "score": {
         "home": 1,
-        "away": 9,
-        "status": "live"
+        "away": 10,
+        "status": "final"
       }
     },
     {

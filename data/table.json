@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:50:31.282Z",
+  "scraped_at": "2026-05-23T08:55:26.485Z",
   "groups": {
     "MA": [
       {
@@ -65,8 +65,8 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 5,
-        "conceded": 17,
+        "scored": 6,
+        "conceded": 27,
         "points": 0
       },
       {
@@ -79,9 +79,9 @@
       {
         "rank": 3,
         "team": "ACEMA Sparta Praha RED",
-        "scored": 6,
-        "conceded": 7,
-        "points": 3
+        "scored": 16,
+        "conceded": 8,
+        "points": 6
       },
       {
         "rank": 4,
@@ -222,9 +222,9 @@
       {
         "rank": 2,
         "team": "ACEMA Sparta Praha YELLOW",
-        "scored": 5,
-        "conceded": 9,
-        "points": 3
+        "scored": 14,
+        "conceded": 14,
+        "points": 6
       },
       {
         "rank": 3,
@@ -236,8 +236,8 @@
       {
         "rank": 4,
         "team": "FBC Intevo Třinec červení",
-        "scored": 6,
-        "conceded": 15,
+        "scored": 11,
+        "conceded": 24,
         "points": 1
       }
     ],
