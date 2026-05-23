@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:10:33.502Z",
+  "scraped_at": "2026-05-23T08:15:30.762Z",
   "groups": {
     "MA": [
       {
@@ -282,8 +282,8 @@
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 5,
-        "conceded": 13,
+        "scored": 6,
+        "conceded": 33,
         "points": 3
       },
       {
@@ -296,9 +296,9 @@
       {
         "rank": 4,
         "team": "FBC Přerov",
-        "scored": 24,
-        "conceded": 3,
-        "points": 6
+        "scored": 44,
+        "conceded": 4,
+        "points": 9
       }
     ],
     "SC": [
@@ -314,7 +314,7 @@
         "team": "ACEMA Sparta Praha BLUE",
         "scored": 5,
         "conceded": 9,
-        "points": 1
+        "points": 2
       },
       {
         "rank": 3,
@@ -328,7 +328,7 @@
         "team": "FBC Mohelnice",
         "scored": 10,
         "conceded": 10,
-        "points": 3
+        "points": 4
       }
     ],
     "SD": [
@@ -432,8 +432,8 @@
       {
         "rank": 2,
         "team": "Florbal MB",
-        "scored": 5,
-        "conceded": 11,
+        "scored": 7,
+        "conceded": 14,
         "points": 1
       },
       {
@@ -446,9 +446,9 @@
       {
         "rank": 4,
         "team": "Florbal Vsetín",
-        "scored": 8,
-        "conceded": 8,
-        "points": 3
+        "scored": 11,
+        "conceded": 10,
+        "points": 6
       }
     ],
     "SH": [
