@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T16:20:32.698Z",
+  "scraped_at": "2026-05-23T16:25:26.528Z",
   "matches": [
     {
       "id": 2294,
@@ -1002,7 +1002,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Dobruška",
       "score": {
-        "home": 7,
+        "home": 10,
         "away": 1,
         "status": "live"
       }
@@ -1018,7 +1018,7 @@
       "away": "FBS Olomouc červení",
       "score": {
         "home": 0,
-        "away": 1,
+        "away": 3,
         "status": "live"
       }
     },
@@ -1032,7 +1032,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "TROOPERS",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
