@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T15:15:28.395Z",
+  "scraped_at": "2026-05-23T15:20:30.352Z",
   "matches": [
     {
       "id": 2294,
@@ -974,7 +974,7 @@
       "score": {
         "home": 5,
         "away": 0,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1095,7 +1095,7 @@
       "phase": "4F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
       "home": "E1/D2/H3/A4",
-      "away": "F1/C2/G3/B4",
+      "away": "Panthers Otrokovice",
       "score": null
     },
     {
