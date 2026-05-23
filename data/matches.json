@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:08:21.251Z",
+  "scraped_at": "2026-05-23T13:10:32.236Z",
   "matches": [
     {
       "id": 2294,
@@ -927,7 +927,7 @@
       "home": "Florbal MB Black",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 10,
+        "home": 11,
         "away": 0,
         "status": "live"
       }
@@ -942,7 +942,7 @@
       "home": "FBS Olomouc červení",
       "away": "FBC Hlučín",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 1,
         "status": "live"
       }
