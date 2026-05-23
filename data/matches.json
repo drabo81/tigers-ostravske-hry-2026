@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T15:40:29.716Z",
+  "scraped_at": "2026-05-23T15:45:27.318Z",
   "matches": [
     {
       "id": 2294,
@@ -988,7 +988,7 @@
       "away": "SK K2 Prostějov modří",
       "score": {
         "home": 0,
-        "away": 2,
+        "away": 3,
         "status": "live"
       }
     },
