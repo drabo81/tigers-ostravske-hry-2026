@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:12:32.559Z",
+  "scraped_at": "2026-05-23T13:20:33.330Z",
   "matches": [
     {
       "id": 2294,
@@ -883,7 +883,52 @@
       "away": "FBC Dobruška",
       "score": {
         "home": 0,
-        "away": 3,
+        "away": 6,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2552,
+      "date": "2026-05-23",
+      "time": "14:50",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Střední škola Technická a Dopravní Ostrava",
+      "home": "1. SC NATIOS Vítkovice White",
+      "away": "Zlín Lions",
+      "score": {
+        "home": 1,
+        "away": 1,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2554,
+      "date": "2026-05-23",
+      "time": "14:50",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Třebovice",
+      "home": "Florbal MB Black",
+      "away": "FBC ČPP Bystroň Group Ostrava",
+      "score": {
+        "home": 16,
+        "away": 1,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2556,
+      "date": "2026-05-23",
+      "time": "14:50",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "FBS Olomouc červení",
+      "away": "FBC Hlučín",
+      "score": {
+        "home": 6,
+        "away": 1,
         "status": "live"
       }
     },
@@ -899,52 +944,7 @@
       "score": {
         "home": 1,
         "away": 5,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2552,
-      "date": "2026-05-23",
-      "time": "14:50",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "1. SC NATIOS Vítkovice White",
-      "away": "Zlín Lions",
-      "score": {
-        "home": 0,
-        "away": 1,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2554,
-      "date": "2026-05-23",
-      "time": "14:50",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Třebovice",
-      "home": "Florbal MB Black",
-      "away": "FBC ČPP Bystroň Group Ostrava",
-      "score": {
-        "home": 12,
-        "away": 0,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2556,
-      "date": "2026-05-23",
-      "time": "14:50",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "FBS Olomouc červení",
-      "away": "FBC Hlučín",
-      "score": {
-        "home": 2,
-        "away": 1,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1043,7 +1043,7 @@
       "phase": "8F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Intevo Třinec bílí",
-      "away": "G2/C3",
+      "away": "Torpedo Havířov",
       "score": null
     },
     {
@@ -1109,7 +1109,7 @@
       "phase": "8F-B",
       "venue": "SH Třebovice",
       "home": "FBC Vikings Kopřivnice",
-      "away": "✖ G2/C3",
+      "away": "Florbal MB White",
       "score": null
     },
     {
