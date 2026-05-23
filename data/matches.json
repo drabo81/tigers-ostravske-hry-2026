@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:35:32.060Z",
+  "scraped_at": "2026-05-23T12:39:52.990Z",
   "matches": [
     {
       "id": 2294,
@@ -738,21 +738,6 @@
       }
     },
     {
-      "id": 2539,
-      "date": "2026-05-23",
-      "time": "14:00",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH TJ Ostrava (Varenská)",
-      "home": "1. SC NATIOS Vítkovice Blue",
-      "away": "FBC Vítkov U13",
-      "score": {
-        "home": 12,
-        "away": 0,
-        "status": "live"
-      }
-    },
-    {
       "id": 2549,
       "date": "2026-05-23",
       "time": "14:00",
@@ -762,23 +747,8 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 9,
+        "home": 10,
         "away": 1,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2551,
-      "date": "2026-05-23",
-      "time": "14:00",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH ČPP Aréna Ostrava",
-      "home": "SOKOLI Pardubice",
-      "away": "FBC Intevo Třinec červení",
-      "score": {
-        "home": 14,
-        "away": 0,
         "status": "live"
       }
     },
@@ -807,7 +777,7 @@
       "home": "FBC Letka Toman Finance Group",
       "away": "MVIL Ostrava",
       "score": {
-        "home": 5,
+        "home": 7,
         "away": 3,
         "status": "live"
       }
@@ -822,24 +792,24 @@
       "home": "ACEMA Sparta Praha RED",
       "away": "Florbal Vsetín",
       "score": {
-        "home": 5,
+        "home": 7,
         "away": 4,
         "status": "live"
       }
     },
     {
-      "id": 2562,
+      "id": 2539,
       "date": "2026-05-23",
       "time": "14:00",
       "group": null,
       "phase": "16F-A",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "SK K2 Prostějov modří",
-      "away": "FBS Olomouc bílí",
+      "venue": "SH TJ Ostrava (Varenská)",
+      "home": "1. SC NATIOS Vítkovice Blue",
+      "away": "FBC Vítkov U13",
       "score": {
-        "home": 10,
-        "away": 1,
-        "status": "live"
+        "home": 13,
+        "away": 0,
+        "status": "final"
       }
     },
     {
@@ -858,6 +828,21 @@
       }
     },
     {
+      "id": 2551,
+      "date": "2026-05-23",
+      "time": "14:00",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH ČPP Aréna Ostrava",
+      "home": "SOKOLI Pardubice",
+      "away": "FBC Intevo Třinec červení",
+      "score": {
+        "home": 15,
+        "away": 0,
+        "status": "final"
+      }
+    },
+    {
       "id": 2558,
       "date": "2026-05-23",
       "time": "14:00",
@@ -869,6 +854,21 @@
       "score": {
         "home": 4,
         "away": 0,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2562,
+      "date": "2026-05-23",
+      "time": "14:00",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "SK K2 Prostějov modří",
+      "away": "FBS Olomouc bílí",
+      "score": {
+        "home": 10,
+        "away": 1,
         "status": "final"
       }
     },
@@ -927,7 +927,7 @@
       "away": "Torpedo Havířov",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -961,7 +961,7 @@
       "phase": "8F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Gepardi Brno",
-      "away": "D2/H3",
+      "away": "SK K2 Prostějov modří",
       "score": null
     },
     {
@@ -971,7 +971,7 @@
       "group": null,
       "phase": "8F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "A1/E4",
+      "home": "1. SC NATIOS Vítkovice Blue",
       "away": "H2/D3",
       "score": null
     },
@@ -1004,7 +1004,7 @@
       "group": null,
       "phase": "8F-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
-      "home": "D1/H4",
+      "home": "SOKOLI Pardubice",
       "away": "E2/A3",
       "score": null
     },
@@ -1081,7 +1081,7 @@
       "group": null,
       "phase": "8F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "✖  A1/E4",
+      "home": "FBC Vítkov U13",
       "away": "✖  H2/D3",
       "score": null
     },
@@ -1103,7 +1103,7 @@
       "group": null,
       "phase": "8F-B",
       "venue": "Sportovní hala VŠB-TUO",
-      "home": "✖ D1/H4",
+      "home": "FBC Intevo Třinec červení",
       "away": "✖ E2/A3",
       "score": null
     },
@@ -1137,7 +1137,7 @@
       "phase": "8F-B",
       "venue": "SH Třebovice",
       "home": "FBC Spartak Bílovec",
-      "away": "✖ D2/H3",
+      "away": "FBS Olomouc bílí",
       "score": null
     },
     {
