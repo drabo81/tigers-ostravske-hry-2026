@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T16:00:30.514Z",
+  "scraped_at": "2026-05-23T16:05:30.401Z",
   "matches": [
     {
       "id": 2294,
@@ -988,7 +988,7 @@
       "away": "SK K2 Prostějov modří",
       "score": {
         "home": 0,
-        "away": 4,
+        "away": 6,
         "status": "live"
       }
     },
@@ -1013,7 +1013,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Dobruška",
       "score": {
-        "home": 1,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
