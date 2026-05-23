@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T10:30:27.303Z",
+  "scraped_at": "2026-05-23T10:35:26.621Z",
   "groups": {
     "MA": [
       {
@@ -582,9 +582,9 @@
       {
         "rank": 2,
         "team": "Panthers Praha BLACK",
-        "scored": 16,
-        "conceded": 9,
-        "points": 4
+        "scored": 27,
+        "conceded": 11,
+        "points": 7
       },
       {
         "rank": 3,
@@ -596,8 +596,8 @@
       {
         "rank": 4,
         "team": "FBC Lutín",
-        "scored": 2,
-        "conceded": 8,
+        "scored": 4,
+        "conceded": 19,
         "points": 0
       }
     ],
