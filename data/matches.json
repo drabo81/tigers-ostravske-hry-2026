@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:50:32.104Z",
+  "scraped_at": "2026-05-23T12:55:28.722Z",
   "matches": [
     {
       "id": 2294,
@@ -738,21 +738,6 @@
       }
     },
     {
-      "id": 2553,
-      "date": "2026-05-23",
-      "time": "14:00",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Sareza Přívoz Ostrava",
-      "home": "FBC TIGERS PORUBA",
-      "away": "FBK Valašské Meziříčí",
-      "score": {
-        "home": 2,
-        "away": 1,
-        "status": "live"
-      }
-    },
-    {
       "id": 2539,
       "date": "2026-05-23",
       "time": "14:00",
@@ -809,6 +794,21 @@
       "score": {
         "home": 15,
         "away": 0,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2553,
+      "date": "2026-05-23",
+      "time": "14:00",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Sareza Přívoz Ostrava",
+      "home": "FBC TIGERS PORUBA",
+      "away": "FBK Valašské Meziříčí",
+      "score": {
+        "home": 2,
+        "away": 1,
         "status": "final"
       }
     },
@@ -873,17 +873,6 @@
       }
     },
     {
-      "id": 2552,
-      "date": "2026-05-23",
-      "time": "14:50",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "1. SC NATIOS Vítkovice White",
-      "away": "Zlín Lions",
-      "score": null
-    },
-    {
       "id": 2540,
       "date": "2026-05-23",
       "time": "14:50",
@@ -894,7 +883,7 @@
       "away": "FBC Dobruška",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -914,6 +903,21 @@
       }
     },
     {
+      "id": 2552,
+      "date": "2026-05-23",
+      "time": "14:50",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Střední škola Technická a Dopravní Ostrava",
+      "home": "1. SC NATIOS Vítkovice White",
+      "away": "Zlín Lions",
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
+    },
+    {
       "id": 2554,
       "date": "2026-05-23",
       "time": "14:50",
@@ -923,7 +927,7 @@
       "home": "Florbal MB Black",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
@@ -938,8 +942,8 @@
       "home": "FBS Olomouc červení",
       "away": "FBC Hlučín",
       "score": {
-        "home": 0,
-        "away": 0,
+        "home": 1,
+        "away": 1,
         "status": "live"
       }
     },
@@ -1027,7 +1031,7 @@
       "group": null,
       "phase": "8F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "H1/D4",
+      "home": "FBC TIGERS PORUBA",
       "away": "A2/E3",
       "score": null
     },
@@ -1170,7 +1174,7 @@
       "group": null,
       "phase": "8F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "✖ H1/D4",
+      "home": "FBK Valašské Meziříčí",
       "away": "✖ A2/E3",
       "score": null
     },
