@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T06:55:24.927Z",
+  "scraped_at": "2026-05-23T07:00:27.700Z",
   "matches": [
     {
       "id": 2294,
@@ -567,7 +567,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "Florbal MB Black",
       "score": {
-        "home": 1,
+        "home": 4,
         "away": 0,
         "status": "live"
       }
@@ -583,7 +583,7 @@
       "away": "Panthers Otrokovice",
       "score": {
         "home": 1,
-        "away": 1,
+        "away": 2,
         "status": "live"
       }
     },
@@ -612,7 +612,7 @@
       "home": "1. SC NATIOS Vítkovice White",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 0,
+        "home": 2,
         "away": 1,
         "status": "live"
       }
@@ -804,7 +804,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "SOKOLI Pardubice",
+      "home": "SK K2 Prostějov modří",
       "away": "H3",
       "score": null
     },
