@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T09:35:25.555Z",
+  "scraped_at": "2026-05-23T09:40:25.430Z",
   "groups": {
     "MA": [
       {
@@ -612,8 +612,8 @@
       {
         "rank": 2,
         "team": "UKS Salezjanie Poznań",
-        "scored": 6,
-        "conceded": 7,
+        "scored": 7,
+        "conceded": 11,
         "points": 3
       },
       {
@@ -626,9 +626,9 @@
       {
         "rank": 4,
         "team": "Fbc Šternberk",
-        "scored": 16,
-        "conceded": 3,
-        "points": 4
+        "scored": 20,
+        "conceded": 4,
+        "points": 7
       }
     ],
     "DF": [
