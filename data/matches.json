@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T17:40:26.958Z",
+  "scraped_at": "2026-05-23T17:45:38.526Z",
   "matches": [
     {
       "id": 2294,
@@ -1077,8 +1077,8 @@
       "home": "FBC Intevo Třinec bílí",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 6,
-        "away": 1,
+        "home": 8,
+        "away": 2,
         "status": "live"
       }
     },
