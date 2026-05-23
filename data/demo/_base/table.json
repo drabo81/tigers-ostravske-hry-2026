@@ -1,183 +1,183 @@
 {
-  "scraped_at": "2026-05-23T20:03:43.116Z",
+  "scraped_at": "2026-05-19T18:23:11.116Z",
   "groups": {
     "MA": [
       {
         "rank": 1,
-        "team": "FBC Spartak Bílovec",
-        "scored": 12,
-        "conceded": 8,
-        "points": 7
+        "team": "1. SC NATIOS Vítkovice Blue",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
         "team": "Zlín Lions",
-        "scored": 6,
-        "conceded": 1,
-        "points": 5
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
         "team": "Florbal MB Black",
-        "scored": 5,
-        "conceded": 11,
-        "points": 3
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
-        "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 3,
-        "conceded": 6,
-        "points": 1
+        "team": "FBC Spartak Bílovec",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       }
     ],
     "MB": [
       {
         "rank": 1,
-        "team": "FBS Olomouc červení",
-        "scored": 16,
-        "conceded": 5,
-        "points": 9
+        "team": "Salibandy Club Ostrava",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "Salibandy Club Ostrava",
-        "scored": 8,
-        "conceded": 8,
-        "points": 4
+        "team": "FBS Olomouc červení",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
         "team": "TROOPERS",
-        "scored": 10,
-        "conceded": 15,
-        "points": 3
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
         "team": "FBC Intevo Třinec bílí",
-        "scored": 4,
-        "conceded": 10,
-        "points": 1
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       }
     ],
     "MC": [
       {
         "rank": 1,
-        "team": "Torpedo Havířov",
-        "scored": 12,
-        "conceded": 6,
-        "points": 9
+        "team": "MVIL Ostrava",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "ACEMA Sparta Praha RED",
-        "scored": 10,
-        "conceded": 10,
-        "points": 4
+        "team": "Sokol Brno I EMKOCase Gullivers",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
-        "team": "MVIL Ostrava",
-        "scored": 9,
-        "conceded": 9,
-        "points": 3
+        "team": "ACEMA Sparta Praha RED",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
-        "team": "Sokol Brno I EMKOCase Gullivers",
-        "scored": 5,
-        "conceded": 11,
-        "points": 1
+        "team": "Torpedo Havířov",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       }
     ],
     "MD": [
       {
         "rank": 1,
-        "team": "SOKOLI Pardubice",
-        "scored": 12,
-        "conceded": 5,
-        "points": 9
+        "team": "SK K2 Prostějov modří",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "SK K2 Prostějov modří",
-        "scored": 11,
-        "conceded": 11,
-        "points": 4
+        "team": "FBC Dobruška",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
-        "team": "FBC Dobruška",
-        "scored": 7,
-        "conceded": 11,
-        "points": 3
+        "team": "SOKOLI Pardubice",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
         "team": "FBK Valašské Meziříčí",
-        "scored": 11,
-        "conceded": 14,
-        "points": 1
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       }
     ],
     "ME": [
       {
         "rank": 1,
-        "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 10,
-        "conceded": 5,
-        "points": 9
+        "team": "1. SC NATIOS Vítkovice White",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "FBC Vítkov U13",
-        "scored": 7,
-        "conceded": 6,
-        "points": 4
+        "team": "FBC Gepardi Brno",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
-        "team": "FBC Gepardi Brno",
-        "scored": 6,
-        "conceded": 7,
-        "points": 3
+        "team": "FBC ČPP Bystroň Group Ostrava",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
-        "team": "1. SC NATIOS Vítkovice White",
-        "scored": 6,
-        "conceded": 11,
-        "points": 1
+        "team": "FBC Vítkov U13",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       }
     ],
     "MF": [
       {
         "rank": 1,
-        "team": "Fbc Šternberk",
-        "scored": 11,
-        "conceded": 5,
-        "points": 9
+        "team": "FBC Hlučín",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "Panthers Otrokovice",
-        "scored": 8,
-        "conceded": 7,
-        "points": 6
+        "team": "Fbc Šternberk",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
-        "team": "FBC Vikings Kopřivnice",
-        "scored": 9,
-        "conceded": 13,
-        "points": 3
+        "team": "Panthers Otrokovice",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
-        "team": "FBC Hlučín",
-        "scored": 7,
-        "conceded": 10,
+        "team": "FBC Vikings Kopřivnice",
+        "scored": 0,
+        "conceded": 0,
         "points": 0
       }
     ],
@@ -185,59 +185,59 @@
       {
         "rank": 1,
         "team": "FBC Letka Toman Finance Group",
-        "scored": 12,
-        "conceded": 8,
-        "points": 6
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "SK K2 Prostějov bílí",
-        "scored": 10,
-        "conceded": 10,
-        "points": 4
+        "team": "Florbal MB White",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
-        "team": "Florbal MB White",
-        "scored": 11,
-        "conceded": 12,
-        "points": 4
+        "team": "Florbal Vsetín",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
-        "team": "Florbal Vsetín",
-        "scored": 12,
-        "conceded": 15,
-        "points": 3
+        "team": "SK K2 Prostějov bílí",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       }
     ],
     "MH": [
       {
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
-        "scored": 13,
-        "conceded": 2,
-        "points": 9
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 2,
-        "team": "FBC Intevo Třinec červení",
-        "scored": 13,
-        "conceded": 11,
-        "points": 6
+        "team": "ACEMA Sparta Praha YELLOW",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 3,
-        "team": "ACEMA Sparta Praha YELLOW",
-        "scored": 10,
-        "conceded": 12,
-        "points": 3
+        "team": "FBS Olomouc bílí",
+        "scored": 0,
+        "conceded": 0,
+        "points": 0
       },
       {
         "rank": 4,
-        "team": "FBS Olomouc bílí",
-        "scored": 5,
-        "conceded": 16,
+        "team": "FBC Intevo Třinec červení",
+        "scored": 0,
+        "conceded": 0,
         "points": 0
       }
     ],

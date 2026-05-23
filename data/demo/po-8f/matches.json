@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-22T05:22:03.673Z",
+  "scraped_at": "2026-05-23T20:03:43.285Z",
   "matches": [
     {
       "id": 2294,
@@ -1202,8 +1202,8 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBC Gepardi Brno",
       "score": {
-        "home": 2,
-        "away": 5,
+        "home": 5,
+        "away": 3,
         "status": "final"
       },
       "_homeOriginal": "H1/D4",
@@ -1236,8 +1236,8 @@
       "home": "1. SC NATIOS Vítkovice White",
       "away": "FBC Hlučín",
       "score": {
-        "home": 3,
-        "away": 4,
+        "home": 5,
+        "away": 0,
         "status": "final"
       },
       "_homeOriginal": "A1/H2/D3/E4",
@@ -1253,8 +1253,8 @@
       "home": "TROOPERS",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 2,
-        "away": 1,
+        "home": 5,
+        "away": 0,
         "status": "final"
       },
       "_homeOriginal": "C1/F2/B3/G4",
@@ -1268,10 +1268,10 @@
       "phase": "4F-A",
       "venue": "SH ČPP Aréna Ostrava",
       "home": "FBC Vikings Kopřivnice",
-      "away": "FBC Gepardi Brno",
+      "away": "FBC TIGERS PORUBA",
       "score": {
         "home": 2,
-        "away": 6,
+        "away": 4,
         "status": "final"
       },
       "_homeOriginal": "G1/B2/F3/C4",
@@ -1287,7 +1287,7 @@
       "home": "ACEMA Sparta Praha YELLOW",
       "away": "FBC Intevo Třinec bílí",
       "score": {
-        "home": 7,
+        "home": 5,
         "away": 0,
         "status": "final"
       },
@@ -1304,8 +1304,8 @@
       "home": "FBC Spartak Bílovec",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 5,
-        "away": 0,
+        "home": 4,
+        "away": 1,
         "status": "final"
       },
       "_homeOriginal": "✖  A1/E4",
@@ -1321,8 +1321,8 @@
       "home": "FBS Olomouc červení",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 5,
-        "away": 0,
+        "home": 6,
+        "away": 5,
         "status": "final"
       },
       "_homeOriginal": "✖ B1/F4",
@@ -1338,7 +1338,7 @@
       "home": "FBS Olomouc bílí",
       "away": "Florbal MB Black",
       "score": {
-        "home": 5,
+        "home": 7,
         "away": 0,
         "status": "final"
       },
@@ -1355,7 +1355,7 @@
       "home": "Torpedo Havířov",
       "away": "Panthers Otrokovice",
       "score": {
-        "home": 5,
+        "home": 7,
         "away": 2,
         "status": "final"
       },
@@ -1372,8 +1372,8 @@
       "home": "Fbc Šternberk",
       "away": "ACEMA Sparta Praha RED",
       "score": {
-        "home": 4,
-        "away": 1,
+        "home": 3,
+        "away": 4,
         "status": "final"
       },
       "_homeOriginal": "✖ F1/B4",
@@ -1389,8 +1389,8 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "SK K2 Prostějov modří",
       "score": {
-        "home": 6,
-        "away": 5,
+        "home": 2,
+        "away": 1,
         "status": "final"
       },
       "_homeOriginal": "✖ E1/A4",
@@ -1406,8 +1406,8 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "Salibandy Club Ostrava",
       "score": {
-        "home": 7,
-        "away": 0,
+        "home": 2,
+        "away": 6,
         "status": "final"
       },
       "_homeOriginal": "✖ G1/C4",
@@ -1424,7 +1424,7 @@
       "away": "Zlín Lions",
       "score": {
         "home": 7,
-        "away": 2,
+        "away": 0,
         "status": "final"
       },
       "_homeOriginal": "✖ H1/D4",
@@ -1437,11 +1437,11 @@
       "group": null,
       "phase": "SF-A",
       "venue": "SH ČPP Aréna Ostrava",
-      "home": "FBC Hlučín",
+      "home": "1. SC NATIOS Vítkovice White",
       "away": "TROOPERS",
       "score": {
-        "home": 4,
-        "away": 5,
+        "home": 5,
+        "away": 2,
         "status": "final"
       },
       "_homeOriginal": "A1/B1/H2/G2/C3/D3/E4/F4",
@@ -1455,10 +1455,10 @@
       "phase": "SF-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "ACEMA Sparta Praha YELLOW",
-      "away": "FBC Gepardi Brno",
+      "away": "FBC TIGERS PORUBA",
       "score": {
-        "home": 6,
-        "away": 7,
+        "home": 4,
+        "away": 6,
         "status": "final"
       },
       "_homeOriginal": "E1/F1/C2/D2/G3/H3/A4/B4",
