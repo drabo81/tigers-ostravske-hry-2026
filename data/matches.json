@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T13:05:27.735Z",
+  "scraped_at": "2026-05-23T13:08:21.251Z",
   "matches": [
     {
       "id": 2294,
@@ -883,7 +883,7 @@
       "away": "FBC Dobruška",
       "score": {
         "home": 0,
-        "away": 2,
+        "away": 3,
         "status": "live"
       }
     },
@@ -898,7 +898,7 @@
       "away": "Torpedo Havířov",
       "score": {
         "home": 0,
-        "away": 4,
+        "away": 5,
         "status": "live"
       }
     },
@@ -927,7 +927,7 @@
       "home": "Florbal MB Black",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 9,
+        "home": 10,
         "away": 0,
         "status": "live"
       }
