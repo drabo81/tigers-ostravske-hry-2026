@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T09:45:25.933Z",
+  "scraped_at": "2026-05-23T10:20:27.937Z",
   "groups": {
     "MA": [
       {
@@ -545,9 +545,9 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 7,
-        "conceded": 12,
-        "points": 3
+        "scored": 10,
+        "conceded": 14,
+        "points": 6
       },
       {
         "rank": 2,
@@ -559,8 +559,8 @@
       {
         "rank": 3,
         "team": "Hornets Brno U17",
-        "scored": 0,
-        "conceded": 8,
+        "scored": 2,
+        "conceded": 11,
         "points": 0
       },
       {
