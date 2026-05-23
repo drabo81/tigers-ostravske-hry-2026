@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T06:06:47.067Z",
+  "scraped_at": "2026-05-23T06:10:26.561Z",
   "matches": [
     {
       "id": 2294,
@@ -508,7 +508,7 @@
       "away": "FBK Valašské Meziříčí",
       "score": {
         "home": 1,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -522,7 +522,7 @@
       "home": "SK K2 Prostějov modří",
       "away": "SOKOLI Pardubice",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
