@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T17:20:22.740Z",
+  "scraped_at": "2026-05-23T17:25:28.966Z",
   "matches": [
     {
       "id": 2294,
@@ -1047,7 +1047,7 @@
       "home": "SOKOLI Pardubice",
       "away": "Zlín Lions",
       "score": {
-        "home": 2,
+        "home": 4,
         "away": 1,
         "status": "live"
       }
@@ -1063,8 +1063,8 @@
       "away": "Florbal MB Black",
       "score": {
         "home": 1,
-        "away": 3,
-        "status": "live"
+        "away": 4,
+        "status": "final"
       }
     },
     {
@@ -1077,8 +1077,8 @@
       "home": "FBC Intevo Třinec bílí",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 2,
-        "away": 0,
+        "home": 4,
+        "away": 1,
         "status": "live"
       }
     },
@@ -1112,7 +1112,7 @@
       "phase": "4F-A",
       "venue": "SH ČPP Aréna Ostrava",
       "home": "FBS Olomouc červení",
-      "away": "H1/A2/E3/D4",
+      "away": "Florbal MB Black",
       "score": null
     },
     {
