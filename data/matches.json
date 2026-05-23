@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:10:26.955Z",
+  "scraped_at": "2026-05-23T07:15:29.544Z",
   "matches": [
     {
       "id": 2294,
@@ -582,8 +582,8 @@
       "home": "FBC Hlučín",
       "away": "Panthers Otrokovice",
       "score": {
-        "home": 2,
-        "away": 2,
+        "home": 3,
+        "away": 4,
         "status": "live"
       }
     },
@@ -597,7 +597,7 @@
       "home": "FBC Gepardi Brno",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 6,
+        "home": 9,
         "away": 1,
         "status": "live"
       }
