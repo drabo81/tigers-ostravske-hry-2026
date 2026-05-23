@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:30:29.433Z",
+  "scraped_at": "2026-05-23T07:35:25.713Z",
   "matches": [
     {
       "id": 2294,
@@ -543,21 +543,6 @@
       }
     },
     {
-      "id": 2331,
-      "date": "2026-05-23",
-      "time": "08:45",
-      "group": "MA",
-      "phase": "group",
-      "venue": "SH Sareza Přívoz Ostrava",
-      "home": "1. SC NATIOS Vítkovice Blue",
-      "away": "Florbal MB Black",
-      "score": {
-        "home": 8,
-        "away": 2,
-        "status": "live"
-      }
-    },
-    {
       "id": 2330,
       "date": "2026-05-23",
       "time": "08:45",
@@ -569,6 +554,21 @@
       "score": {
         "home": 2,
         "away": 1,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2331,
+      "date": "2026-05-23",
+      "time": "08:45",
+      "group": "MA",
+      "phase": "group",
+      "venue": "SH Sareza Přívoz Ostrava",
+      "home": "1. SC NATIOS Vítkovice Blue",
+      "away": "Florbal MB Black",
+      "score": {
+        "home": 8,
+        "away": 2,
         "status": "final"
       }
     },
@@ -653,7 +653,7 @@
       "home": "SK K2 Prostějov bílí",
       "away": "Florbal Vsetín",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1,
         "status": "live"
       }
@@ -668,7 +668,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
@@ -713,7 +713,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "E1",
+      "home": "FBC Gepardi Brno",
       "away": "A4",
       "score": null
     },
@@ -725,7 +725,7 @@
       "phase": "16F-A",
       "venue": "SH TJ Ostrava (Varenská)",
       "home": "A1",
-      "away": "E4",
+      "away": "FBC Vítkov U13",
       "score": null
     },
     {
@@ -845,7 +845,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "E2",
+      "home": "1. SC NATIOS Vítkovice White",
       "away": "A3",
       "score": null
     },
@@ -868,7 +868,7 @@
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "B2",
-      "away": "F3",
+      "away": "FBC ČPP Bystroň Group Ostrava",
       "score": null
     },
     {

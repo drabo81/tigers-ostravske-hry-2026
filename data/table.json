@@ -1,13 +1,13 @@
 {
-  "scraped_at": "2026-05-23T07:30:29.433Z",
+  "scraped_at": "2026-05-23T07:35:25.713Z",
   "groups": {
     "MA": [
       {
         "rank": 1,
         "team": "1. SC NATIOS Vítkovice Blue",
-        "scored": 51,
-        "conceded": 1,
-        "points": 6
+        "scored": 59,
+        "conceded": 3,
+        "points": 9
       },
       {
         "rank": 2,
@@ -19,8 +19,8 @@
       {
         "rank": 3,
         "team": "Florbal MB Black",
-        "scored": 15,
-        "conceded": 0,
+        "scored": 17,
+        "conceded": 8,
         "points": 6
       },
       {
