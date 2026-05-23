@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T06:05:28.250Z",
+  "scraped_at": "2026-05-23T06:06:47.067Z",
   "matches": [
     {
       "id": 2294,
@@ -492,7 +492,7 @@
       "home": "Zlín Lions",
       "away": "FBC Spartak Bílovec",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
@@ -537,7 +537,7 @@
       "home": "FBS Olomouc červení",
       "away": "FBC Intevo Třinec bílí",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1,
         "status": "live"
       }
