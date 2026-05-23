@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T16:05:30.401Z",
+  "scraped_at": "2026-05-23T16:10:17.306Z",
   "matches": [
     {
       "id": 2294,
@@ -987,9 +987,9 @@
       "home": "FBC Gepardi Brno",
       "away": "SK K2 Prostějov modří",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 6,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1013,7 +1013,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Dobruška",
       "score": {
-        "home": 3,
+        "home": 5,
         "away": 0,
         "status": "live"
       }
@@ -1102,7 +1102,7 @@
       "group": null,
       "phase": "4F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "E1/D2/H3/A4",
+      "home": "SK K2 Prostějov modří",
       "away": "Panthers Otrokovice",
       "score": null
     },
