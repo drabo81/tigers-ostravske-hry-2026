@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:10:26.574Z",
+  "scraped_at": "2026-05-23T12:15:00.419Z",
   "matches": [
     {
       "id": 2294,
@@ -738,17 +738,6 @@
       }
     },
     {
-      "id": 2553,
-      "date": "2026-05-23",
-      "time": "14:00",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Sareza Přívoz Ostrava",
-      "home": "FBC TIGERS PORUBA",
-      "away": "FBK Valašské Meziříčí",
-      "score": null
-    },
-    {
       "id": 2559,
       "date": "2026-05-23",
       "time": "14:00",
@@ -769,7 +758,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 4,
+        "home": 6,
         "away": 0,
         "status": "live"
       }
@@ -799,7 +788,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 2,
+        "home": 5,
         "away": 1,
         "status": "live"
       }
@@ -814,7 +803,22 @@
       "home": "SOKOLI Pardubice",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 4,
+        "home": 9,
+        "away": 0,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2553,
+      "date": "2026-05-23",
+      "time": "14:00",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Sareza Přívoz Ostrava",
+      "home": "FBC TIGERS PORUBA",
+      "away": "FBK Valašské Meziříčí",
+      "score": {
+        "home": 0,
         "away": 0,
         "status": "live"
       }
@@ -859,7 +863,7 @@
       "home": "SK K2 Prostějov modří",
       "away": "FBS Olomouc bílí",
       "score": {
-        "home": 3,
+        "home": 5,
         "away": 0,
         "status": "live"
       }
