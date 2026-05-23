@@ -115,3 +115,60 @@ test('renderStaticBracket: stejný tým na obou stranách → "soupeř bude urč
   assert.ok(!/TIGERS\s*–\s*TIGERS/.test(h1), `nesmí ukázat tým proti sobě, ale je: "${h1}"`);
   assert.ok(h1.includes('soupeř bude určen'), `má ukázat "soupeř bude určen", ale je: "${h1}"`);
 });
+
+// Scénář jako v produkci: MH seedy 2/3/4 prohrají 16F-A, takže seed týmy nejsou
+// v 8F-A/4F-A. Uzly A-větve se musí mapovat na zápas týmu, který se na linii seedu
+// SKUTEČNĚ dostal (vítěz 16F), ne na seed. To řeší winner-walk.
+function divergedAFixture() {
+  const t = (name) => ({ team: name, points: 6, scored: 10, conceded: 4 });
+  const table = {
+    groups: {
+      MH: [
+        { rank: 1, ...t('FBC TIGERS PORUBA') },
+        { rank: 2, ...t('BETA SEED') },
+        { rank: 3, ...t('GAMA SEED') },
+        { rank: 4, ...t('DELTA SEED') },
+      ],
+    },
+  };
+  const matches = { matches: [
+    // 16F-A: seedy 2/3/4 prohrají, postupují jejich soupeři
+    { id: 101, phase: '16F-A', home: 'FBC TIGERS PORUBA', away: 'OPP1', score: { home: 5, away: 1 } },
+    { id: 102, phase: '16F-A', home: 'BETA SEED', away: 'WIN BETA', score: { home: 1, away: 5 } },
+    { id: 103, phase: '16F-A', home: 'GAMA SEED', away: 'WIN GAMA', score: { home: 0, away: 3 } },
+    { id: 104, phase: '16F-A', home: 'DELTA SEED', away: 'WIN DELTA', score: { home: 2, away: 9 } },
+    // 8F-A: reálná jména; Tigers prohrají (jako v produkci), ostatní vítězové postoupí
+    { id: 201, phase: '8F-A', home: 'FBC TIGERS PORUBA', away: 'OA1', score: { home: 1, away: 4 } },
+    { id: 202, phase: '8F-A', home: 'WIN BETA', away: 'OA2', score: { home: 6, away: 2 } },
+    { id: 203, phase: '8F-A', home: 'WIN GAMA', away: 'OA3', score: { home: 3, away: 2 } },
+    { id: 204, phase: '8F-A', home: 'WIN DELTA', away: 'OA4', score: { home: 7, away: 0 } },
+    // 4F-A: reálná jména (vítězové 8F-A na liniích)
+    { id: 301, phase: '4F-A', home: 'OA1', away: 'Z1', score: null },
+    { id: 302, phase: '4F-A', home: 'WIN BETA', away: 'Z2', score: null },
+    { id: 303, phase: '4F-A', home: 'WIN GAMA', away: 'Z3', score: null },
+    { id: 304, phase: '4F-A', home: 'WIN DELTA', away: 'Z4', score: null },
+  ] };
+  return { matches, table };
+}
+
+test('renderStaticBracket: 8F-A uzly mapují na vítěze 16F (seed prohrál) — winner-walk', () => {
+  const { matches, table } = divergedAFixture();
+  const src = renderStaticBracket(matches, table);
+  // OF_A2 = linie H2: BETA SEED prohrál → WIN BETA postoupil
+  const a2 = nodeLabel(src, 'OF_A2');
+  assert.ok(a2 && a2.includes('WIN BETA'), `OF_A2 má ukázat WIN BETA (vítěz H2 linie), ale je: "${a2}"`);
+  assert.ok(!a2.includes('BETA SEED'), `OF_A2 nesmí ukázat poražený seed BETA SEED: "${a2}"`);
+  // OF_A3, OF_A4 obdobně
+  assert.ok(nodeLabel(src, 'OF_A3').includes('WIN GAMA'), 'OF_A3 → WIN GAMA');
+  assert.ok(nodeLabel(src, 'OF_A4').includes('WIN DELTA'), 'OF_A4 → WIN DELTA');
+});
+
+test('renderStaticBracket: 4F-A uzly sledují linii dál po vítězích 8F-A — winner-walk', () => {
+  const { matches, table } = divergedAFixture();
+  const src = renderStaticBracket(matches, table);
+  // QF_A1 = linie H1: Tigers vyhráli 16F, prohráli 8F-A → OA1 postoupil do 4F-A
+  const q1 = nodeLabel(src, 'QF_A1');
+  assert.ok(q1 && q1.includes('OA1'), `QF_A1 má sledovat vítěze 8F-A na H1 linii (OA1), ale je: "${q1}"`);
+  // QF_A2 = linie H2: WIN BETA vyhrál 8F-A → pokračuje do 4F-A
+  assert.ok(nodeLabel(src, 'QF_A2').includes('WIN BETA'), 'QF_A2 → WIN BETA');
+});
