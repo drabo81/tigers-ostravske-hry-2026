@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T10:13:23.342Z",
+  "scraped_at": "2026-05-22T05:22:03.629Z",
   "matches": [
     {
       "id": 2294,
@@ -825,15 +825,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "FBC Gepardi Brno",
-      "away": "FBC Spartak Bílovec",
+      "home": "FBC ČPP Bystroň Group Ostrava",
+      "away": "1. SC NATIOS Vítkovice Blue",
       "score": {
         "home": 7,
         "away": 1,
         "status": "final"
       },
-      "_homeOriginal": "FBC Gepardi Brno",
-      "_awayOriginal": "FBC Spartak Bílovec"
+      "_homeOriginal": "E1",
+      "_awayOriginal": "A4"
     },
     {
       "id": 2539,
@@ -842,15 +842,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH TJ Ostrava (Varenská)",
-      "home": "1. SC NATIOS Vítkovice Blue",
-      "away": "FBC Vítkov U13",
+      "home": "FBC Spartak Bílovec",
+      "away": "1. SC NATIOS Vítkovice White",
       "score": {
         "home": 5,
         "away": 6,
         "status": "final"
       },
-      "_homeOriginal": "1. SC NATIOS Vítkovice Blue",
-      "_awayOriginal": "FBC Vítkov U13"
+      "_homeOriginal": "A1",
+      "_awayOriginal": "E4"
     },
     {
       "id": 2541,
@@ -859,15 +859,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Krasné Pole",
-      "home": "FBC Intevo Třinec bílí",
-      "away": "FBC Vikings Kopřivnice",
+      "home": "FBS Olomouc červení",
+      "away": "FBC Hlučín",
       "score": {
         "home": 4,
         "away": 6,
         "status": "final"
       },
-      "_homeOriginal": "FBC Intevo Třinec bílí",
-      "_awayOriginal": "FBC Vikings Kopřivnice"
+      "_homeOriginal": "B1",
+      "_awayOriginal": "F4"
     },
     {
       "id": 2549,
@@ -876,15 +876,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "Sokol Brno I EMKOCase Gullivers",
-      "away": "SK K2 Prostějov bílí",
+      "home": "Torpedo Havířov",
+      "away": "Florbal Vsetín",
       "score": {
         "home": 4,
         "away": 5,
         "status": "final"
       },
-      "_homeOriginal": "Sokol Brno I EMKOCase Gullivers",
-      "_awayOriginal": "SK K2 Prostějov bílí"
+      "_homeOriginal": "C1",
+      "_awayOriginal": "G4"
     },
     {
       "id": 2551,
@@ -894,14 +894,14 @@
       "phase": "16F-A",
       "venue": "SH ČPP Aréna Ostrava",
       "home": "SOKOLI Pardubice",
-      "away": "FBC Intevo Třinec červení",
+      "away": "FBS Olomouc bílí",
       "score": {
         "home": 3,
         "away": 0,
         "status": "final"
       },
-      "_homeOriginal": "SOKOLI Pardubice",
-      "_awayOriginal": "FBC Intevo Třinec červení"
+      "_homeOriginal": "D1",
+      "_awayOriginal": "H4"
     },
     {
       "id": 2553,
@@ -917,8 +917,8 @@
         "away": 2,
         "status": "final"
       },
-      "_homeOriginal": "FBC TIGERS PORUBA",
-      "_awayOriginal": "FBK Valašské Meziříčí"
+      "_homeOriginal": "H1",
+      "_awayOriginal": "D4"
     },
     {
       "id": 2555,
@@ -928,14 +928,14 @@
       "phase": "16F-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "FBC Letka Toman Finance Group",
-      "away": "MVIL Ostrava",
+      "away": "Sokol Brno I EMKOCase Gullivers",
       "score": {
         "home": 1,
         "away": 0,
         "status": "final"
       },
-      "_homeOriginal": "FBC Letka Toman Finance Group",
-      "_awayOriginal": "MVIL Ostrava"
+      "_homeOriginal": "G1",
+      "_awayOriginal": "C4"
     },
     {
       "id": 2558,
@@ -944,15 +944,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Třebovice",
-      "home": "Panthers Otrokovice",
-      "away": "Salibandy Club Ostrava",
+      "home": "Fbc Šternberk",
+      "away": "FBC Intevo Třinec bílí",
       "score": {
         "home": 2,
         "away": 5,
         "status": "final"
       },
-      "_homeOriginal": "Panthers Otrokovice",
-      "_awayOriginal": "Salibandy Club Ostrava"
+      "_homeOriginal": "F1",
+      "_awayOriginal": "B4"
     },
     {
       "id": 2559,
@@ -962,14 +962,14 @@
       "phase": "16F-A",
       "venue": "Sportovní hala VŠB-TUO",
       "home": "ACEMA Sparta Praha RED",
-      "away": "Florbal Vsetín",
+      "away": "Florbal MB White",
       "score": {
         "home": 3,
         "away": 5,
         "status": "final"
       },
-      "_homeOriginal": "ACEMA Sparta Praha RED",
-      "_awayOriginal": "Florbal Vsetín"
+      "_homeOriginal": "C2",
+      "_awayOriginal": "G3"
     },
     {
       "id": 2562,
@@ -979,14 +979,14 @@
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "SK K2 Prostějov modří",
-      "away": "FBS Olomouc bílí",
+      "away": "ACEMA Sparta Praha YELLOW",
       "score": {
         "home": 2,
         "away": 5,
         "status": "final"
       },
-      "_homeOriginal": "SK K2 Prostějov modří",
-      "_awayOriginal": "FBS Olomouc bílí"
+      "_homeOriginal": "D2",
+      "_awayOriginal": "H3"
     },
     {
       "id": 2540,
@@ -995,15 +995,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "Sportovní hala VŠB-TUO",
-      "home": "ACEMA Sparta Praha YELLOW",
+      "home": "FBC Intevo Třinec červení",
       "away": "FBC Dobruška",
       "score": {
         "home": 2,
         "away": 3,
         "status": "final"
       },
-      "_homeOriginal": "ACEMA Sparta Praha YELLOW",
-      "_awayOriginal": "FBC Dobruška"
+      "_homeOriginal": "H2",
+      "_awayOriginal": "D3"
     },
     {
       "id": 2546,
@@ -1012,15 +1012,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Krasné Pole",
-      "home": "Florbal MB White",
-      "away": "Torpedo Havířov",
+      "home": "SK K2 Prostějov bílí",
+      "away": "MVIL Ostrava",
       "score": {
         "home": 3,
         "away": 4,
         "status": "final"
       },
-      "_homeOriginal": "Florbal MB White",
-      "_awayOriginal": "Torpedo Havířov"
+      "_homeOriginal": "G2",
+      "_awayOriginal": "C3"
     },
     {
       "id": 2552,
@@ -1029,15 +1029,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "1. SC NATIOS Vítkovice White",
-      "away": "Zlín Lions",
+      "home": "FBC Vítkov U13",
+      "away": "Florbal MB Black",
       "score": {
         "home": 7,
         "away": 1,
         "status": "final"
       },
-      "_homeOriginal": "1. SC NATIOS Vítkovice White",
-      "_awayOriginal": "Zlín Lions"
+      "_homeOriginal": "E2",
+      "_awayOriginal": "A3"
     },
     {
       "id": 2554,
@@ -1046,14 +1046,14 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Třebovice",
-      "home": "Florbal MB Black",
+      "home": "Zlín Lions",
       "away": "FBC Gepardi Brno",
       "score": {
         "home": 2,
         "away": 7,
         "status": "final"
       },
-      "_homeOriginal": "Florbal MB Black",
+      "_homeOriginal": "A2",
       "_awayOriginal": "E3"
     },
     {
@@ -1063,15 +1063,15 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "FBS Olomouc červení",
-      "away": "FBC Hlučín",
+      "home": "Salibandy Club Ostrava",
+      "away": "FBC Vikings Kopřivnice",
       "score": {
         "home": 2,
         "away": 3,
         "status": "final"
       },
-      "_homeOriginal": "FBS Olomouc červení",
-      "_awayOriginal": "FBC Hlučín"
+      "_homeOriginal": "B2",
+      "_awayOriginal": "F3"
     },
     {
       "id": 2550,
@@ -1080,11 +1080,11 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "Fbc Šternberk",
-      "away": "TROOPERS",
+      "home": "F2",
+      "away": "B3",
       "score": null,
-      "_homeOriginal": "Fbc Šternberk",
-      "_awayOriginal": "TROOPERS"
+      "_homeOriginal": "F2",
+      "_awayOriginal": "B3"
     },
     {
       "id": 2595,
@@ -1405,11 +1405,11 @@
       "group": null,
       "phase": "4F-B",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "F1/B4-C2/G3",
-      "away": "E1/A4-D2/H3",
+      "home": "H1/D4-A2/E3",
+      "away": "G1/C4-B2/F3",
       "score": null,
-      "_homeOriginal": "F1/B4-C2/G3",
-      "_awayOriginal": "E1/A4-D2/H3"
+      "_homeOriginal": "H1/D4-A2/E3",
+      "_awayOriginal": "G1/C4-B2/F3"
     },
     {
       "id": 2757,
