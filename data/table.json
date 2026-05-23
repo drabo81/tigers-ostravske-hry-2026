@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:05:29.005Z",
+  "scraped_at": "2026-05-23T08:10:33.502Z",
   "groups": {
     "MA": [
       {
@@ -72,9 +72,9 @@
       {
         "rank": 2,
         "team": "Sokol Brno I EMKOCase Gullivers",
-        "scored": 18,
+        "scored": 28,
         "conceded": 4,
-        "points": 6
+        "points": 9
       },
       {
         "rank": 3,
@@ -87,7 +87,7 @@
         "rank": 4,
         "team": "Torpedo Havířov",
         "scored": 6,
-        "conceded": 7,
+        "conceded": 17,
         "points": 3
       }
     ],
@@ -185,29 +185,29 @@
       {
         "rank": 1,
         "team": "FBC Letka Toman Finance Group",
-        "scored": 11,
-        "conceded": 2,
-        "points": 6
+        "scored": 16,
+        "conceded": 5,
+        "points": 9
       },
       {
         "rank": 2,
         "team": "Florbal MB White",
-        "scored": 11,
-        "conceded": 10,
+        "scored": 14,
+        "conceded": 15,
         "points": 4
       },
       {
         "rank": 3,
         "team": "Florbal Vsetín",
-        "scored": 5,
-        "conceded": 12,
-        "points": 1
+        "scored": 9,
+        "conceded": 14,
+        "points": 4
       },
       {
         "rank": 4,
         "team": "SK K2 Prostějov bílí",
-        "scored": 7,
-        "conceded": 10,
+        "scored": 9,
+        "conceded": 14,
         "points": 0
       }
     ],
@@ -365,9 +365,9 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov",
-        "scored": 14,
-        "conceded": 6,
-        "points": 3
+        "scored": 21,
+        "conceded": 9,
+        "points": 6
       },
       {
         "rank": 2,
@@ -379,8 +379,8 @@
       {
         "rank": 3,
         "team": "Florbal Včelín",
-        "scored": 6,
-        "conceded": 7,
+        "scored": 9,
+        "conceded": 14,
         "points": 1
       },
       {
@@ -425,8 +425,8 @@
       {
         "rank": 1,
         "team": "FBC Hlučín",
-        "scored": 4,
-        "conceded": 9,
+        "scored": 5,
+        "conceded": 13,
         "points": 1
       },
       {
@@ -439,9 +439,9 @@
       {
         "rank": 3,
         "team": "Bulldogs Brno",
-        "scored": 15,
-        "conceded": 4,
-        "points": 6
+        "scored": 19,
+        "conceded": 5,
+        "points": 9
       },
       {
         "rank": 4,
