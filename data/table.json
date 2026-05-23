@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T09:00:27.122Z",
+  "scraped_at": "2026-05-23T09:35:25.555Z",
   "groups": {
     "MA": [
       {
@@ -552,8 +552,8 @@
       {
         "rank": 2,
         "team": "SKV",
-        "scored": 6,
-        "conceded": 5,
+        "scored": 8,
+        "conceded": 8,
         "points": 3
       },
       {
@@ -566,9 +566,9 @@
       {
         "rank": 4,
         "team": "Asper Šumperk",
-        "scored": 14,
-        "conceded": 2,
-        "points": 6
+        "scored": 17,
+        "conceded": 4,
+        "points": 9
       }
     ],
     "DD": [
@@ -642,9 +642,9 @@
       {
         "rank": 2,
         "team": "Floorball Academy Trnava",
-        "scored": 3,
-        "conceded": 14,
-        "points": 0
+        "scored": 6,
+        "conceded": 15,
+        "points": 3
       },
       {
         "rank": 3,
@@ -656,8 +656,8 @@
       {
         "rank": 4,
         "team": "Florbal Rosice",
-        "scored": 1,
-        "conceded": 29,
+        "scored": 2,
+        "conceded": 32,
         "points": 0
       }
     ],
