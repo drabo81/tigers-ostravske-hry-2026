@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T16:35:29.530Z",
+  "scraped_at": "2026-05-23T16:37:20.218Z",
   "matches": [
     {
       "id": 2294,
@@ -1002,7 +1002,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Dobruška",
       "score": {
-        "home": 12,
+        "home": 13,
         "away": 2,
         "status": "live"
       }
