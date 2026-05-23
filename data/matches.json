@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T08:45:31.517Z",
+  "scraped_at": "2026-05-23T08:50:00.286Z",
   "matches": [
     {
       "id": 2294,
@@ -688,7 +688,7 @@
       "away": "FBC Intevo Třinec červení",
       "score": {
         "home": 8,
-        "away": 3,
+        "away": 4,
         "status": "live"
       }
     },
@@ -702,7 +702,7 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBS Olomouc bílí",
       "score": {
-        "home": 6,
+        "home": 9,
         "away": 1,
         "status": "live"
       }
@@ -718,7 +718,7 @@
       "away": "ACEMA Sparta Praha RED",
       "score": {
         "home": 1,
-        "away": 7,
+        "away": 9,
         "status": "live"
       }
     },

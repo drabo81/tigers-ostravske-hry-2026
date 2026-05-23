@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:20:27.548Z",
+  "scraped_at": "2026-05-23T08:50:00.286Z",
   "groups": {
     "MA": [
       {
@@ -335,8 +335,8 @@
       {
         "rank": 1,
         "team": "FBC ČPP Bystroň Group Ostrava",
-        "scored": 15,
-        "conceded": 5,
+        "scored": 18,
+        "conceded": 11,
         "points": 6
       },
       {
@@ -349,9 +349,9 @@
       {
         "rank": 3,
         "team": "TROOPERS",
-        "scored": 15,
-        "conceded": 2,
-        "points": 6
+        "scored": 21,
+        "conceded": 5,
+        "points": 9
       },
       {
         "rank": 4,
