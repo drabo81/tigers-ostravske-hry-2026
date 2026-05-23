@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T08:40:28.903Z",
+  "scraped_at": "2026-05-23T08:45:31.517Z",
   "matches": [
     {
       "id": 2294,
@@ -687,7 +687,7 @@
       "home": "ACEMA Sparta Praha YELLOW",
       "away": "FBC Intevo Třinec červení",
       "score": {
-        "home": 7,
+        "home": 8,
         "away": 3,
         "status": "live"
       }
@@ -703,7 +703,7 @@
       "away": "FBS Olomouc bílí",
       "score": {
         "home": 6,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -717,8 +717,8 @@
       "home": "MVIL Ostrava",
       "away": "ACEMA Sparta Praha RED",
       "score": {
-        "home": 0,
-        "away": 6,
+        "home": 1,
+        "away": 7,
         "status": "live"
       }
     },
@@ -763,7 +763,7 @@
       "phase": "16F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
       "home": "C1",
-      "away": "G4",
+      "away": "SK K2 Prostějov bílí",
       "score": null
     },
     {
@@ -795,7 +795,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
-      "home": "G1",
+      "home": "FBC Letka Toman Finance Group",
       "away": "C4",
       "score": null
     },
@@ -818,7 +818,7 @@
       "phase": "16F-A",
       "venue": "Sportovní hala VŠB-TUO",
       "home": "C2",
-      "away": "G3",
+      "away": "Florbal Vsetín",
       "score": null
     },
     {
@@ -850,7 +850,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Krasné Pole",
-      "home": "G2",
+      "home": "Florbal MB White",
       "away": "C3",
       "score": null
     },
