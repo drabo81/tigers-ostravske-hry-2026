@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T12:00:32.897Z",
+  "scraped_at": "2026-05-23T12:10:26.574Z",
   "groups": {
     "MA": [
       {
@@ -755,9 +755,9 @@
       {
         "rank": 1,
         "team": "Torpedo Havířov",
-        "scored": 11,
-        "conceded": 1,
-        "points": 6
+        "scored": 15,
+        "conceded": 5,
+        "points": 7
       },
       {
         "rank": 2,
@@ -769,9 +769,9 @@
       {
         "rank": 3,
         "team": "FBC Uničov",
-        "scored": 11,
-        "conceded": 3,
-        "points": 6
+        "scored": 15,
+        "conceded": 7,
+        "points": 7
       },
       {
         "rank": 4,

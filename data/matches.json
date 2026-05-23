@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:05:28.489Z",
+  "scraped_at": "2026-05-23T12:10:26.574Z",
   "matches": [
     {
       "id": 2294,
@@ -769,7 +769,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Vítkov U13",
       "score": {
-        "home": 3,
+        "home": 4,
         "away": 0,
         "status": "live"
       }
@@ -784,7 +784,7 @@
       "home": "FBC Intevo Třinec bílí",
       "away": "FBC Vikings Kopřivnice",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 2,
         "status": "live"
       }
@@ -799,7 +799,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SK K2 Prostějov bílí",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 1,
         "status": "live"
       }
@@ -830,7 +830,7 @@
       "away": "MVIL Ostrava",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
@@ -859,7 +859,7 @@
       "home": "SK K2 Prostějov modří",
       "away": "FBS Olomouc bílí",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
