@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T11:40:28.132Z",
+  "scraped_at": "2026-05-23T11:48:30.940Z",
   "matches": [
     {
       "id": 2294,
@@ -734,7 +734,7 @@
       "score": {
         "home": 4,
         "away": 2,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -746,17 +746,6 @@
       "venue": "SH TJ Ostrava (Varenská)",
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Vítkov U13",
-      "score": null
-    },
-    {
-      "id": 2541,
-      "date": "2026-05-23",
-      "time": "14:00",
-      "group": null,
-      "phase": "16F-A",
-      "venue": "SH Krasné Pole",
-      "home": "FBC Intevo Třinec bílí",
-      "away": "FBC Vikings Kopřivnice",
       "score": null
     },
     {
@@ -835,6 +824,21 @@
       "home": "SK K2 Prostějov modří",
       "away": "FBS Olomouc bílí",
       "score": null
+    },
+    {
+      "id": 2541,
+      "date": "2026-05-23",
+      "time": "14:00",
+      "group": null,
+      "phase": "16F-A",
+      "venue": "SH Krasné Pole",
+      "home": "FBC Intevo Třinec bílí",
+      "away": "FBC Vikings Kopřivnice",
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2540,
@@ -920,7 +924,7 @@
       "group": null,
       "phase": "8F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "E1/A4",
+      "home": "FBC Gepardi Brno",
       "away": "D2/H3",
       "score": null
     },
@@ -1096,7 +1100,7 @@
       "group": null,
       "phase": "8F-B",
       "venue": "SH Třebovice",
-      "home": "✖ E1/A4",
+      "home": "FBC Spartak Bílovec",
       "away": "✖ D2/H3",
       "score": null
     },
