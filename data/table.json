@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T08:15:30.762Z",
+  "scraped_at": "2026-05-23T08:20:27.548Z",
   "groups": {
     "MA": [
       {
@@ -402,9 +402,9 @@
       {
         "rank": 2,
         "team": "ACEMA Sparta Praha RED",
-        "scored": 8,
-        "conceded": 7,
-        "points": 3
+        "scored": 12,
+        "conceded": 8,
+        "points": 6
       },
       {
         "rank": 3,
@@ -416,8 +416,8 @@
       {
         "rank": 4,
         "team": "Z.F.K. Petrovice",
-        "scored": 2,
-        "conceded": 16,
+        "scored": 3,
+        "conceded": 20,
         "points": 1
       }
     ],
