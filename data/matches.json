@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T09:05:28.448Z",
+  "scraped_at": "2026-05-23T09:10:30.378Z",
   "matches": [
     {
       "id": 2294,
@@ -762,7 +762,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "C1",
+      "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SK K2 Prostějov bílí",
       "score": null
     },
@@ -796,7 +796,7 @@
       "phase": "16F-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "FBC Letka Toman Finance Group",
-      "away": "C4",
+      "away": "MVIL Ostrava",
       "score": null
     },
     {
@@ -817,7 +817,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "Sportovní hala VŠB-TUO",
-      "home": "C2",
+      "home": "ACEMA Sparta Praha RED",
       "away": "Florbal Vsetín",
       "score": null
     },
@@ -851,7 +851,7 @@
       "phase": "16F-A",
       "venue": "SH Krasné Pole",
       "home": "Florbal MB White",
-      "away": "C3",
+      "away": "Torpedo Havířov",
       "score": null
     },
     {
