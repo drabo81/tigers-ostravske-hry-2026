@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T11:55:26.408Z",
+  "scraped_at": "2026-05-23T12:00:32.897Z",
   "groups": {
     "MA": [
       {
@@ -725,9 +725,9 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 11,
-        "conceded": 2,
-        "points": 6
+        "scored": 15,
+        "conceded": 3,
+        "points": 9
       },
       {
         "rank": 2,
@@ -739,8 +739,8 @@
       {
         "rank": 3,
         "team": "SOKOLI Pardubice",
-        "scored": 6,
-        "conceded": 5,
+        "scored": 7,
+        "conceded": 9,
         "points": 3
       },
       {
@@ -785,9 +785,9 @@
       {
         "rank": 1,
         "team": "Dinoco",
-        "scored": 16,
-        "conceded": 4,
-        "points": 3
+        "scored": 25,
+        "conceded": 5,
+        "points": 6
       },
       {
         "rank": 2,
@@ -799,8 +799,8 @@
       {
         "rank": 3,
         "team": "Hornets Brno U19",
-        "scored": 1,
-        "conceded": 8,
+        "scored": 2,
+        "conceded": 17,
         "points": 1
       },
       {
