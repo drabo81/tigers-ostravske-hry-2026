@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T11:20:32.868Z",
+  "scraped_at": "2026-05-23T11:40:28.132Z",
   "matches": [
     {
       "id": 2294,
@@ -732,7 +732,7 @@
       "home": "FBC Gepardi Brno",
       "away": "FBC Spartak Bílovec",
       "score": {
-        "home": 2,
+        "home": 4,
         "away": 2,
         "status": "live"
       }
