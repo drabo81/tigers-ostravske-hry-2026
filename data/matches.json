@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:40:31.236Z",
+  "scraped_at": "2026-05-23T07:45:28.795Z",
   "matches": [
     {
       "id": 2294,
@@ -658,7 +658,7 @@
       "away": "Florbal Vsetín",
       "score": {
         "home": 1,
-        "away": 2,
+        "away": 3,
         "status": "live"
       }
     },
@@ -739,7 +739,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Krasné Pole",
-      "home": "B1",
+      "home": "FBC Intevo Třinec bílí",
       "away": "FBC Vikings Kopřivnice",
       "score": null
     },
@@ -795,7 +795,7 @@
       "phase": "16F-A",
       "venue": "SH Třebovice",
       "home": "Panthers Otrokovice",
-      "away": "B4",
+      "away": "Salibandy Club Ostrava",
       "score": null
     },
     {
@@ -860,7 +860,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Třebovice",
-      "home": "A2",
+      "home": "Florbal MB Black",
       "away": "E3",
       "score": null
     },
@@ -871,7 +871,7 @@
       "group": null,
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "B2",
+      "home": "FBS Olomouc červení",
       "away": "FBC Hlučín",
       "score": null
     },
@@ -883,7 +883,7 @@
       "phase": "16F-A",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "Fbc Šternberk",
-      "away": "B3",
+      "away": "TROOPERS",
       "score": null
     },
     {
