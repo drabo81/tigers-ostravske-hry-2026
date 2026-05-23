@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T07:50:26.781Z",
+  "scraped_at": "2026-05-23T07:55:28.960Z",
   "matches": [
     {
       "id": 2294,
@@ -642,8 +642,8 @@
       "home": "Florbal MB White",
       "away": "FBC Letka Toman Finance Group",
       "score": {
-        "home": 1,
-        "away": 2,
+        "home": 2,
+        "away": 4,
         "status": "live"
       }
     },
@@ -672,7 +672,7 @@
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "Torpedo Havířov",
       "score": {
-        "home": 1,
+        "home": 4,
         "away": 0,
         "status": "live"
       }
