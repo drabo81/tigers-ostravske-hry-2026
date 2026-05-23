@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T11:15:31.566Z",
+  "scraped_at": "2026-05-23T11:20:32.868Z",
   "matches": [
     {
       "id": 2294,
@@ -733,7 +733,7 @@
       "away": "FBC Spartak Bílovec",
       "score": {
         "home": 2,
-        "away": 1,
+        "away": 2,
         "status": "live"
       }
     },
