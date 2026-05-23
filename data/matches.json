@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T15:05:32.838Z",
+  "scraped_at": "2026-05-23T15:15:28.395Z",
   "matches": [
     {
       "id": 2294,
@@ -972,7 +972,7 @@
       "home": "Panthers Otrokovice",
       "away": "ACEMA Sparta Praha RED",
       "score": {
-        "home": 4,
+        "home": 5,
         "away": 0,
         "status": "live"
       }
