@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-23T12:39:52.990Z",
+  "scraped_at": "2026-05-23T12:40:11.084Z",
   "matches": [
     {
       "id": 2294,
@@ -762,7 +762,7 @@
       "home": "FBC TIGERS PORUBA",
       "away": "FBK Valašské Meziříčí",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 1,
         "status": "live"
       }
