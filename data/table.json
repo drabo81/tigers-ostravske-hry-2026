@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-22T19:56:11.707Z",
+  "scraped_at": "2026-05-23T06:45:34.055Z",
   "groups": {
     "MA": [
       {
@@ -42,8 +42,8 @@
       {
         "rank": 2,
         "team": "FBS Olomouc červení",
-        "scored": 8,
-        "conceded": 6,
+        "scored": 11,
+        "conceded": 11,
         "points": 4
       },
       {
@@ -56,9 +56,9 @@
       {
         "rank": 4,
         "team": "FBC Intevo Třinec bílí",
-        "scored": 16,
-        "conceded": 4,
-        "points": 6
+        "scored": 21,
+        "conceded": 7,
+        "points": 9
       }
     ],
     "MC": [
@@ -95,29 +95,29 @@
       {
         "rank": 1,
         "team": "SK K2 Prostějov modří",
-        "scored": 15,
-        "conceded": 5,
+        "scored": 16,
+        "conceded": 8,
         "points": 6
       },
       {
         "rank": 2,
         "team": "FBC Dobruška",
-        "scored": 5,
-        "conceded": 11,
-        "points": 0
+        "scored": 7,
+        "conceded": 12,
+        "points": 3
       },
       {
         "rank": 3,
         "team": "SOKOLI Pardubice",
-        "scored": 7,
-        "conceded": 3,
-        "points": 6
+        "scored": 10,
+        "conceded": 4,
+        "points": 9
       },
       {
         "rank": 4,
         "team": "FBK Valašské Meziříčí",
-        "scored": 3,
-        "conceded": 11,
+        "scored": 4,
+        "conceded": 13,
         "points": 0
       }
     ],
