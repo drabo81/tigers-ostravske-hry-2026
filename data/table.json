@@ -1,5 +1,5 @@
 {
-  "scraped_at": "2026-05-23T09:40:25.430Z",
+  "scraped_at": "2026-05-23T09:45:25.933Z",
   "groups": {
     "MA": [
       {
@@ -245,8 +245,8 @@
       {
         "rank": 1,
         "team": "FBC TIGERS PORUBA",
-        "scored": 9,
-        "conceded": 18,
+        "scored": 12,
+        "conceded": 24,
         "points": 3
       },
       {
@@ -259,9 +259,9 @@
       {
         "rank": 3,
         "team": "FBŠ HATTRICK BRNO",
-        "scored": 2,
-        "conceded": 5,
-        "points": 1
+        "scored": 8,
+        "conceded": 8,
+        "points": 4
       },
       {
         "rank": 4,
@@ -305,8 +305,8 @@
       {
         "rank": 1,
         "team": "MVIL Ostrava",
-        "scored": 6,
-        "conceded": 7,
+        "scored": 8,
+        "conceded": 13,
         "points": 1
       },
       {
@@ -319,9 +319,9 @@
       {
         "rank": 3,
         "team": "Florbal Rosice",
-        "scored": 13,
-        "conceded": 8,
-        "points": 6
+        "scored": 19,
+        "conceded": 10,
+        "points": 9
       },
       {
         "rank": 4,
@@ -522,9 +522,9 @@
       {
         "rank": 2,
         "team": "TJ Kobylisy",
-        "scored": 7,
-        "conceded": 3,
-        "points": 4
+        "scored": 13,
+        "conceded": 5,
+        "points": 7
       },
       {
         "rank": 3,
@@ -536,8 +536,8 @@
       {
         "rank": 4,
         "team": "FBC Vítkov U17",
-        "scored": 1,
-        "conceded": 12,
+        "scored": 3,
+        "conceded": 18,
         "points": 0
       }
     ],
@@ -672,8 +672,8 @@
       {
         "rank": 2,
         "team": "FbC Young Arrows Sp. Nová Ves",
-        "scored": 4,
-        "conceded": 11,
+        "scored": 6,
+        "conceded": 14,
         "points": 0
       },
       {
@@ -686,9 +686,9 @@
       {
         "rank": 4,
         "team": "Florbal Vsetín",
-        "scored": 1,
-        "conceded": 7,
-        "points": 0
+        "scored": 4,
+        "conceded": 9,
+        "points": 3
       }
     ],
     "DH": [
@@ -702,8 +702,8 @@
       {
         "rank": 2,
         "team": "Panthers Praha WHITE",
-        "scored": 6,
-        "conceded": 13,
+        "scored": 8,
+        "conceded": 19,
         "points": 0
       },
       {
@@ -716,9 +716,9 @@
       {
         "rank": 4,
         "team": "FBS Olomouc",
-        "scored": 12,
-        "conceded": 7,
-        "points": 4
+        "scored": 18,
+        "conceded": 9,
+        "points": 7
       }
     ],
     "JA": [
