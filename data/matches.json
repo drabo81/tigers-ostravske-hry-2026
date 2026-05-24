@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T14:14:11.435Z",
+  "scraped_at": "2026-05-24T14:43:52.092Z",
   "matches": [
     {
       "id": 2294,
@@ -1409,7 +1409,7 @@
       "score": {
         "home": 6,
         "away": 3,
-        "status": "live"
+        "status": "final"
       }
     }
   ]
