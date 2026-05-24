@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T11:53:58.508Z",
+  "scraped_at": "2026-05-24T12:18:03.597Z",
   "matches": [
     {
       "id": 2294,
@@ -1364,7 +1364,7 @@
       "score": {
         "home": 7,
         "away": 2,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1392,7 +1392,7 @@
       "home": "FBC Hlučín",
       "away": "Salibandy Club Ostrava",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1,
         "status": "live"
       }
