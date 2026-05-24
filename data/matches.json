@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T14:06:45.607Z",
+  "scraped_at": "2026-05-24T14:14:11.435Z",
   "matches": [
     {
       "id": 2294,
@@ -1407,7 +1407,7 @@
       "home": "Fbc Šternberk",
       "away": "Salibandy Club Ostrava",
       "score": {
-        "home": 4,
+        "home": 6,
         "away": 3,
         "status": "live"
       }
