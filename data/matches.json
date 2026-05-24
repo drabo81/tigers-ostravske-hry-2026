@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T09:26:44.080Z",
+  "scraped_at": "2026-05-24T10:09:52.789Z",
   "matches": [
     {
       "id": 2294,
@@ -1308,17 +1308,6 @@
       }
     },
     {
-      "id": 2758,
-      "date": "2026-05-24",
-      "time": "11:30",
-      "group": null,
-      "phase": "4F-B",
-      "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "Salibandy Club Ostrava",
-      "away": "FBS Olomouc bílí",
-      "score": null
-    },
-    {
       "id": 2756,
       "date": "2026-05-24",
       "time": "11:30",
@@ -1328,9 +1317,24 @@
       "home": "Fbc Šternberk",
       "away": "1. SC NATIOS Vítkovice White",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
-        "status": "live"
+        "status": "final"
+      }
+    },
+    {
+      "id": 2758,
+      "date": "2026-05-24",
+      "time": "11:30",
+      "group": null,
+      "phase": "4F-B",
+      "venue": "SH Střední škola Technická a Dopravní Ostrava",
+      "home": "Salibandy Club Ostrava",
+      "away": "FBS Olomouc bílí",
+      "score": {
+        "home": 5,
+        "away": 3,
+        "status": "final"
       }
     },
     {
@@ -1342,7 +1346,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC ČPP Bystroň Group Ostrava",
       "away": "FBC Hlučín",
-      "score": null
+      "score": {
+        "home": 1,
+        "away": 2,
+        "status": "live"
+      }
     },
     {
       "id": 2611,
@@ -1363,7 +1371,7 @@
       "phase": "SF-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Vikings Kopřivnice",
-      "away": "C1/G4-F2/B3 - D1/H4-E2/A3",
+      "away": "Fbc Šternberk",
       "score": null
     },
     {
@@ -1374,7 +1382,7 @@
       "phase": "SF-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "H1/D4-A2/E3 - G1/C4-B2/F3",
-      "away": "F1/B4-C2/G3 - E1/A4-D2/H3",
+      "away": "Salibandy Club Ostrava",
       "score": null
     },
     {
