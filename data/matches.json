@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T08:40:56.961Z",
+  "scraped_at": "2026-05-24T08:45:53.264Z",
   "matches": [
     {
       "id": 2294,
@@ -1259,7 +1259,7 @@
       "score": {
         "home": 1,
         "away": 2,
-        "status": "live"
+        "status": "final"
       }
     },
     {
@@ -1272,7 +1272,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "SOKOLI Pardubice",
       "score": {
-        "home": 1,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
@@ -1332,7 +1332,7 @@
       "group": null,
       "phase": "4F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "H1/D4-A2/E3",
+      "home": "FBC ČPP Bystroň Group Ostrava",
       "away": "FBC Hlučín",
       "score": null
     },
