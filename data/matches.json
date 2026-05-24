@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T06:50:55.828Z",
+  "scraped_at": "2026-05-24T06:55:58.825Z",
   "matches": [
     {
       "id": 2294,
@@ -1083,21 +1083,6 @@
       }
     },
     {
-      "id": 2600,
-      "date": "2026-05-24",
-      "time": "08:00",
-      "group": null,
-      "phase": "4F-A",
-      "venue": "SH Sareza Přívoz Ostrava",
-      "home": "Sokol Brno I EMKOCase Gullivers",
-      "away": "SOKOLI Pardubice",
-      "score": {
-        "home": 3,
-        "away": 4,
-        "status": "live"
-      }
-    },
-    {
       "id": 2599,
       "date": "2026-05-24",
       "time": "08:00",
@@ -1109,6 +1094,21 @@
       "score": {
         "home": 7,
         "away": 2,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2600,
+      "date": "2026-05-24",
+      "time": "08:00",
+      "group": null,
+      "phase": "4F-A",
+      "venue": "SH Sareza Přívoz Ostrava",
+      "home": "Sokol Brno I EMKOCase Gullivers",
+      "away": "SOKOLI Pardubice",
+      "score": {
+        "home": 3,
+        "away": 4,
         "status": "final"
       }
     },
@@ -1188,21 +1188,6 @@
       }
     },
     {
-      "id": 2748,
-      "date": "2026-05-24",
-      "time": "08:30",
-      "group": null,
-      "phase": "8F-B",
-      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "SK K2 Prostějov bílí",
-      "away": "Fbc Šternberk",
-      "score": {
-        "home": 2,
-        "away": 3,
-        "status": "live"
-      }
-    },
-    {
       "id": 2752,
       "date": "2026-05-24",
       "time": "08:30",
@@ -1212,7 +1197,7 @@
       "home": "Salibandy Club Ostrava",
       "away": "Florbal Vsetín",
       "score": {
-        "home": 2,
+        "home": 4,
         "away": 0,
         "status": "live"
       }
@@ -1230,6 +1215,21 @@
         "home": 0,
         "away": 1,
         "status": "live"
+      }
+    },
+    {
+      "id": 2748,
+      "date": "2026-05-24",
+      "time": "08:30",
+      "group": null,
+      "phase": "8F-B",
+      "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
+      "home": "SK K2 Prostějov bílí",
+      "away": "Fbc Šternberk",
+      "score": {
+        "home": 2,
+        "away": 3,
+        "status": "final"
       }
     },
     {
@@ -1262,7 +1262,7 @@
       "phase": "SF-A",
       "venue": "SH ČPP Aréna Ostrava",
       "home": "1. SC NATIOS Vítkovice Blue",
-      "away": "C1/D1/E2/F2/A3/B3/G4/H4",
+      "away": "SOKOLI Pardubice",
       "score": null
     },
     {
@@ -1294,7 +1294,7 @@
       "group": null,
       "phase": "4F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "C1/G4-F2/B3",
+      "home": "Fbc Šternberk",
       "away": "1. SC NATIOS Vítkovice White",
       "score": null
     },
