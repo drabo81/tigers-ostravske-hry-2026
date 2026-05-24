@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T06:24:29.848Z",
+  "scraped_at": "2026-05-24T06:25:53.528Z",
   "matches": [
     {
       "id": 2294,
@@ -1158,21 +1158,6 @@
       }
     },
     {
-      "id": 2749,
-      "date": "2026-05-24",
-      "time": "08:00",
-      "group": null,
-      "phase": "8F-B",
-      "venue": "Sportovní hala VŠB-TUO",
-      "home": "FBC Intevo Třinec červení",
-      "away": "1. SC NATIOS Vítkovice White",
-      "score": {
-        "home": 1,
-        "away": 3,
-        "status": "live"
-      }
-    },
-    {
       "id": 2746,
       "date": "2026-05-24",
       "time": "08:00",
@@ -1184,6 +1169,21 @@
       "score": {
         "home": 3,
         "away": 6,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2749,
+      "date": "2026-05-24",
+      "time": "08:00",
+      "group": null,
+      "phase": "8F-B",
+      "venue": "Sportovní hala VŠB-TUO",
+      "home": "FBC Intevo Třinec červení",
+      "away": "1. SC NATIOS Vítkovice White",
+      "score": {
+        "home": 1,
+        "away": 3,
         "status": "final"
       }
     },
@@ -1283,7 +1283,7 @@
       "phase": "4F-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "C1/G4-F2/B3",
-      "away": "D1/H4-E2/A3",
+      "away": "1. SC NATIOS Vítkovice White",
       "score": null
     },
     {
