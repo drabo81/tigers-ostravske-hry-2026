@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T08:20:57.315Z",
+  "scraped_at": "2026-05-24T08:25:56.794Z",
   "matches": [
     {
       "id": 2294,
@@ -1257,7 +1257,7 @@
       "home": "FBK Valašské Meziříčí",
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 2,
         "status": "live"
       }
