@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T07:20:53.603Z",
+  "scraped_at": "2026-05-24T07:25:55.743Z",
   "matches": [
     {
       "id": 2294,
@@ -1243,7 +1243,7 @@
       "away": "FBC Hlučín",
       "score": {
         "home": 0,
-        "away": 5,
+        "away": 8,
         "status": "live"
       }
     },
