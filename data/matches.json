@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T08:50:56.894Z",
+  "scraped_at": "2026-05-24T08:55:54.612Z",
   "matches": [
     {
       "id": 2294,
@@ -1287,7 +1287,7 @@
       "home": "Panthers Otrokovice",
       "away": "Florbal MB Black",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
@@ -1303,7 +1303,7 @@
       "away": "FBC Vikings Kopřivnice",
       "score": {
         "home": 1,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
