@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T11:53:16.121Z",
+  "scraped_at": "2026-05-24T11:53:58.508Z",
   "matches": [
     {
       "id": 2294,
@@ -1393,7 +1393,7 @@
       "away": "Salibandy Club Ostrava",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 1,
         "status": "live"
       }
     },
