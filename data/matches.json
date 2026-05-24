@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T10:10:21.950Z",
+  "scraped_at": "2026-05-24T10:48:23.464Z",
   "matches": [
     {
       "id": 2294,
@@ -1348,8 +1348,8 @@
       "away": "FBC Hlučín",
       "score": {
         "home": 2,
-        "away": 2,
-        "status": "live"
+        "away": 6,
+        "status": "final"
       }
     },
     {
@@ -1381,7 +1381,7 @@
       "group": null,
       "phase": "SF-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
-      "home": "H1/D4-A2/E3 - G1/C4-B2/F3",
+      "home": "FBC Hlučín",
       "away": "Salibandy Club Ostrava",
       "score": null
     },
