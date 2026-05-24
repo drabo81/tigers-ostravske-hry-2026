@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T06:45:54.807Z",
+  "scraped_at": "2026-05-24T06:50:55.828Z",
   "matches": [
     {
       "id": 2294,
@@ -1093,7 +1093,7 @@
       "away": "SOKOLI Pardubice",
       "score": {
         "home": 3,
-        "away": 3,
+        "away": 4,
         "status": "live"
       }
     },
@@ -1198,7 +1198,7 @@
       "away": "Fbc Šternberk",
       "score": {
         "home": 2,
-        "away": 2,
+        "away": 3,
         "status": "live"
       }
     },
@@ -1212,7 +1212,7 @@
       "home": "Salibandy Club Ostrava",
       "away": "Florbal Vsetín",
       "score": {
-        "home": 1,
+        "home": 2,
         "away": 0,
         "status": "live"
       }
