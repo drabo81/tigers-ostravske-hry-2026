@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T08:15:59.344Z",
+  "scraped_at": "2026-05-24T08:20:57.315Z",
   "matches": [
     {
       "id": 2294,
@@ -1258,7 +1258,7 @@
       "away": "FBC ČPP Bystroň Group Ostrava",
       "score": {
         "home": 0,
-        "away": 0,
+        "away": 2,
         "status": "live"
       }
     },
