@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T07:30:57.875Z",
+  "scraped_at": "2026-05-24T08:15:59.344Z",
   "matches": [
     {
       "id": 2294,
@@ -1256,7 +1256,11 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBK Valašské Meziříčí",
       "away": "FBC ČPP Bystroň Group Ostrava",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2607,
