@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T06:15:58.237Z",
+  "scraped_at": "2026-05-24T06:20:15.712Z",
   "matches": [
     {
       "id": 2294,
@@ -1092,7 +1092,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Intevo Třinec bílí",
       "score": {
-        "home": 3,
+        "home": 5,
         "away": 0,
         "status": "live"
       }
@@ -1153,7 +1153,7 @@
       "away": "ACEMA Sparta Praha YELLOW",
       "score": {
         "home": 3,
-        "away": 5,
+        "away": 6,
         "status": "live"
       }
     },
@@ -1167,7 +1167,7 @@
       "home": "FBC Vikings Kopřivnice",
       "away": "Florbal MB White",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0,
         "status": "live"
       }
@@ -1182,7 +1182,7 @@
       "home": "FBC Intevo Třinec červení",
       "away": "1. SC NATIOS Vítkovice White",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 1,
         "status": "live"
       }
