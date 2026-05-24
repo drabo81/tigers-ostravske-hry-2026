@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T12:18:03.597Z",
+  "scraped_at": "2026-05-24T12:28:42.033Z",
   "matches": [
     {
       "id": 2294,
@@ -1393,8 +1393,8 @@
       "away": "Salibandy Club Ostrava",
       "score": {
         "home": 1,
-        "away": 1,
-        "status": "live"
+        "away": 2,
+        "status": "final"
       }
     },
     {
@@ -1405,7 +1405,7 @@
       "phase": "FINAL-B",
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "Fbc Šternberk",
-      "away": "SF2",
+      "away": "Salibandy Club Ostrava",
       "score": null
     }
   ]
