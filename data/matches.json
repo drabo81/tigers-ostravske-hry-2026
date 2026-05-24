@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T05:56:00.032Z",
+  "scraped_at": "2026-05-24T06:00:55.741Z",
   "matches": [
     {
       "id": 2294,
@@ -1102,40 +1102,11 @@
       "venue": "SH Sareza Přívoz Ostrava",
       "home": "Sokol Brno I EMKOCase Gullivers",
       "away": "SOKOLI Pardubice",
-      "score": null
-    },
-    {
-      "id": 2602,
-      "date": "2026-05-24",
-      "time": "08:00",
-      "group": null,
-      "phase": "4F-A",
-      "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "SK K2 Prostějov modří",
-      "away": "Panthers Otrokovice",
-      "score": null
-    },
-    {
-      "id": 2747,
-      "date": "2026-05-24",
-      "time": "08:00",
-      "group": null,
-      "phase": "8F-B",
-      "venue": "SH Třebovice",
-      "home": "FBC Vikings Kopřivnice",
-      "away": "Florbal MB White",
-      "score": null
-    },
-    {
-      "id": 2749,
-      "date": "2026-05-24",
-      "time": "08:00",
-      "group": null,
-      "phase": "8F-B",
-      "venue": "Sportovní hala VŠB-TUO",
-      "home": "FBC Intevo Třinec červení",
-      "away": "1. SC NATIOS Vítkovice White",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2601,
@@ -1146,6 +1117,21 @@
       "venue": "SH ČPP Aréna Ostrava",
       "home": "FBS Olomouc červení",
       "away": "Florbal MB Black",
+      "score": {
+        "home": 0,
+        "away": 1,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2602,
+      "date": "2026-05-24",
+      "time": "08:00",
+      "group": null,
+      "phase": "4F-A",
+      "venue": "SH Střední škola Technická a Dopravní Ostrava",
+      "home": "SK K2 Prostějov modří",
+      "away": "Panthers Otrokovice",
       "score": {
         "home": 0,
         "away": 0,
@@ -1161,6 +1147,36 @@
       "venue": "SH Vítkovická střední Ostrava (Vítek) - hřiště A (velká hala)",
       "home": "FBC Vítkov U13",
       "away": "ACEMA Sparta Praha YELLOW",
+      "score": {
+        "home": 0,
+        "away": 1,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2747,
+      "date": "2026-05-24",
+      "time": "08:00",
+      "group": null,
+      "phase": "8F-B",
+      "venue": "SH Třebovice",
+      "home": "FBC Vikings Kopřivnice",
+      "away": "Florbal MB White",
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
+    },
+    {
+      "id": 2749,
+      "date": "2026-05-24",
+      "time": "08:00",
+      "group": null,
+      "phase": "8F-B",
+      "venue": "Sportovní hala VŠB-TUO",
+      "home": "FBC Intevo Třinec červení",
+      "away": "1. SC NATIOS Vítkovice White",
       "score": {
         "home": 0,
         "away": 0,
