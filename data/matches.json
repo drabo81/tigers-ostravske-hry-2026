@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T06:35:58.881Z",
+  "scraped_at": "2026-05-24T06:40:56.665Z",
   "matches": [
     {
       "id": 2294,
@@ -1092,7 +1092,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "FBC Intevo Třinec bílí",
       "score": {
-        "home": 6,
+        "home": 7,
         "away": 2,
         "status": "live"
       }
@@ -1113,21 +1113,6 @@
       }
     },
     {
-      "id": 2601,
-      "date": "2026-05-24",
-      "time": "08:00",
-      "group": null,
-      "phase": "4F-A",
-      "venue": "SH ČPP Aréna Ostrava",
-      "home": "FBS Olomouc červení",
-      "away": "Florbal MB Black",
-      "score": {
-        "home": 1,
-        "away": 7,
-        "status": "live"
-      }
-    },
-    {
       "id": 2602,
       "date": "2026-05-24",
       "time": "08:00",
@@ -1138,8 +1123,23 @@
       "away": "Panthers Otrokovice",
       "score": {
         "home": 1,
-        "away": 2,
+        "away": 3,
         "status": "live"
+      }
+    },
+    {
+      "id": 2601,
+      "date": "2026-05-24",
+      "time": "08:00",
+      "group": null,
+      "phase": "4F-A",
+      "venue": "SH ČPP Aréna Ostrava",
+      "home": "FBS Olomouc červení",
+      "away": "Florbal MB Black",
+      "score": {
+        "home": 1,
+        "away": 8,
+        "status": "final"
       }
     },
     {
@@ -1197,7 +1197,7 @@
       "home": "SK K2 Prostějov bílí",
       "away": "Fbc Šternberk",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
@@ -1273,7 +1273,7 @@
       "phase": "SF-A",
       "venue": "SH SPŠ Elektroniky a informatiky Ostrava (Čapkárna)",
       "home": "E1/F1/C2/D2/G3/H3/A4/B4",
-      "away": "G1/H1/A2/B2/E3/F3/C4/D4",
+      "away": "Florbal MB Black",
       "score": null
     },
     {
