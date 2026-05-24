@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T06:55:58.825Z",
+  "scraped_at": "2026-05-24T07:00:55.568Z",
   "matches": [
     {
       "id": 2294,
@@ -1188,36 +1188,6 @@
       }
     },
     {
-      "id": 2752,
-      "date": "2026-05-24",
-      "time": "08:30",
-      "group": null,
-      "phase": "8F-B",
-      "venue": "Sportovní hala VŠB-TUO",
-      "home": "Salibandy Club Ostrava",
-      "away": "Florbal Vsetín",
-      "score": {
-        "home": 4,
-        "away": 0,
-        "status": "live"
-      }
-    },
-    {
-      "id": 2753,
-      "date": "2026-05-24",
-      "time": "08:30",
-      "group": null,
-      "phase": "8F-B",
-      "venue": "SH Třebovice",
-      "home": "FBC Spartak Bílovec",
-      "away": "FBS Olomouc bílí",
-      "score": {
-        "home": 0,
-        "away": 1,
-        "status": "live"
-      }
-    },
-    {
       "id": 2748,
       "date": "2026-05-24",
       "time": "08:30",
@@ -1233,6 +1203,36 @@
       }
     },
     {
+      "id": 2752,
+      "date": "2026-05-24",
+      "time": "08:30",
+      "group": null,
+      "phase": "8F-B",
+      "venue": "Sportovní hala VŠB-TUO",
+      "home": "Salibandy Club Ostrava",
+      "away": "Florbal Vsetín",
+      "score": {
+        "home": 4,
+        "away": 0,
+        "status": "final"
+      }
+    },
+    {
+      "id": 2753,
+      "date": "2026-05-24",
+      "time": "08:30",
+      "group": null,
+      "phase": "8F-B",
+      "venue": "SH Třebovice",
+      "home": "FBC Spartak Bílovec",
+      "away": "FBS Olomouc bílí",
+      "score": {
+        "home": 0,
+        "away": 1,
+        "status": "final"
+      }
+    },
+    {
       "id": 2751,
       "date": "2026-05-24",
       "time": "09:00",
@@ -1241,7 +1241,11 @@
       "venue": "Sportovní hala VŠB-TUO",
       "home": "MVIL Ostrava",
       "away": "FBC Hlučín",
-      "score": null
+      "score": {
+        "home": 0,
+        "away": 0,
+        "status": "live"
+      }
     },
     {
       "id": 2750,
@@ -1305,8 +1309,8 @@
       "group": null,
       "phase": "4F-B",
       "venue": "SH Střední škola Technická a Dopravní Ostrava",
-      "home": "F1/B4-C2/G3",
-      "away": "E1/A4-D2/H3",
+      "home": "Salibandy Club Ostrava",
+      "away": "FBS Olomouc bílí",
       "score": null
     },
     {
