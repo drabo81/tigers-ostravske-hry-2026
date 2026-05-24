@@ -1,6 +1,6 @@
 {
   "category": 24,
-  "scraped_at": "2026-05-24T08:35:57.448Z",
+  "scraped_at": "2026-05-24T08:40:56.961Z",
   "matches": [
     {
       "id": 2294,
@@ -1272,7 +1272,7 @@
       "home": "1. SC NATIOS Vítkovice Blue",
       "away": "SOKOLI Pardubice",
       "score": {
-        "home": 0,
+        "home": 1,
         "away": 0,
         "status": "live"
       }
