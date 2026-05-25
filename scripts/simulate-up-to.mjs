@@ -174,7 +174,6 @@ const winners16 = new Map();  // sortedKey 2-token (např. "D4,H1") → winner t
 const losers16  = new Map();  // sortedKey 2-token → loser team
 const winners8A = new Map();  // sortedKey 4-token → winner of 8F-A
 const winners4A = new Map();  // sortedKey 8-token → winner of 4F-A
-const winnersSFA = new Map(); // sortedKey 16-token → winner of SF-A
 
 // Tigers (seed H1) jsou v demu šampioni A-větve — vyhrají každé kolo.
 const TIGERS_FATE = {
@@ -246,7 +245,6 @@ for (const m of matchData.matches.filter(x => x.phase === 'SF-A' && beforeCutoff
   m.home = winners4A.get(hKey) ?? m._homeOriginal;
   m.away = winners4A.get(aKey) ?? m._awayOriginal;
   applyScore(m, isTigersInMatch(m));
-  winnersSFA.set(pairKey(m._homeOriginal, m._awayOriginal), decideWinnerLoser(m).winner);
 }
 
 // ── B-VĚTEV (útěcha pro poražené 16F-A): 8F-B → 4F-B → SF-B → FINÁLE B. Poražení 16F-A

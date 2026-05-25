@@ -9,6 +9,7 @@
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "scrape": "node scripts/scrape.mjs",
+    "serve:local": "python -m http.server 8000",
     "test": "node --test"
   },
   "dependencies": {
