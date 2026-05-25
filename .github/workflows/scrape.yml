@@ -1,11 +1,13 @@
 name: Scrape & Validate
 
 on:
-  schedule:
-    # Baseline — vždy běží, zachytí změny rozpisu mimo turnaj.
-    - cron: '*/15 * * * *'
-    # Dense — během turnaje (gated v prvním kroku přes data/matches.json).
-    - cron: '*/5 * * * *'
+  # Cron utlumen po turnaji 2026 — scrape se spouští už jen ručně (workflow_dispatch).
+  # Pro obnovení (např. příští ročník) odkomentuj schedule blok níže.
+  # schedule:
+  #   # Baseline — vždy běží, zachytí změny rozpisu mimo turnaj.
+  #   - cron: '*/15 * * * *'
+  #   # Dense — během turnaje (gated v prvním kroku přes data/matches.json).
+  #   - cron: '*/5 * * * *'
   workflow_dispatch:
     inputs:
       cf_cron:
