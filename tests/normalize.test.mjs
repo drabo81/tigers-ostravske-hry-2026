@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeTeamName } from '../lib/parser.js';
+import { normalizeTeamName } from '../sources/tigers-ostravske-2026/parser.js';
 
 test('normalizeTeamName: trim whitespace', () => {
   assert.equal(normalizeTeamName('  FBC Tigers Poruba  '), 'fbc tigers poruba');
