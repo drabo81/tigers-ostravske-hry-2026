@@ -189,12 +189,12 @@ Pole řádku jsou minimální společný jmenovatel (`rank`, `team`, `scored`, `
 {
   "last_success_at": "2026-05-22T11:30:00Z",
   "last_attempt_at": "2026-05-22T11:45:00Z",
-  "last_attempt_status": "ok",       // "ok" | "parse_error" | "network_error" | "inactive"
+  "last_attempt_status": "ok",       // "ok" | "parse_error" | "network_error"
   "source": "tigers-ostravske-2026",
   "category": "BU13"
 }
 ```
-Commituje se **vždy** po každém pokusu. Status `"inactive"` = zdroj mimo aktivní okno (turnaj skončil / ještě nezačal).
+Aktualizuje se při **každém běhu aktivního zdroje** (drží `last_attempt_at`, takže frontend ví, že cron běžel, i kdy). Aby historie nenarůstala, scraper tyto změny **amenduje do posledního cronového commitu** místo vytváření nového — commit mechanika viz §7.1. Zdroj **mimo aktivní okno** se přeskočí úplně (žádný zápis, `meta.json` se nemění).
 
 **Data layout:** `data/<source-id>/<category-id>/{table,matches,meta}.json`. Všechny `*_at` timestampy v UTC; frontend formátuje přes `Intl.DateTimeFormat`.
 
@@ -216,22 +216,44 @@ Generalizace stávajícího scraperu na multi-source:
 ```
 pro každý zdroj v SOURCES:
   pokud now < activeFrom nebo now >= activeTo:
-    zapiš meta(status="inactive") pro každou kategorii; skip
+    přeskoč zdroj úplně (žádný zápis, žádný commit)
   jinak:
     nahraj plugin přes load()
     pro každou kategorii:
       stáhni fetchTargets.table a .matches (s URL-dedup cache — viz níže)
       parseTable(doc) / parseMatches(doc)
       aplikuj groupFilter (vyber skupiny patřící kategorii)
-      validuj shape; zapiš table.json/matches.json (jen při změně SHA-256)
-      zapiš meta(status="ok")
+      validuj shape; zapiš table.json/matches.json (scraped_at = now)
+      zapiš meta(last_attempt_at = now; status="ok")
 ```
 
 - **URL-dedup cache:** v rámci jednoho běhu se každá URL stáhne **jen jednou** (memo podle URL). Řeší opengame, kde 19 kategorií sdílí jednu stránku `/turnaj/skupiny/`.
 - **groupFilter:** parser vrací všechny skupiny stránky; scraper uloží do kategorie jen skupiny dle filtru. Matches se filtrují podle `group` ∈ filtr (a/nebo fází patřících kategorii).
-- Zachováno ze stávajícího: timeout 15 s, 3 retries s backoffem, SHA-256 dedup zápisu, `meta.json` vždy.
-- **Exit kód:** běh skončí nenulově, pokud aspoň jedna aktivní kategorie selhala (parse/network) — kvůli notifikaci. `inactive` není chyba.
-- Parser běží v Node přes `linkedom` (`parseHTML(html).document`), v browseru přes `DOMParser` — stejný kontrakt.
+- **`scraped_at` se zapisuje vždy** (= čas posledního scrapu, takže frontend ví, že cron běžel). Commit šum z toho neřeší dedup zápisu, ale **amend mechanika** (§7.1) — historie tím neroste, i když se obsah mění každý běh kvůli timestampu. Žádné porovnávání obsahu tedy není potřeba.
+- Zachováno ze stávajícího: timeout 15 s, 3 retries s backoffem; parser běží v Node přes `linkedom` (`parseHTML(html).document`), v browseru přes `DOMParser` — stejný kontrakt.
+
+### 7.1 Commit mechanika (amend posledního cronového commitu)
+
+Cíl: cron nesmí narůstat historii o stovky commitů, ale `meta.json` se má aktualizovat při každém běhu aktivního zdroje.
+
+```
+git add data/
+pokud git diff --cached je prázdný:        # pojistka (prakticky nenastane: scraped_at = now)
+  konec, nic necommituj
+HEAD_je_cronový = (autor HEAD == "scraper-bot")   # rozpoznání podle autora, NE podle obsahu
+pokud HEAD_je_cronový:
+  git commit --amend --no-edit             # přepiš POUZE předchozí cronový commit
+  git push --force-with-lease
+jinak:                                      # HEAD je kódový/lidský commit
+  git commit -m "data: scrape <UTC> [<source-ids>]"   # VŽDY nový commit, kódový se nikdy nemění
+  git push
+```
+
+- **Amend jen nad cronovým HEAD.** Rozhodující je **autor** předchozího commitu (`scraper-bot`), ne jeho obsah. Je-li HEAD kódový/lidský commit (jiný autor), scraper na něj **nešahá** a udělá nový commit — tím se kódová historie nikdy nepřepíše.
+- **Výsledek:** nad posledním lidským (kódovým) commitem žije vždy **max jeden** cronový commit, který se přepisuje. Lidský commit předchozí stav dat „zafixuje".
+- **`--force-with-lease`** bezpečně selže, pokud remote mezitím dostal jiný push; scraper pak spadne a příští běh udělá čistý nový commit (žádná tichá ztráta dat).
+- **Exit kód:** běh skončí nenulově, pokud aspoň jedna aktivní kategorie selhala (parse/network) — kvůli GitHub Actions notifikaci. Přeskočený (neaktivní) zdroj není chyba.
+- Důsledky (force-push, redeploy Pages, ztráta granulární historie) viz §13.
 
 ## 8. Bracket engine + IR
 
@@ -313,9 +335,9 @@ Generický, turnaj-agnostický. Sekce stránky (sticky header):
 
 | Selhání | Co se stane |
 |---------|-------------|
-| Scraper: HTTP error (po retries) | `meta.status="network_error"`, data beze změny, nenulový exit. |
-| Scraper: parse error | `meta.status="parse_error"`, stará data zůstávají, nenulový exit. |
-| Zdroj mimo aktivní okno | `meta.status="inactive"`, žádný fetch, **bez** chyby. |
+| Scraper: HTTP error (po retries) | `meta.status="network_error"`, data beze změny, nenulový exit (GitHub notifikace). |
+| Scraper: parse error | `meta.status="parse_error"`, stará data zůstávají, nenulový exit (GitHub notifikace). |
+| Zdroj mimo aktivní okno | Scraper zdroj přeskočí, nic nezapíše, žádný commit. **Bez** chyby. |
 | Frontend: `data/*.json` chybí (ještě nescrapováno) | Sekce „Data zatím nejsou k dispozici". |
 | Frontend: live refresh — proxy down | Toast „Refresh selhal, data jsou z {time}". |
 | Načtená data: invalidní shape | Runtime guard (`data.groups`, `Array.isArray(data.matches)`) → toast + zachovat předchozí stav. |
@@ -328,7 +350,8 @@ Generický, turnaj-agnostický. Sekce stránky (sticky header):
 - **opengame.cz matches URL** — ověřena jen stránka skupin; URL zápasů a formát fází je třeba dozkoumat při psaní toho pluginu (mimo první iteraci).
 - **old.ostravacup bracket** — `play_off_vypis.asp` vyžaduje `kategorie=` kód; přímé parsování dedikovaného pavouka je navržené, ale neimplementované v první iteraci.
 - **Předčasná abstrakce enginu** — engine se vytahuje nad 1 reálným pavoukem (Tigers). Riziko, že IR nesedne 2. turnaji. Mitigace: IR je záměrně minimální (nodes+edges+score); až druhý builder ukáže mezery, IR se rozšíří.
-- **Velikost `data/`** — víc zdrojů × kategorií × commit/15 min. Při mnoha aktivních turnajích může repo růst. Zatím YAGNI; aktivní okna to omezují.
+- **Force-push z cronu** (§7.1) — amend posledního cronového commitu vyžaduje `git push --force-with-lease` na data. Důsledky: GitHub Pages se přebuilduje při každém běhu i bez reálné změny dat; granulární historie mezistavů dat se nezachovává (záměr). Pro single-user data repo přijatelné; `--force-with-lease` chrání před přepsáním cizího pushe.
+- **Velikost `data/`** — víc zdrojů × kategorií. Díky amend mechanice historie neroste počtem běhů, jen reálnými změnami dat. Zatím YAGNI; aktivní okna to dál omezují.
 - **Sdílení parseru Node↔browser** — drží jen dokud pluginy nepoužijí Node-only/browser-only API. Kontrakt to zakazuje; hlídá review.
 
 ## 14. Non-cíle (YAGNI)
@@ -348,6 +371,7 @@ Generický, turnaj-agnostický. Sekce stránky (sticky header):
 - [ ] Tigers pavouk po migraci produkuje vizuálně tentýž výstup (snapshot test prochází).
 - [ ] Frontend: přepínače Zdroj→Kategorie→Tým, focus override, deep-link přes URL.
 - [ ] Scraper iteruje registr × kategorie, respektuje aktivní okna, dedupuje URL, aplikuje groupFilter.
+- [ ] Cron amenduje **pouze** předchozí cronový commit (rozpoznání podle autora `scraper-bot`); kódové commity nechává a vytváří nad nimi nový (§7.1).
 - [ ] Force refresh funguje pro vybranou kategorii přes CORS proxy.
 - [ ] Všechny testy procházejí; `pnpm scrape` lokálně vrací validní data.
 - [ ] README popisuje, jak přidat nový zdroj (plugin).
