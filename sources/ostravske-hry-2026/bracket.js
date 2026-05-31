@@ -1,25 +1,36 @@
-import { normalizeTeamName } from './parser.js';
+import { normalizeTeamName } from '../../lib/shared.js';
 
 const TIGERS_FRAGMENT = 'tigers poruba';
 const POSITION_GROUPS = { H: 'MH', D: 'MD', E: 'ME', A: 'MA', B: 'MB', C: 'MC', F: 'MF', G: 'MG' };
 
+function isFocusTeam(name, focusTeam) {
+  if (!name) return false;
+  const n = normalizeTeamName(name);
+  const key = focusTeam ? normalizeTeamName(focusTeam) : TIGERS_FRAGMENT;
+  return n === key || n.includes(TIGERS_FRAGMENT);
+}
+
 function isTigersTeam(name) {
-  return name ? normalizeTeamName(name).includes(TIGERS_FRAGMENT) : false;
+  return isFocusTeam(name, undefined);
 }
 
 /**
- * Najde Tigers v tabulce MH a vrátí jejich pozici jako kód (např. "H1", "H3").
- * Vrací null, pokud Tigers v tabulce nejsou, nebo tabulka MH je prázdná.
+ * Najde focus tým v tabulce MH a vrátí jejich pozici jako kód (např. "H1", "H3").
+ * Vrací null, pokud focus tým v tabulce není, nebo tabulka MH je prázdná.
  */
-export function tigersPositionCode(table) {
+export function focusPositionCode(table, focusTeam) {
   const mh = table?.groups?.MH;
   if (!Array.isArray(mh) || mh.length === 0) return null;
-  // Návratová hodnota: pozice Tigers v MH jako placeholder kód (např. "H1").
+  // Návratová hodnota: pozice focus týmu v MH jako placeholder kód (např. "H1").
   // I když ještě nebyly odehrány žádné zápasy (před turnajem), pořadí v tabulce
   // existuje (alphabetical seed) a používá se k sestavení play-off placeholderů.
-  const tigers = mh.find(row => isTigersTeam(row.team));
-  if (!tigers) return null;
-  return `H${tigers.rank}`;
+  const focus = mh.find(row => isFocusTeam(row.team, focusTeam));
+  if (!focus) return null;
+  return `H${focus.rank}`;
+}
+
+export function tigersPositionCode(table) {
+  return focusPositionCode(table, undefined);
 }
 
 /**
@@ -85,38 +96,38 @@ export function resolveCode(code, table) {
  * Strategie: 3 group matches + pro každé další kolo se posuneme jen do té větve,
  * kterou Tigers skutečně postoupili (vítězná → A, prohra → B).
  */
-export function tigersBracketPath(matches, table) {
+export function tigersBracketPath(matches, table, focusTeam) {
   const result = [];
 
   // Group matches — vždy 3 zápasy MH
   const groupMatches = (matches.matches || [])
-    .filter(m => m.phase === 'group' && m.group === 'MH' && (isTigersTeam(m.home) || isTigersTeam(m.away)))
+    .filter(m => m.phase === 'group' && m.group === 'MH' && (isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam)))
     .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
   result.push(...groupMatches);
 
-  const code = tigersPositionCode(table);
+  const code = focusPositionCode(table, focusTeam);
   if (!code) return result;       // rank ještě neznáme → jen group
 
-  function tigersWasInMatch(m) {
+  function focusWasInMatch(m) {
     if (!m) return false;
-    const homeContainsUs = isTigersTeam(m.home) || matchContainsCode({ home: m._homeOriginal ?? m.home, away: '' }, code);
+    const homeContainsUs = isFocusTeam(m.home, focusTeam) || matchContainsCode({ home: m._homeOriginal ?? m.home, away: '' }, code);
     return homeContainsUs;
   }
-  function tigersWon(m) {
+  function focusWon(m) {
     if (!m?.score) return null;
-    const home = tigersWasInMatch(m);
+    const home = focusWasInMatch(m);
     return home ? m.score.home > m.score.away : m.score.away > m.score.home;
   }
 
-  const m16 = findMatchByCodeAndPhase(matches, '16F-A', code, code, table);
+  const m16 = findMatchByCodeAndPhase(matches, '16F-A', code, code, table, focusTeam);
   if (m16) result.push(m16);
-  const won16 = tigersWon(m16);
+  const won16 = focusWon(m16);
   if (won16 === null) return result;        // nehráli ještě, končíme
 
   const phase8 = won16 ? '8F-A' : '8F-B';
-  const m8 = findMatchByCodeAndPhase(matches, phase8, code, code, table);
+  const m8 = findMatchByCodeAndPhase(matches, phase8, code, code, table, focusTeam);
   if (m8) result.push(m8);
-  const won8 = tigersWon(m8);
+  const won8 = focusWon(m8);
   if (won8 === null) return result;
 
   // A-větev je čisté vyřazování: prohra = konec. Do B-větve (4F-B…) se jde JEN z B
@@ -126,16 +137,16 @@ export function tigersBracketPath(matches, table) {
   else if (!won16 && won8) phase4 = '4F-B';  // 16F prohra → 8F-B výhra → postup v B-větvi
   else return result;                        // prohra 8F-A i prohra 8F-B = vyřazení
 
-  const m4 = findMatchByCodeAndPhase(matches, phase4, code, code, table);
+  const m4 = findMatchByCodeAndPhase(matches, phase4, code, code, table, focusTeam);
   if (m4) result.push(m4);
-  const won4 = tigersWon(m4);
+  const won4 = focusWon(m4);
   if (won4 === null) return result;
   if (!won4) return result;     // prohra v 4F = konec turnaje
 
   const phaseSf = (phase4 === '4F-A') ? 'SF-A' : 'SF-B';
-  const mSf = findMatchByCodeAndPhase(matches, phaseSf, code, code, table);
+  const mSf = findMatchByCodeAndPhase(matches, phaseSf, code, code, table, focusTeam);
   if (mSf) result.push(mSf);
-  const wonSf = tigersWon(mSf);
+  const wonSf = focusWon(mSf);
   if (wonSf === null) return result;
   if (!wonSf) return result;
 
@@ -146,12 +157,12 @@ export function tigersBracketPath(matches, table) {
   return result;
 }
 
-export function tigersPath(matches, table) {
-  const code = tigersPositionCode(table);
+export function tigersPath(matches, table, focusTeam) {
+  const code = focusPositionCode(table, focusTeam);
   const all = matches.matches || [];
 
   const selected = all.filter(m => {
-    if (isTigersTeam(m.home) || isTigersTeam(m.away)) return true;
+    if (isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam)) return true;
     if (code && matchContainsCode(m, code)) return true;
     return false;
   });
@@ -164,15 +175,15 @@ export function tigersPath(matches, table) {
     dedup.push(m);
   }
 
-  // Pokud má daná fáze match se skutečným jménem Tigers, ostatní placeholderové
-  // varianty té fáze jsou irelevantní (Tigers už hraje jen ten jeden).
-  const phasesWithRealTigers = new Set(
+  // Pokud má daná fáze match se skutečným jménem focus týmu, ostatní placeholderové
+  // varianty té fáze jsou irelevantní (focus tým už hraje jen ten jeden).
+  const phasesWithRealFocus = new Set(
     dedup
-      .filter(m => isTigersTeam(m.home) || isTigersTeam(m.away))
+      .filter(m => isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam))
       .map(m => m.phase)
   );
   const filtered = dedup.filter(m =>
-    isTigersTeam(m.home) || isTigersTeam(m.away) || !phasesWithRealTigers.has(m.phase)
+    isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam) || !phasesWithRealFocus.has(m.phase)
   );
 
   filtered.sort((a, b) => {
@@ -448,12 +459,12 @@ function findMatchOnLineB(matches, table, code, targetPhase) {
   return match;
 }
 
-function findMatchByCodeAndPhase(matches, phase, code, tigersCode = null, table = null) {
-  // 1) Pokud hledáme zápas na Tigers' pozici, preferuj match s Tigers' reálným jménem
+function findMatchByCodeAndPhase(matches, phase, code, focusCode = null, table = null, focusTeam) {
+  // 1) Pokud hledáme zápas na focus pozici, preferuj match s focus týmovým reálným jménem
   //    (po odehrání zápasu ostravskehry.cz nahrazuje placeholdery reálnými jmény).
-  if (tigersCode && code === tigersCode) {
+  if (focusCode && code === focusCode) {
     const byName = matches.matches.find(m =>
-      m.phase === phase && (isTigersTeam(m.home) || isTigersTeam(m.away))
+      m.phase === phase && (isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam))
     );
     if (byName) return byName;
   }
@@ -494,20 +505,20 @@ function fmtScore(score) {
   return score ? ` ${score.home}:${score.away}` : '';
 }
 
-function tigersHighlightedNodes(matches, table) {
-  // Vrátí Set ID uzlů, které mají být zvýrazněné (skutečná cesta Tigers).
+function tigersHighlightedNodes(matches, table, focusTeam) {
+  // Vrátí Set ID uzlů, které mají být zvýrazněné (skutečná cesta focus týmu).
   const set = new Set(['ZC1', 'ZC2', 'ZC3', 'START']);
-  const rank = tigersPositionCode(table);
+  const rank = focusPositionCode(table, focusTeam);
   if (!rank) return set;
 
   const n = rank[1];   // '1', '2', '3', '4'
   set.add(`H${n}`);
 
-  const m16 = findMatchByCodeAndPhase(matches, '16F-A', rank, rank, table);
+  const m16 = findMatchByCodeAndPhase(matches, '16F-A', rank, rank, table, focusTeam);
   if (!m16?.score) return set;
 
-  const tigersIsHome16 = isTigersTeam(m16.home) || matchContainsCode({ home: m16.home, away: '' }, rank);
-  const won16 = tigersIsHome16
+  const focusIsHome16 = isFocusTeam(m16.home, focusTeam) || matchContainsCode({ home: m16.home, away: '' }, rank);
+  const won16 = focusIsHome16
     ? m16.score.home > m16.score.away
     : m16.score.away > m16.score.home;
 
@@ -516,11 +527,11 @@ function tigersHighlightedNodes(matches, table) {
   else       { phase8 = '8F-B'; nodePrefix8 = 'OF_B'; }
   set.add(`${nodePrefix8}${n}`);
 
-  const m8 = findMatchByCodeAndPhase(matches, phase8, rank, rank, table);
+  const m8 = findMatchByCodeAndPhase(matches, phase8, rank, rank, table, focusTeam);
   if (!m8?.score) return set;
 
-  const tigersIsHome8 = isTigersTeam(m8.home) || matchContainsCode({ home: m8.home, away: '' }, rank);
-  const won8 = tigersIsHome8
+  const focusIsHome8 = isFocusTeam(m8.home, focusTeam) || matchContainsCode({ home: m8.home, away: '' }, rank);
+  const won8 = focusIsHome8
     ? m8.score.home > m8.score.away
     : m8.score.away > m8.score.home;
 
@@ -532,11 +543,11 @@ function tigersHighlightedNodes(matches, table) {
   else                      { return set; }    // prohra 8F-A nebo 8F-B = vyřazení
   set.add(`${nodePrefix4}${n}`);
 
-  const m4 = findMatchByCodeAndPhase(matches, phase4, rank, rank, table);
+  const m4 = findMatchByCodeAndPhase(matches, phase4, rank, rank, table, focusTeam);
   if (!m4?.score) return set;
 
-  const tigersIsHome4 = isTigersTeam(m4.home) || matchContainsCode({ home: m4.home, away: '' }, rank);
-  const won4 = tigersIsHome4
+  const focusIsHome4 = isFocusTeam(m4.home, focusTeam) || matchContainsCode({ home: m4.home, away: '' }, rank);
+  const won4 = focusIsHome4
     ? m4.score.home > m4.score.away
     : m4.score.away > m4.score.home;
   if (!won4) return set;     // prohra v 4F = konec turnaje
@@ -551,11 +562,11 @@ function tigersHighlightedNodes(matches, table) {
   const sfPrefix = inBranchA ? 'SF_A' : 'SF_B';
   set.add(`${sfPrefix}${sfSlot}`);
 
-  const mSf = findMatchByCodeAndPhase(matches, phaseSf, rank, rank, table);
+  const mSf = findMatchByCodeAndPhase(matches, phaseSf, rank, rank, table, focusTeam);
   if (!mSf?.score) return set;
 
-  const tigersIsHomeSf = isTigersTeam(mSf.home) || matchContainsCode({ home: mSf.home, away: '' }, rank);
-  const wonSf = tigersIsHomeSf
+  const focusIsHomeSf = isFocusTeam(mSf.home, focusTeam) || matchContainsCode({ home: mSf.home, away: '' }, rank);
+  const wonSf = focusIsHomeSf
     ? mSf.score.home > mSf.score.away
     : mSf.score.away > mSf.score.home;
   if (!wonSf) return set;
@@ -564,10 +575,10 @@ function tigersHighlightedNodes(matches, table) {
   return set;
 }
 
-function opponentName(match, tigersCode) {
-  // Vrátí jméno soupeře pro daný match (z pohledu Tigers / pozičního kódu).
+function opponentName(match, focusCode, focusTeam) {
+  // Vrátí jméno soupeře pro daný match (z pohledu focus týmu / pozičního kódu).
   if (!match) return null;
-  const homeContainsUs = isTigersTeam(match.home) || matchContainsCode({ home: match.home, away: '' }, tigersCode ?? '');
+  const homeContainsUs = isFocusTeam(match.home, focusTeam) || matchContainsCode({ home: match.home, away: '' }, focusCode ?? '');
   return homeContainsUs ? match.away : match.home;
 }
 
@@ -660,10 +671,10 @@ const STATIC_TEMPLATE = {
   finalB: { id: 'FINAL_B', title: 'FINÁLE B',     when: '24.5. 15:30', venue: 'Vítkovická střední A', byPhase: 'FINAL-B' },
 };
 
-export function renderStaticBracket(matches, table) {
-  const tigersCode = tigersPositionCode(table);
+export function renderStaticBracket(matches, table, focusTeam) {
+  const tigersCode = focusPositionCode(table, focusTeam);
   const groupMatches = (matches.matches || [])
-    .filter(m => m.phase === 'group' && (isTigersTeam(m.home) || isTigersTeam(m.away)))
+    .filter(m => m.phase === 'group' && (isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam)))
     .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
 
   const lines = ['flowchart TD'];
@@ -677,9 +688,9 @@ export function renderStaticBracket(matches, table) {
   lines.push(`    START(["Výsledek skupiny MH"])`);
   lines.push(`    ZC1 --> ZC2 --> ZC3 --> START`);
 
-  // 16F-A: pokud známe Tigers rank, šipka jen z ranku; jinak všechny 4 možnosti.
+  // 16F-A: pokud známe focus rank, šipka jen z ranku; jinak všechny 4 možnosti.
   for (const t of STATIC_TEMPLATE.sixteenF) {
-    const m = findMatchByCodeAndPhase(matches, '16F-A', t.code, tigersCode, table);
+    const m = findMatchByCodeAndPhase(matches, '16F-A', t.code, tigersCode, table, focusTeam);
     const label = nodeLabelStatic(t, m, table, t.code, matches);
     lines.push(`    ${t.id}["${label}"]`);
   }
@@ -702,7 +713,7 @@ export function renderStaticBracket(matches, table) {
   lines.push(`    subgraph PA["Play-off A"]`);
   for (const t of [...STATIC_TEMPLATE.eightA, ...STATIC_TEMPLATE.fourA, ...STATIC_TEMPLATE.semiA]) {
     const phase = t.id.startsWith('OF_A') ? '8F-A' : t.id.startsWith('QF_A') ? '4F-A' : 'SF-A';
-    const m = t.code ? findMatchByCodeAndPhase(matches, phase, t.code, tigersCode, table) : null;
+    const m = t.code ? findMatchByCodeAndPhase(matches, phase, t.code, tigersCode, table, focusTeam) : null;
     const label = nodeLabelStatic(t, m, table, t.code, matches);
     lines.push(`        ${t.id}["${label}"]`);
   }
@@ -723,7 +734,7 @@ export function renderStaticBracket(matches, table) {
   lines.push(`    subgraph PB["Play-off B"]`);
   for (const t of [...STATIC_TEMPLATE.eightB, ...STATIC_TEMPLATE.fourB, ...STATIC_TEMPLATE.semiB]) {
     const phase = t.id.startsWith('OF_B') ? '8F-B' : t.id.startsWith('QF_B') ? '4F-B' : 'SF-B';
-    const m = t.code ? findMatchByCodeAndPhase(matches, phase, t.code, tigersCode, table) : null;
+    const m = t.code ? findMatchByCodeAndPhase(matches, phase, t.code, tigersCode, table, focusTeam) : null;
     const label = nodeLabelStatic(t, m, table, t.code, matches);
     lines.push(`        ${t.id}["${label}"]`);
   }
@@ -751,13 +762,13 @@ export function renderStaticBracket(matches, table) {
   // Mapování: node ID → odpovídající match (přes findMatchByCodeAndPhase už použito nahoře).
   const nodeMatchPairs = [
     ...STATIC_TEMPLATE.group.map((t, i) => ({ id: t.id, match: groupMatches[i] })),
-    ...STATIC_TEMPLATE.sixteenF.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '16F-A', t.code, tigersCode, table) })),
-    ...STATIC_TEMPLATE.eightA.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '8F-A', t.code, tigersCode, table) })),
-    ...STATIC_TEMPLATE.eightB.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '8F-B', t.code, tigersCode, table) })),
-    ...STATIC_TEMPLATE.fourA.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '4F-A', t.code, tigersCode, table) })),
-    ...STATIC_TEMPLATE.fourB.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '4F-B', t.code, tigersCode, table) })),
-    ...STATIC_TEMPLATE.semiA.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, 'SF-A', t.code, tigersCode, table) })),
-    ...STATIC_TEMPLATE.semiB.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, 'SF-B', t.code, tigersCode, table) })),
+    ...STATIC_TEMPLATE.sixteenF.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '16F-A', t.code, tigersCode, table, focusTeam) })),
+    ...STATIC_TEMPLATE.eightA.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '8F-A', t.code, tigersCode, table, focusTeam) })),
+    ...STATIC_TEMPLATE.eightB.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '8F-B', t.code, tigersCode, table, focusTeam) })),
+    ...STATIC_TEMPLATE.fourA.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '4F-A', t.code, tigersCode, table, focusTeam) })),
+    ...STATIC_TEMPLATE.fourB.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, '4F-B', t.code, tigersCode, table, focusTeam) })),
+    ...STATIC_TEMPLATE.semiA.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, 'SF-A', t.code, tigersCode, table, focusTeam) })),
+    ...STATIC_TEMPLATE.semiB.map(t => ({ id: t.id, match: findMatchByCodeAndPhase(matches, 'SF-B', t.code, tigersCode, table, focusTeam) })),
     { id: 'FINAL_A', match: mFinA },
     { id: 'FINAL_B', match: mFinB },
   ];
@@ -769,8 +780,8 @@ export function renderStaticBracket(matches, table) {
     }
   }
 
-  // Highlight Tigers cesty (musí být PO played-stylech, ať override)
-  const highlighted = tigersHighlightedNodes(matches, table);
+  // Highlight focus cesty (musí být PO played-stylech, ať override)
+  const highlighted = tigersHighlightedNodes(matches, table, focusTeam);
   for (const id of highlighted) {
     if (id === 'START') {
       lines.push(`    style ${id} fill:#ff6600,color:#fff,font-weight:bold`);
@@ -885,9 +896,9 @@ function _pluralZapas(n) {
   return 'zápasů';
 }
 
-export function renderPhaseList(matches, table) {
+export function renderPhaseList(matches, table, focusTeam) {
   const allMatches = matches.matches || [];
-  const bracketPath = tigersBracketPath(matches, table);
+  const bracketPath = tigersBracketPath(matches, table, focusTeam);
   const lastBracketMatch = bracketPath[bracketPath.length - 1] ?? null;
   const tigersIds = new Set(bracketPath.map(m => m.id));
 
@@ -900,7 +911,7 @@ export function renderPhaseList(matches, table) {
       .slice()
       .sort((a, b) => `${a.date ?? ''} ${a.time ?? ''}`.localeCompare(`${b.date ?? ''} ${b.time ?? ''}`));
 
-    const hasTigers = phaseMatches.some(m => isTigersTeam(m.home) || isTigersTeam(m.away));
+    const hasTigers = phaseMatches.some(m => isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam));
     const isUpcoming = lastBracketMatch !== null && lastBracketMatch.phase === phase && !lastBracketMatch.score;
     const defaultOpen = hasTigers || isUpcoming;
 
@@ -912,7 +923,7 @@ export function renderPhaseList(matches, table) {
     const metaText = `(${count} ${_pluralZapas(count)}${metaSuffix})`;
 
     const cards = displayMatches.map(m => {
-      const isTm = tigersIds.has(m.id) || isTigersTeam(m.home) || isTigersTeam(m.away);
+      const isTm = tigersIds.has(m.id) || isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam);
       // Syntetické placeholdery (fáze bez reálných zápasů) nerozkládáme — nemají skutečný zdroj.
       return matchCardHtml(m, isTm, usingPlaceholders ? null : matches, usingPlaceholders ? null : table);
     }).join('\n');
@@ -929,7 +940,7 @@ export function renderPhaseList(matches, table) {
   return `<section class="phase-list">\n${blocks.join('\n')}\n</section>`;
 }
 
-export function renderMermaid(path, table) {
+export function renderMermaid(path, table, focusTeam) {
   const lines = ['flowchart LR'];
 
   for (const m of path) {
@@ -940,11 +951,11 @@ export function renderMermaid(path, table) {
 
   const edges = inferEdges(path);
 
-  // Doplň hrany group → 16F-A pro Tigers cestu (group fáze nemá placeholder, takže
-  // inferEdges to nepokryje). Pokud existuje 16F-A match s Tigers (kódem nebo jménem),
-  // všechny 3 group matches Tigers se k němu připojí.
+  // Doplň hrany group → 16F-A pro focus cestu (group fáze nemá placeholder, takže
+  // inferEdges to nepokryje). Pokud existuje 16F-A match s focus týmem (kódem nebo jménem),
+  // všechny 3 group matches focus týmu se k němu připojí.
   const sixteenWithTigers = path.find(m => m.phase === '16F-A' &&
-    (isTigersTeam(m.home) || isTigersTeam(m.away) || matchContainsCode(m, tigersPositionCode(table) ?? '')));
+    (isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam) || matchContainsCode(m, focusPositionCode(table, focusTeam) ?? '')));
   if (sixteenWithTigers) {
     for (const g of path.filter(m => m.phase === 'group')) {
       edges.push({ from: g.id, to: sixteenWithTigers.id, label: '' });
@@ -956,9 +967,9 @@ export function renderMermaid(path, table) {
     lines.push(`    M${e.from} -->${label} M${e.to}`);
   }
 
-  // Tigers/group uzly oranžově
+  // Focus/group uzly oranžově
   for (const m of path) {
-    const involved = isTigersTeam(m.home) || isTigersTeam(m.away);
+    const involved = isFocusTeam(m.home, focusTeam) || isFocusTeam(m.away, focusTeam);
     if (involved) {
       lines.push(`    style M${m.id} fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px`);
     }
@@ -971,4 +982,8 @@ export function renderMermaid(path, table) {
   }
 
   return lines.join('\n');
+}
+
+export function focusPath(matches, table, focusTeam) {
+  return tigersBracketPath(matches, table, focusTeam);
 }

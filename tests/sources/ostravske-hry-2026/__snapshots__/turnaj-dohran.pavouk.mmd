@@ -1,0 +1,107 @@
+flowchart TD
+    ZC1["FBC TIGERS PORUBA – FBC Intevo Třinec červení\n22.5. 11:15\nSPŠ Elektroniky\n6 : 2"]
+    ZC2["ACEMA Sparta Praha YELLOW – FBC TIGERS PORUBA\n22.5. 20:15\nVítkovická střední A\n0 : 3"]
+    ZC3["FBC TIGERS PORUBA – FBS Olomouc bílí\n23.5. 10:15\nSareza Přívoz\n4 : 0"]
+    START(["Výsledek skupiny MH"])
+    ZC1 --> ZC2 --> ZC3 --> START
+    H1["16F-A · H1\nFBC TIGERS PORUBA – FBK Valašské Meziříčí\n23.5. 14:00\nSareza Přívoz\n7 : 2"]
+    H2["16F-A · H2\nFBC Intevo Třinec červení – FBC Dobruška\n23.5. 14:50\nVŠB-TUO\n2 : 3"]
+    H3["16F-A · H3\nSK K2 Prostějov modří – ACEMA Sparta Praha YELLOW\n23.5. 14:00\nVítkovická střední A\n2 : 5"]
+    H4["16F-A · H4\nSOKOLI Pardubice – FBS Olomouc bílí\n23.5. 14:00\nČPP Aréna\n3 : 0"]
+    START -->|1. místo| H1
+    START -.->|2. místo| H2
+    START -.->|3. místo| H3
+    START -.->|4. místo| H4
+    subgraph PA["Play-off A"]
+        OF_A1["8F-A\nFBC TIGERS PORUBA – FBC Gepardi Brno\n23.5. 19:00\nStřední škola Tech.\n5 : 3"]
+        OF_A2["8F-A\n1. SC NATIOS Vítkovice White – FBC Dobruška\n23.5. 18:10\nStřední škola Tech.\n4 : 2"]
+        OF_A3["8F-A\nFBC ČPP Bystroň Group Ostrava – ACEMA Sparta Praha YELLOW\n23.5. 17:30\nVítkovická střední A\n2 : 7"]
+        OF_A4["8F-A\nSOKOLI Pardubice – FBC Vítkov U13\n23.5. 19:00\nSPŠ Elektroniky\n3 : 4"]
+        QF_A1["4F-A\nFBC Vikings Kopřivnice – FBC TIGERS PORUBA\n24.5. 08:00\nČPP Aréna\n2 : 4"]
+        QF_A2["4F-A\n1. SC NATIOS Vítkovice White – FBC Hlučín\n24.5. 08:00\nSPŠ Elektroniky\n5 : 0"]
+        QF_A3["4F-A\nACEMA Sparta Praha YELLOW – FBC Intevo Třinec bílí\n24.5. 08:00\nStřední škola Tech.\n5 : 0"]
+        QF_A4["4F-A\nTROOPERS – FBC Vítkov U13\n24.5. 08:00\nSareza Přívoz\n5 : 0"]
+        SF_A1["SF-A\n1. SC NATIOS Vítkovice White – TROOPERS\n24.5. 10:30\nČPP Aréna\n5 : 2"]
+        SF_A2["SF-A\nACEMA Sparta Praha YELLOW – FBC TIGERS PORUBA\n24.5. 10:30\nSPŠ Elektroniky\n4 : 6"]
+        FINAL_A(["🏆 FINÁLE A\n1. SC NATIOS Vítkovice White – FBC TIGERS PORUBA\n24.5. 13:00\nSareza Přívoz\n2 : 3"])
+        OF_A1 -->|výhra| QF_A1
+        OF_A2 -->|výhra| QF_A2
+        OF_A3 -->|výhra| QF_A3
+        OF_A4 -->|výhra| QF_A4
+        QF_A1 -->|výhra| SF_A2
+        QF_A2 -->|výhra| SF_A1
+        QF_A3 -->|výhra| SF_A2
+        QF_A4 -->|výhra| SF_A1
+        SF_A1 -->|výhra| FINAL_A
+        SF_A2 -->|výhra| FINAL_A
+    end
+    subgraph PB["Play-off B"]
+        OF_B1["8F-B\nFBK Valašské Meziříčí – Zlín Lions\n24.5. 10:00\nVítkovická střední A\n7 : 0"]
+        OF_B2["8F-B\nFBC Spartak Bílovec – FBC Intevo Třinec červení\n24.5. 08:00\nVítkovická střední A\n4 : 1"]
+        OF_B3["8F-B\n1. SC NATIOS Vítkovice Blue – SK K2 Prostějov modří\n24.5. 08:30\nTřebovice\n2 : 1"]
+        OF_B4["8F-B\nFBS Olomouc bílí – Florbal MB Black\n24.5. 08:00\nVŠB-TUO\n7 : 0"]
+        QF_B1["4F-B\nFBK Valašské Meziříčí – Salibandy Club Ostrava\n24.5. 12:00\nVítkovická střední A\n1 : 5"]
+        QF_B2["4F-B\nFBC Spartak Bílovec – FBS Olomouc červení\n24.5. 11:00\nVítkovická střední A\n4 : 5"]
+        QF_B3["4F-B\nACEMA Sparta Praha RED – 1. SC NATIOS Vítkovice Blue\n24.5. 11:30\nStřední škola Tech.\n2 : 1"]
+        QF_B4["4F-B\nTorpedo Havířov – FBS Olomouc bílí\n24.5. 11:30\nVítkovická střední A\n6 : 7"]
+        SF_B1["SF-B\nFBS Olomouc červení – FBS Olomouc bílí\n24.5. 13:15\nVítkovická střední A\n7 : 3"]
+        SF_B2["SF-B\nSalibandy Club Ostrava – ACEMA Sparta Praha RED\n24.5. 13:45\nVítkovická střední A\n3 : 4"]
+        FINAL_B(["FINÁLE B\nFBS Olomouc červení – ACEMA Sparta Praha RED\n24.5. 15:30\nVítkovická střední A\n6 : 4"])
+        OF_B1 -->|výhra| QF_B1
+        OF_B2 -->|výhra| QF_B2
+        OF_B3 -->|výhra| QF_B3
+        OF_B4 -->|výhra| QF_B4
+        QF_B1 -->|výhra| SF_B2
+        QF_B2 -->|výhra| SF_B1
+        QF_B3 -->|výhra| SF_B2
+        QF_B4 -->|výhra| SF_B1
+        SF_B1 -->|výhra| FINAL_B
+        SF_B2 -->|výhra| FINAL_B
+    end
+    H1 -->|výhra| OF_A1
+    H1 -->|prohra| OF_B1
+    H2 -->|výhra| OF_A2
+    H2 -->|prohra| OF_B2
+    H3 -->|výhra| OF_A3
+    H3 -->|prohra| OF_B3
+    H4 -->|výhra| OF_A4
+    H4 -->|prohra| OF_B4
+    style ZC1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style ZC2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style ZC3 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style H1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style H2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style H3 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style H4 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_A1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_A2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_A3 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_A4 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_B1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_B2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_B3 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style OF_B4 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_A1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_A2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_A3 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_A4 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_B1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_B2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_B3 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style QF_B4 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style SF_A1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style SF_A2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style SF_B1 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style SF_B2 fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style FINAL_A fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style FINAL_B fill:#d6eaf8,stroke:#2874a6,stroke-width:1px,color:#1b4f72
+    style ZC1 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style ZC2 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style ZC3 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style START fill:#ff6600,color:#fff,font-weight:bold
+    style H1 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style OF_A1 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style QF_A1 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style SF_A2 fill:#ff6600,color:#fff,stroke:#000,stroke-width:2px
+    style FINAL_A fill:#ffd700,color:#000,font-weight:bold,stroke:#ff6600,stroke-width:3px
+    style FINAL_B fill:#cccccc,color:#000

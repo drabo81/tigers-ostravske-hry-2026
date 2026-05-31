@@ -2,8 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { parseHTML } from 'linkedom';
-import { parseMatches, parseTable } from '../lib/parser.js';
-import { renderPhaseList } from '../lib/bracket.js';
+import { parseMatches, parseTable } from '../sources/ostravske-hry-2026/parser.js';
+import { renderPhaseList } from '../sources/ostravske-hry-2026/bracket.js';
 
 const matchesHtml = readFileSync(
   new URL('./fixtures/2026-05-19-before-tournament-matches.html', import.meta.url),

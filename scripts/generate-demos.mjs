@@ -1,7 +1,9 @@
-// Vyplodí všech demo scénáře do data/demo/<slug>/.
+// Vyplodí všech demo scénáře do sources/ostravske-hry-2026/demos/B13/<slug>/.
 // Spuštění:  node scripts/generate-demos.mjs
 import { execSync } from 'node:child_process';
 import { writeFile, mkdir } from 'node:fs/promises';
+
+const DEMO_BASE = 'sources/ostravske-hry-2026/demos/B13';
 
 export const DEMO_SCENARIOS = [
   { slug: 'po-skupine',     label: 'Po základní části',  cutoff: '2026-05-23 11:00' },
@@ -13,9 +15,9 @@ export const DEMO_SCENARIOS = [
 ];
 
 for (const { slug, label, cutoff } of DEMO_SCENARIOS) {
-  console.log(`\n=== ${label} (${cutoff}) → data/demo/${slug}/ ===`);
-  execSync(`node scripts/simulate-up-to.mjs "${cutoff}" "data/demo/${slug}"`, { stdio: 'inherit' });
+  console.log(`\n=== ${label} (${cutoff}) → ${DEMO_BASE}/${slug}/ ===`);
+  execSync(`node scripts/simulate-up-to.mjs "${cutoff}" "${DEMO_BASE}/${slug}"`, { stdio: 'inherit' });
 }
-await mkdir('data/demo', { recursive: true });
-await writeFile('data/demo/index.json', JSON.stringify(DEMO_SCENARIOS, null, 2));
-console.log('\n✓ All demos generated. Index: data/demo/index.json');
+await mkdir(DEMO_BASE, { recursive: true });
+await writeFile(`${DEMO_BASE}/index.json`, JSON.stringify(DEMO_SCENARIOS, null, 2));
+console.log(`\n✓ All demos generated. Index: ${DEMO_BASE}/index.json`);

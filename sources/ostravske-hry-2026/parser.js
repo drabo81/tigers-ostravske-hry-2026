@@ -1,10 +1,4 @@
-export function normalizeTeamName(s) {
-  return s
-    .trim()
-    .toLocaleLowerCase('cs')
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '');
-}
+export { normalizeTeamName } from '../../lib/shared.js';
 
 // Mapování textových označení fáze (jak se zobrazují na ostravskehry.cz) na náš enum.
 const PHASE_PATTERNS = [

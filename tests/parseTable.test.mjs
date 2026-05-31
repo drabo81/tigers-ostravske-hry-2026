@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { parseHTML } from 'linkedom';
-import { parseTable } from '../lib/parser.js';
+import { parseTable } from '../sources/ostravske-hry-2026/parser.js';
 
 const html = readFileSync(
   new URL('./fixtures/2026-05-19-before-tournament-table.html', import.meta.url),

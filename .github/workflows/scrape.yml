@@ -70,12 +70,8 @@ jobs:
         if: steps.gate.outputs.proceed == 'true' && steps.scrape.outcome == 'success'
         run: |
           set -e
-          echo "Validating data/table.json..."
-          jq . data/table.json > /dev/null && echo "✓ table.json is valid"
-          echo "Validating data/matches.json..."
-          jq . data/matches.json > /dev/null && echo "✓ matches.json is valid"
-          echo "Validating data/meta.json..."
-          jq . data/meta.json > /dev/null && echo "✓ meta.json is valid"
+          echo "Validating all JSON files under data/..."
+          find data -name '*.json' -print0 | xargs -0 -I{} sh -c 'jq empty "{}" && echo "✓ {} is valid"'
           echo "All JSON files are valid!"
 
       - name: Commit if changed

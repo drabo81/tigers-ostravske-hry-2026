@@ -1,5 +1,5 @@
-import { parseTable, parseMatches, normalizeTeamName } from './lib/parser.js';
-import { tigersBracketPath, renderStaticBracket, isPlaceholderCell, matchCardHtml, renderPhaseList, resolvePlaceholder } from './lib/bracket.js';
+import { SOURCES } from './sources/registry.js';
+import { normalizeTeamName, escapeHtml, fmtDate, fmtDateTime } from './lib/shared.js';
 import { fetchViaProxy } from './lib/proxy.js';
 import { hasMetaChanged } from './lib/poll.js';
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
@@ -21,7 +21,6 @@ mermaid.initialize({
   },
 });
 
-const TIGERS_FRAGMENT = 'tigers poruba';
 const REFRESH_DEBOUNCE_MS = 5_000;
 const POLL_INTERVAL_MS = 90_000;
 // After 3 consecutive errors, back off for 5 min to spare GH Pages CDN during outages.
@@ -30,33 +29,100 @@ const POLL_BACKOFF_MS = 5 * 60_000;
 
 const $ = (id) => document.getElementById(id);
 
-function isTigers(name) {
-  return name ? normalizeTeamName(name).includes(TIGERS_FRAGMENT) : false;
+// ─── State ────────────────────────────────────────────────────────────────────
+let state = {
+  sourceId: null,
+  categoryId: null,
+  focusTeam: null,
+  def: null,        // loaded SourceDefinition (default export from plugin)
+  category: null,   // category entry from def.categories
+};
+let lastData = { table: null, matches: null, meta: null };
+
+function isFocus(name) {
+  if (!name || !state.focusTeam) return false;
+  return normalizeTeamName(name).includes(normalizeTeamName(state.focusTeam));
 }
 
-function toast(message, level = 'info') {
-  const el = document.createElement('div');
-  el.className = `toast ${level}`;
-  el.textContent = message;
-  $('toast-container').appendChild(el);
-  setTimeout(() => el.remove(), 6_000);
+// ─── URL / localStorage helpers ───────────────────────────────────────────────
+const LS_SOURCE   = 'tv.source';
+const LS_CATEGORY = 'tv.category';
+const LS_TEAM     = 'tv.team';
+
+function readUrlParams() {
+  const p = new URLSearchParams(location.search);
+  return {
+    source:   p.get('source')   || null,
+    category: p.get('category') || null,
+    team:     p.get('team')     || null,
+  };
 }
 
-function fmtDateTime(isoString) {
-  if (!isoString) return '—';
-  try {
-    return new Intl.DateTimeFormat('cs-CZ', { dateStyle: 'short', timeStyle: 'short' })
-      .format(new Date(isoString));
-  } catch {
-    return isoString;
+function writeUrl() {
+  const p = new URLSearchParams();
+  if (state.sourceId)   p.set('source',   state.sourceId);
+  if (state.categoryId) p.set('category', state.categoryId);
+  if (state.focusTeam)  p.set('team',     state.focusTeam);
+  history.replaceState(null, '', `${location.pathname}?${p.toString()}`);
+}
+
+function resolveInitialSelection() {
+  const url = readUrlParams();
+
+  // Determine sourceId
+  let sourceId = url.source || localStorage.getItem(LS_SOURCE) || null;
+  if (!SOURCES.find(s => s.id === sourceId)) sourceId = SOURCES[0]?.id ?? null;
+
+  const src = SOURCES.find(s => s.id === sourceId);
+  if (!src) return { sourceId: null, categoryId: null, focusTeam: null };
+
+  // Determine categoryId
+  let categoryId = url.category || localStorage.getItem(LS_CATEGORY) || null;
+  // Only accept categoryId if it exists in this source
+  if (!src.categories.find(c => c.id === categoryId)) {
+    // Pick first category that has a defaultGroup
+    const withGroup = src.categories.find(c => c.defaultGroup);
+    categoryId = (withGroup || src.categories[0])?.id ?? null;
   }
+
+  const catMeta = src.categories.find(c => c.id === categoryId);
+
+  // Determine focusTeam
+  let focusTeam = url.team || localStorage.getItem(LS_TEAM) || null;
+  if (!focusTeam) focusTeam = catMeta?.defaultFocusTeam ?? null;
+
+  return { sourceId, categoryId, focusTeam };
 }
 
-function fmtDate(iso) {
-  if (!iso) return '';
-  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return iso;
-  return `${parseInt(m[3], 10)}. ${parseInt(m[2], 10)}.`;
+async function selectSource(sourceId, categoryId, focusTeam) {
+  const src = SOURCES.find(s => s.id === sourceId);
+  if (!src) throw new Error(`Unknown sourceId: ${sourceId}`);
+
+  const loaded = await src.load();
+  const def = loaded.default;
+  const category = def.categories.find(c => c.id === categoryId) ?? def.categories[0];
+
+  state.sourceId   = sourceId;
+  state.categoryId = category.id;
+  state.focusTeam  = focusTeam ?? category.defaultFocusTeam ?? null;
+  state.def        = def;
+  state.category   = category;
+
+  // Persist
+  localStorage.setItem(LS_SOURCE,   state.sourceId);
+  localStorage.setItem(LS_CATEGORY, state.categoryId);
+  if (state.focusTeam) localStorage.setItem(LS_TEAM, state.focusTeam);
+  else                 localStorage.removeItem(LS_TEAM);
+
+  writeUrl();
+
+  // Update page title
+  const title = `${src.label} – ${category.label}`;
+  document.title = title;
+  const pageTitle    = $('page-title');
+  const pageSubtitle = $('page-subtitle');
+  if (pageTitle)    pageTitle.textContent    = src.label;
+  if (pageSubtitle) pageSubtitle.textContent = category.label;
 }
 
 // ─── Data mode (live vs demo scénáře) ────────────────────────────────────────
@@ -64,7 +130,11 @@ const DATA_MODE_STORAGE_KEY = 'tigers.dataMode';
 let currentDataMode = localStorage.getItem(DATA_MODE_STORAGE_KEY) || 'live';
 
 function dataPathPrefix(mode) {
-  return mode === 'live' ? 'data/' : `data/demo/${mode.replace(/^demo:/, '')}/`;
+  if (mode === 'live') {
+    return `data/${state.sourceId}/${state.categoryId}/`;
+  }
+  const scn = mode.replace(/^demo:/, '');
+  return `sources/${state.sourceId}/demos/${state.categoryId}/${scn}/`;
 }
 
 async function loadJson(filename, { retries = 2, timeoutMs = 8000 } = {}) {
@@ -93,6 +163,7 @@ async function loadJson(filename, { retries = 2, timeoutMs = 8000 } = {}) {
 
 function renderHeader(meta) {
   const span = $('last-updated');
+  if (!span) return;
   if (!meta || !meta.last_success_at) {
     span.textContent = 'Bez dat';
     return;
@@ -116,21 +187,26 @@ function renderHeader(meta) {
 }
 
 function renderTable(table) {
-  const rows = table?.groups?.MH ?? [];
+  const group = state.category?.defaultGroup ?? Object.keys(table?.groups ?? {})[0] ?? null;
+  const rows = (group && table?.groups?.[group]) ?? [];
   if (!Array.isArray(rows) || rows.length === 0) {
-    $('table-content').innerHTML = '<p>Tabulka zatím není k dispozici.</p>';
+    const el = $('table-content');
+    if (el) el.innerHTML = '<p>Tabulka zatím není k dispozici.</p>';
     return;
   }
+  const heading = $('section-table')?.querySelector('h2');
+  if (heading) heading.textContent = `Tabulka skupiny ${group}`;
   const rowsHtml = rows.map(r => {
-    const tigers = isTigers(r.team);
-    return `<tr class="${tigers ? 'tigers-row' : ''}">
+    const focus = isFocus(r.team);
+    return `<tr class="${focus ? 'tigers-row' : ''}">
       <td>${r.rank}</td>
       <td>${escapeHtml(r.team)}</td>
       <td>${r.scored}:${r.conceded}</td>
       <td><strong>${r.points}</strong></td>
     </tr>`;
   }).join('');
-  $('table-content').innerHTML = `<table class="standings">
+  const el = $('table-content');
+  if (el) el.innerHTML = `<table class="standings">
     <thead><tr><th>#</th><th>Tým</th><th>Skóre</th><th>Body</th></tr></thead>
     <tbody>${rowsHtml}</tbody>
   </table>`;
@@ -139,27 +215,42 @@ function renderTable(table) {
 let tigersFilterMode = 'tigers';
 
 function renderTigersMatches(matches, table) {
+  const bracket = state.category?.bracket;
   let list;
   if (tigersFilterMode === 'tigers') {
-    list = tigersBracketPath(matches, table);
+    list = bracket ? bracket.focusPath(matches, table, state.focusTeam) : [];
   } else {
     list = (matches.matches || [])
       .slice()
       .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
   }
   if (!list.length) {
-    $('tigers-content').innerHTML = '<p>Žádné zápasy v rozpisu.</p>';
+    const el = $('tigers-content');
+    if (el) el.innerHTML = '<p>Žádné zápasy v rozpisu.</p>';
     return;
   }
-  const tigersIds = new Set(tigersBracketPath(matches, table).map(m => m.id));
-  const cards = list.map(m => matchCardHtml(m, tigersIds.has(m.id), matches, table)).join('');
-  $('tigers-content').innerHTML = cards;
+  const focusIds = new Set(
+    bracket ? bracket.focusPath(matches, table, state.focusTeam).map(m => m.id) : []
+  );
+  const cards = list.map(m =>
+    bracket
+      ? bracket.matchCardHtml(m, focusIds.has(m.id), matches, table, state.focusTeam)
+      : escapeHtml(JSON.stringify(m))
+  ).join('');
+  const el = $('tigers-content');
+  if (el) el.innerHTML = cards;
 }
 
 function renderAllMatches(matches) {
-  const mh = (matches?.matches ?? []).filter(m => m.phase === 'group' && m.group === 'MH');
+  const group = state.category?.defaultGroup ?? null;
+  const mh = (matches?.matches ?? []).filter(
+    m => m.phase === 'group' && (!group || m.group === group)
+  );
+  const heading = $('section-all-matches')?.querySelector('h2');
+  if (heading && group) heading.textContent = `Zápasy skupiny ${group}`;
   if (!mh.length) {
-    $('all-matches-content').innerHTML = '<p>Žádné zápasy v rozpisu.</p>';
+    const el = $('all-matches-content');
+    if (el) el.innerHTML = '<p>Žádné zápasy v rozpisu.</p>';
     return;
   }
   mh.sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
@@ -170,7 +261,8 @@ function renderAllMatches(matches) {
     <td>${m.score ? `${m.score.home}:${m.score.away}` : '—'}</td>
     <td>${escapeHtml(m.venue ?? '')}</td>
   </tr>`).join('');
-  $('all-matches-content').innerHTML = `<table class="matches">
+  const el = $('all-matches-content');
+  if (el) el.innerHTML = `<table class="matches">
     <thead><tr><th>Kdy</th><th>Domácí</th><th>Hosté</th><th>Skóre</th><th>Hala</th></tr></thead>
     <tbody>${rows}</tbody>
   </table>`;
@@ -188,8 +280,18 @@ function resolveBracketView() {
 let bracketPanZoom = null;
 
 async function renderBracket(matches, table) {
+  const bracket = state.category?.bracket;
+  const sectionEl = $('section-bracket');
+
+  if (!bracket) {
+    if (sectionEl) sectionEl.hidden = true;
+    return;
+  }
+  if (sectionEl) sectionEl.hidden = false;
+
   const view = resolveBracketView();
   const container = $('bracket-content');
+  if (!container) return;
   const scroll = container.closest('.bracket-scroll');
 
   document.querySelectorAll('.bracket-view-toggle [data-view]').forEach(btn => {
@@ -198,7 +300,7 @@ async function renderBracket(matches, table) {
 
   if (view === 'pavouk') {
     if (scroll) scroll.classList.remove('is-seznam');
-    const mermaidSrc = renderStaticBracket(matches, table);
+    const mermaidSrc = bracket.renderStaticBracket(matches, table, state.focusTeam);
     container.removeAttribute('data-processed');
     container.textContent = mermaidSrc;
     if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
@@ -225,26 +327,18 @@ async function renderBracket(matches, table) {
       }
     } catch (e) {
       console.error('mermaid render failed', e);
-      container.textContent = renderStaticBracket(matches, table);
+      container.textContent = bracket.renderStaticBracket(matches, table, state.focusTeam);
     }
   } else {
     if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
     if (scroll) scroll.classList.add('is-seznam');
-    container.innerHTML = renderPhaseList(matches, table);
+    container.innerHTML = bracket.renderPhaseList(matches, table, state.focusTeam);
   }
-}
-
-function escapeHtml(s) {
-  if (s == null) return '';
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 // Render loading skeleton pro zápasy a tabulky
 function renderLoadingSkeleton(container, count = 3) {
+  if (!container) return;
   const skeletons = Array(count).fill(null)
     .map(() => '<div class="skeleton-line"></div>')
     .join('');
@@ -255,27 +349,31 @@ function isValidTable(t)    { return t && typeof t === 'object' && t.groups && t
 function isValidMatches(m)  { return m && Array.isArray(m.matches); }
 
 function renderNextMatch(matches, table) {
-  const path = tigersBracketPath(matches, table);
-  const upcoming = path.find(m => !m.score);
+  const bracket = state.category?.bracket;
   const el = $('next-match');
+  if (!el) return;
+  if (!bracket) { el.innerHTML = ''; return; }
+
+  const path = bracket.focusPath(matches, table, state.focusTeam);
+  const upcoming = path.find(m => !m.score);
   if (!upcoming) {
     el.innerHTML = '';
     return;
   }
 
   // Buňky můžou být ještě placeholder (typicky po pádu do Play-off B). Rozlož je na
-  // reálná jména, ať poznáme Tigers i soupeře.
-  const home = resolvePlaceholder(upcoming.home, matches, table);
-  const away = resolvePlaceholder(upcoming.away, matches, table);
-  const homePh = isPlaceholderCell(home);
-  const awayPh = isPlaceholderCell(away);
+  // reálná jména, ať poznáme focus tým i soupeře.
+  const home = bracket.resolvePlaceholder(upcoming.home, matches, table);
+  const away = bracket.resolvePlaceholder(upcoming.away, matches, table);
+  const homePh = bracket.isPlaceholderCell(home);
+  const awayPh = bracket.isPlaceholderCell(away);
   let opponent;
-  if (isTigers(home))      opponent = awayPh ? 'soupeř bude určen' : away;
-  else if (isTigers(away)) opponent = homePh ? 'soupeř bude určen' : home;
+  if (isFocus(home))      opponent = awayPh ? 'soupeř bude určen' : away;
+  else if (isFocus(away)) opponent = homePh ? 'soupeř bude určen' : home;
   else if (homePh || awayPh) opponent = 'soupeř bude určen';
   else                       opponent = `${home} – ${away}`;
 
-  const phaseLabel = upcoming.phase === 'group' ? `${upcoming.group ?? 'MH'} skupina` : upcoming.phase;
+  const phaseLabel = upcoming.phase === 'group' ? `${upcoming.group ?? state.category?.defaultGroup ?? ''} skupina` : upcoming.phase;
 
   el.innerHTML = `
     <span class="next-label">Další zápas (${escapeHtml(phaseLabel)})</span>
@@ -283,6 +381,16 @@ function renderNextMatch(matches, table) {
     <span class="next-time">${fmtDate(upcoming.date)} ${upcoming.time ?? ''}</span>
     <span class="next-venue">${escapeHtml(upcoming.venue ?? '')}</span>
   `;
+}
+
+function toast(message, level = 'info') {
+  const container = $('toast-container');
+  if (!container) return;
+  const el = document.createElement('div');
+  el.className = `toast ${level}`;
+  el.textContent = message;
+  container.appendChild(el);
+  setTimeout(() => el.remove(), 6_000);
 }
 
 async function renderAll(table, matches, meta) {
@@ -298,7 +406,6 @@ async function renderAll(table, matches, meta) {
   await renderBracket(matches, table);
 }
 
-let lastData = { table: null, matches: null, meta: null };
 let refreshLocked = false;
 
 async function initialLoad() {
@@ -334,8 +441,11 @@ async function forceRefresh() {
   if (refreshLocked) return;
   refreshLocked = true;
   const btn = $('refresh-btn');
-  btn.disabled = true;
-  setTimeout(() => { refreshLocked = false; btn.disabled = false; }, REFRESH_DEBOUNCE_MS);
+  if (btn) btn.disabled = true;
+  setTimeout(() => {
+    refreshLocked = false;
+    if (btn) btn.disabled = false;
+  }, REFRESH_DEBOUNCE_MS);
 
   // V demo módu refresh prostě reloadne demo data ze stejné cesty.
   if (currentDataMode !== 'live') {
@@ -347,23 +457,25 @@ async function forceRefresh() {
 
   toast('⏳ Stahuji čerstvá data… (může trvat až 30 sekund)', 'info');
   try {
+    const targets = state.category?.fetchTargets;
+    if (!targets) throw new Error('fetchTargets not defined for this category');
     const [tableHtml, matchesHtml] = await Promise.all([
-      fetchViaProxy('https://ostravskehry.cz/florbal/table/'),
-      fetchViaProxy('https://ostravskehry.cz/florbal/matches/?category=24'),
+      fetchViaProxy(targets.table),
+      fetchViaProxy(targets.matches),
     ]);
-    const tableDoc = new DOMParser().parseFromString(tableHtml, 'text/html');
+    const tableDoc   = new DOMParser().parseFromString(tableHtml,   'text/html');
     const matchesDoc = new DOMParser().parseFromString(matchesHtml, 'text/html');
-    const table = parseTable(tableDoc);
-    const matches = parseMatches(matchesDoc);
-    const nowIso = new Date().toISOString();
+    const table   = state.def.parseTable(tableDoc);
+    const matches = state.def.parseMatches(matchesDoc);
+    const nowIso  = new Date().toISOString();
     lastData = {
       table,
       matches,
       meta: {
         ...lastData.meta,
-        last_success_at: nowIso,
-        last_attempt_at: nowIso,
-        last_attempt_status: 'ok',
+        last_success_at:      nowIso,
+        last_attempt_at:      nowIso,
+        last_attempt_status:  'ok',
       },
     };
     await renderAll(lastData.table, lastData.matches, lastData.meta);
@@ -381,13 +493,15 @@ async function forceRefresh() {
 
 async function populateDataModeSelect() {
   const select = $('data-mode-select');
+  if (!select) return;
   // Default Live option
   select.innerHTML = `<option value="live">Live (skutečná data)</option>`;
   try {
-    const demos = await (await fetch(`data/demo/index.json?t=${Date.now()}`)).json();
+    const demoIndex = `sources/${state.sourceId}/demos/${state.categoryId}/index.json`;
+    const demos = await (await fetch(`${demoIndex}?t=${Date.now()}`)).json();
     for (const d of demos) {
       const opt = document.createElement('option');
-      opt.value = d.slug;
+      opt.value = `demo:${d.slug}`;
       opt.textContent = `Demo · ${d.label}`;
       select.appendChild(opt);
     }
@@ -404,6 +518,99 @@ async function populateDataModeSelect() {
   });
 }
 
+function populateSourceSelect() {
+  const select = $('source-select');
+  if (!select) return;
+  select.innerHTML = '';
+  for (const src of SOURCES) {
+    const opt = document.createElement('option');
+    opt.value = src.id;
+    opt.textContent = src.label;
+    select.appendChild(opt);
+  }
+  select.value = state.sourceId ?? '';
+  select.addEventListener('change', async () => {
+    const newSourceId = select.value;
+    const src = SOURCES.find(s => s.id === newSourceId);
+    if (!src) return;
+    const firstCat = src.categories[0];
+    stopPolling();
+    await selectSource(newSourceId, firstCat?.id ?? null, firstCat?.defaultFocusTeam ?? null);
+    populateCategorySelect();
+    await populateDataModeSelect();
+    await initialLoad();
+    await populateTeamSelect();
+    startPolling();
+  });
+}
+
+function populateCategorySelect() {
+  const select = $('category-select');
+  if (!select) return;
+  select.innerHTML = '';
+  const src = SOURCES.find(s => s.id === state.sourceId);
+  for (const cat of (src?.categories ?? [])) {
+    const opt = document.createElement('option');
+    opt.value = cat.id;
+    opt.textContent = cat.label;
+    select.appendChild(opt);
+  }
+  select.value = state.categoryId ?? '';
+  // Remove any existing listener by cloning
+  const fresh = select.cloneNode(true);
+  select.parentNode?.replaceChild(fresh, select);
+  fresh.addEventListener('change', async () => {
+    const newCatId = fresh.value;
+    stopPolling();
+    await selectSource(state.sourceId, newCatId, null);
+    await populateDataModeSelect();
+    await initialLoad();
+    await populateTeamSelect();
+    writeUrl();
+    startPolling();
+  });
+}
+
+async function populateTeamSelect() {
+  const select = $('team-select');
+  if (!select) return;
+  // Build team list from loaded table (all groups)
+  const teams = new Set();
+  if (lastData.table?.groups) {
+    for (const rows of Object.values(lastData.table.groups)) {
+      for (const r of rows) {
+        if (r.team) teams.add(r.team);
+      }
+    }
+  }
+  // Fallback: defaultFocusTeam from category
+  if (state.category?.defaultFocusTeam) teams.add(state.category.defaultFocusTeam);
+
+  const fresh = select.cloneNode(false); // clone without children
+  const noOpt = document.createElement('option');
+  noOpt.value = '';
+  noOpt.textContent = '(bez zvýraznění)';
+  fresh.appendChild(noOpt);
+  for (const t of [...teams].sort((a, b) => a.localeCompare(b, 'cs'))) {
+    const opt = document.createElement('option');
+    opt.value = t;
+    opt.textContent = t;
+    fresh.appendChild(opt);
+  }
+  fresh.value = state.focusTeam ?? '';
+  select.parentNode?.replaceChild(fresh, select);
+  fresh.addEventListener('change', async () => {
+    state.focusTeam = fresh.value || null;
+    if (state.focusTeam) localStorage.setItem(LS_TEAM, state.focusTeam);
+    else                 localStorage.removeItem(LS_TEAM);
+    writeUrl();
+    if (lastData.table && lastData.matches) {
+      await renderAll(lastData.table, lastData.matches, lastData.meta);
+    }
+  });
+}
+
+// deploy-global, ne per-source
 async function loadBuildInfo() {
   const el = $('build-info');
   if (!el) return;
@@ -415,8 +622,8 @@ async function loadBuildInfo() {
     const commits = await r.json();
     const codeCommit = commits.find(c => !c.commit.message.startsWith('data:'));
     if (!codeCommit) return;
-    const sha = codeCommit.sha.slice(0, 7);
-    const url = codeCommit.html_url;
+    const sha      = codeCommit.sha.slice(0, 7);
+    const url      = codeCommit.html_url;
     const deployed = fmtDateTime(codeCommit.commit.committer.date);
     el.innerHTML = `Verze <a href="${url}" target="_blank" rel="noopener"><code>${sha}</code></a> · Nasazeno ${deployed}`;
   } catch (e) {
@@ -425,6 +632,7 @@ async function loadBuildInfo() {
   }
 }
 
+// deploy-global, ne per-source
 async function bumpVisitorCount() {
   const el = $('visitor-count');
   if (!el) return;
@@ -432,13 +640,13 @@ async function bumpVisitorCount() {
   // Inkrementuj jen jednou na prohlížeč (flag v localStorage), jinak jen načti aktuální stav.
   // Rate limit: refresh max 1x za 5 minut
   const COUNTED_KEY = 'tigers.visitorCounted';
-  const CACHE_KEY = 'tigers.visitorCountCache';
+  const CACHE_KEY   = 'tigers.visitorCountCache';
   const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minut
   const BASE = 'https://api.counterapi.dev/v1/tigers-ostravske-hry-2026/visitors';
 
   const alreadyCounted = localStorage.getItem(COUNTED_KEY);
-  const cached = localStorage.getItem(CACHE_KEY);
-  const cachedTime = localStorage.getItem(CACHE_KEY + '.time');
+  const cached         = localStorage.getItem(CACHE_KEY);
+  const cachedTime     = localStorage.getItem(CACHE_KEY + '.time');
 
   // Vrátit cached hodnotu, pokud je ještě čerstvá
   if (cached && cachedTime && Date.now() - parseInt(cachedTime, 10) < CACHE_TTL_MS) {
@@ -452,14 +660,14 @@ async function bumpVisitorCount() {
   try {
     const r = await fetch(url);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    const d = await r.json();
-    const n = d.count ?? d.value ?? null;
+    const d    = await r.json();
+    const n    = d.count ?? d.value ?? null;
     const text = (typeof n === 'number') ? n.toLocaleString('cs-CZ') : '—';
     el.textContent = text;
 
     // Cache výsledek
-    localStorage.setItem(CACHE_KEY, text);
-    localStorage.setItem(CACHE_KEY + '.time', String(Date.now()));
+    localStorage.setItem(CACHE_KEY,              text);
+    localStorage.setItem(CACHE_KEY + '.time',    String(Date.now()));
 
     if (!alreadyCounted) localStorage.setItem(COUNTED_KEY, String(Date.now()));
   } catch (e) {
@@ -469,7 +677,7 @@ async function bumpVisitorCount() {
 }
 
 // ─── Auto-refresh polling ─────────────────────────────────────────────────────
-let pollTimerId = null;
+let pollTimerId    = null;
 let pollErrorCount = 0;
 
 async function pollOnce() {
@@ -510,11 +718,17 @@ function stopPolling() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  $('refresh-btn').addEventListener('click', forceRefresh);
-  populateDataModeSelect();
-  bumpVisitorCount();
-  loadBuildInfo();
+document.addEventListener('DOMContentLoaded', async () => {
+  const { sourceId, categoryId, focusTeam } = resolveInitialSelection();
+  await selectSource(sourceId, categoryId, focusTeam);
+
+  const refreshBtn = $('refresh-btn');
+  if (refreshBtn) refreshBtn.addEventListener('click', forceRefresh);
+
+  populateSourceSelect();
+  populateCategorySelect();
+  await populateDataModeSelect();
+
   document.querySelectorAll('.bracket-view-toggle [data-view]').forEach(btn => {
     btn.addEventListener('click', () => {
       localStorage.setItem(VIEW_KEY, btn.dataset.view);
@@ -539,5 +753,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('visibilitychange', () => {
     if (!document.hidden && currentDataMode === 'live') pollOnce();
   });
-  initialLoad().then(startPolling);
+
+  bumpVisitorCount();
+  loadBuildInfo();
+
+  await initialLoad();
+  await populateTeamSelect();
+  startPolling();
 });

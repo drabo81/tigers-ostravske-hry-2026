@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { tigersPositionCode, matchContainsCode } from '../lib/bracket.js';
+import { tigersPositionCode, matchContainsCode } from '../sources/ostravske-hry-2026/bracket.js';
 
 test('tigersPositionCode: before tournament returns null', () => {
   const table = { groups: { MH: [] } };
