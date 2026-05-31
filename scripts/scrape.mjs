@@ -18,6 +18,11 @@ export function applyGroupFilter(table, groupFilter) {
   return { ...table, groups };
 }
 
+// POZOR (limit array-módu): group-less zápasy (playoff, group==null) se ponechávají vždy.
+// Pro zdroj s 1 URL = 1 kategorie (Tigers, groupFilter:'all') je to no-op a korektní.
+// Pro budoucí zdroj typu opengame (1 stránka = mnoho kategorií, groupFilter:['B13A',...])
+// to znamená, že každá kategorie pohltí VŠECHNY playoff zápasy ze stránky — to je třeba
+// doladit (filtrovat playoff podle příslušnosti k fázi/skupině) až při psaní toho pluginu.
 function filterMatches(matchesData, groupFilter) {
   if (groupFilter === 'all' || !Array.isArray(groupFilter)) return matchesData;
   const set = new Set(groupFilter);

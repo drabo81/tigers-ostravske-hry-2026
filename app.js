@@ -138,6 +138,8 @@ function renderHeader(meta) {
 function renderTable(table) {
   const groupKey = state.category?.defaultGroup;
   const rows = (groupKey ? table?.groups?.[groupKey] : Object.values(table?.groups ?? {})[0]) ?? [];
+  const tableH2 = document.querySelector('#section-table h2');
+  if (tableH2) tableH2.textContent = groupKey ? `Tabulka skupiny ${groupKey}` : 'Tabulka';
   if (!Array.isArray(rows) || rows.length === 0) {
     $('table-content').innerHTML = '<p>Tabulka zatím není k dispozici.</p>';
     return;
@@ -193,6 +195,8 @@ function renderTigersMatches(matches, table) {
 
 function renderAllMatches(matches) {
   const groupKey = state.category?.defaultGroup;
+  const allH2 = document.querySelector('#section-all-matches h2');
+  if (allH2) allH2.textContent = groupKey ? `Všechny zápasy skupiny ${groupKey}` : 'Všechny zápasy';
   const mh = (matches?.matches ?? []).filter(m => m.phase === 'group' && m.group === groupKey);
   if (!mh.length) {
     $('all-matches-content').innerHTML = '<p>Žádné zápasy v rozpisu.</p>';

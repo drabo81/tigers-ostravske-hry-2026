@@ -20,6 +20,13 @@ export default {
 };
 ```
 
+### `groupFilter` — známé omezení
+
+`'all'` (1 URL = 1 kategorie) je plně funkční. Pole skupin (`['B13A', …]`, kdy 1 stránka
+servíruje více kategorií, např. opengame) zatím filtruje jen skupinové zápasy; **playoff
+zápasy bez skupiny (`group: null`) se ponechávají všechny**. Doladit při psaní prvního
+takového pluginu (viz `scripts/scrape.mjs` `filterMatches`).
+
 ## Datový model (návratové hodnoty parseru)
 
 - `parseTable(doc)` → `{ groups: { '<groupCode>': [ { rank, team, scored, conceded, points } ] } }`
