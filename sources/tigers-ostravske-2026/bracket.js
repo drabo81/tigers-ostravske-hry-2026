@@ -1,16 +1,13 @@
 import { normalizeTeamName } from '../../lib/shared.js';
 import { resolveCode as engineResolveCode } from '../../lib/bracket-engine.js';
 
-const TIGERS_FRAGMENT = 'tigers poruba';
 const POSITION_GROUPS = { H: 'MH', D: 'MD', E: 'ME', A: 'MA', B: 'MB', C: 'MC', F: 'MF', G: 'MG' };
 
 function resolveCode(code, table) { return engineResolveCode(code, table, POSITION_GROUPS); }
 
 function isFocusTeam(name, focusTeam) {
-  if (!name) return false;
-  const n = normalizeTeamName(name);
-  const key = focusTeam ? normalizeTeamName(focusTeam) : TIGERS_FRAGMENT;
-  return n === key || n.includes(TIGERS_FRAGMENT);
+  if (!name || !focusTeam) return false;
+  return normalizeTeamName(name) === normalizeTeamName(focusTeam);
 }
 
 /**
@@ -77,7 +74,7 @@ export function resolvePlaceholder(cell, matches, table) {
   const key = _sortedKey(tokens);
   let sourcePhase;
   if (tokens.length === 2) sourcePhase = '16F-A';
-  else if (tokens.length === 4) sourcePhase = hasDash ? '8F-A' : '8F-A';
+  else if (tokens.length === 4) sourcePhase = '8F-A';
   else if (tokens.length === 8) sourcePhase = hasDash ? '4F-B' : '4F-A';
   else if (tokens.length === 16) sourcePhase = hasDash ? 'SF-B' : 'SF-A';
   else return cell;
