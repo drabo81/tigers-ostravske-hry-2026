@@ -1532,6 +1532,11 @@ git commit -m "feat(ui): add source/category/team selectors to header"
 
 **Cíl:** Odstranit nahrazené soubory a zdokumentovat přidání nového zdroje.
 
+> **Cleanup z code review Tasku 5 (odloženo sem kvůli byte-paritě):** v `sources/tigers-ostravske-2026/bracket.js`:
+> - **M1:** `isFocusTeam(name, focusTeam)` má fallback `n.includes(TIGERS_FRAGMENT)`, který se vyhodnotí i když je `focusTeam` jiný tým → false-positive pro libovolný tým se jménem obsahujícím „tigers poruba". Až nebude vázané paritou se starým `renderStaticBracket`, zjednodušit na čistou rovnost `n === normalizeTeamName(focusTeam)` (fragment fallback zrušit).
+> - **M2:** v `resolvePlaceholder` je mrtvá větev `tokens.length === 4 ? (hasDash ? '8F-A' : '8F-A')` — obě strany ternárního výrazu jsou stejné; zjednodušit na `'8F-A'`.
+> Po těchto úpravách znovu spusť parity test (snapshoty by se měnit neměly — jde o no-op zjednodušení); pokud se výstup změní, vrať zpět.
+
 - [ ] **Step 1: Ověř, že nic neimportuje staré soubory**
 
 Run: `grep -rn "lib/parser" --include=*.js --include=*.mjs . ; grep -rn "lib/bracket\.js" --include=*.js --include=*.mjs .`
