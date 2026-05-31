@@ -1,17 +1,34 @@
 import { writeFile, readFile, mkdir } from 'node:fs/promises';
-import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { parseHTML } from 'linkedom';
-import { parseTable, parseMatches } from '../lib/parser.js';
-
-const URLS = {
-  table:   'https://ostravskehry.cz/florbal/table/',
-  matches: 'https://ostravskehry.cz/florbal/matches/?category=24',
-};
+import { SOURCES } from '../sources/registry.js';
 
 const USER_AGENT = 'tigers-playoff-viewer (https://github.com/drabo81/tigers-playoff-viewer)';
 const RETRIES = 3;
 const TIMEOUT_MS = 15_000;
+
+// ---------------------------------------------------------------------------
+// Pure filter helpers (exported for tests)
+// ---------------------------------------------------------------------------
+
+export function applyGroupFilter(table, groupFilter) {
+  if (groupFilter === 'all' || !Array.isArray(groupFilter)) return table;
+  const groups = {};
+  for (const key of groupFilter) if (table.groups?.[key]) groups[key] = table.groups[key];
+  return { ...table, groups };
+}
+
+export function filterMatches(matchesData, groupFilter) {
+  if (groupFilter === 'all' || !Array.isArray(groupFilter)) return matchesData;
+  const set = new Set(groupFilter);
+  // group-less zápasy (playoff) ponecháváme; pro výčtový groupFilter je to známé omezení.
+  return { ...matchesData, matches: matchesData.matches.filter(m => m.group == null || set.has(m.group)) };
+}
+
+// ---------------------------------------------------------------------------
+// Network
+// ---------------------------------------------------------------------------
 
 async function fetchWithRetry(url) {
   let lastErr;
@@ -32,6 +49,22 @@ async function fetchWithRetry(url) {
   }
   throw lastErr;
 }
+
+// Per-run URL-dedup Map cache: each scrapeCategory call shares a fetcher so
+// identical URLs (two categories on same page) are fetched only once.
+function makeFetcher() {
+  const cache = new Map();
+  return async function fetch_cached(url) {
+    if (cache.has(url)) return cache.get(url);
+    const p = fetchWithRetry(url);
+    cache.set(url, p);
+    return p;
+  };
+}
+
+// ---------------------------------------------------------------------------
+// File helpers — anti-commit-spam
+// ---------------------------------------------------------------------------
 
 function sha256(s) {
   return createHash('sha256').update(s).digest('hex');
@@ -59,89 +92,110 @@ async function writeIfDataChanged(path, newObj) {
   return true;
 }
 
-async function writeMeta(status, dataChanged = false) {
+// Per-dir writeMeta — anti-spam: při úspěchu bez změny dat a předchozím ok
+// stavu nepřepisujeme meta.json (vyhneme se commit-spamu kvůli pouhému
+// timestamp updatu). Přepisujeme vždy, když: status není ok, data se změnila,
+// nebo předchozí pokus selhal.
+async function writeMeta(dir, sourceId, categoryId, status, dataChanged = false) {
+  const metaPath = `${dir}/meta.json`;
   let prev = null;
-  if (existsSync('data/meta.json')) {
+  if (existsSync(metaPath)) {
     try {
-      prev = JSON.parse(await readFile('data/meta.json', 'utf8'));
+      prev = JSON.parse(await readFile(metaPath, 'utf8'));
     } catch {
       // poškozený předchozí meta — začneme čistě
     }
   }
 
-  // Optimalizace: při úspěchu bez změny dat a předchozím ok stavu nepřepisujeme
-  // meta.json — vyhneme se commit-spamu kvůli pouhému timestamp updatu.
-  // Přepisujeme vždy, když: status není ok (změna stavu klient potřebuje vidět),
-  // data se změnila (sjednotit čas), nebo předchozí pokus selhal (reset na ok).
   if (status === 'ok' && !dataChanged && prev?.last_attempt_status === 'ok') {
-    console.log('meta: unchanged (no data change, status still ok)');
+    console.log(`meta [${sourceId}/${categoryId}]: unchanged (no data change, status still ok)`);
     return;
   }
 
   const nowIso = new Date().toISOString();
   const meta = {
-    last_success_at: prev?.last_success_at ?? null,
+    last_success_at: status === 'ok' ? nowIso : (prev?.last_success_at ?? null),
     last_attempt_at: nowIso,
     last_attempt_status: status,
-    source: 'ostravskehry.cz',
+    source: sourceId,
+    category: categoryId,
   };
-  if (status === 'ok') meta.last_success_at = nowIso;
-  await writeFile('data/meta.json', JSON.stringify(meta, null, 2));
-  console.log(`meta: ${status} (last_success_at=${meta.last_success_at})`);
+  await writeFile(metaPath, JSON.stringify(meta, null, 2));
+  console.log(`meta [${sourceId}/${categoryId}]: ${status} (last_success_at=${meta.last_success_at})`);
 }
 
-// Po skončení turnaje (24.5. 2026 + buffer) přestaneme scrapovat —
-// ostravskehry.cz později nahradí stránku jiným turnajem a my nechceme do repa
-// dostat cizí data. Cron pořád běží (každých 15 min), ale jen zapíše meta status
-// a skončí 0 (ať Action neselže a nedělá spam notifikace).
-const TOURNAMENT_END = new Date('2026-05-26T00:00:00Z');
+// ---------------------------------------------------------------------------
+// Per-category scrape
+// ---------------------------------------------------------------------------
 
-async function main() {
-  await mkdir('data', { recursive: true });
-
-  if (new Date() >= TOURNAMENT_END) {
-    console.log(`Tournament ended (${TOURNAMENT_END.toISOString()}); scraper disabled.`);
-    await writeMeta('tournament_ended');
-    return;
-  }
+async function scrapeCategory(fetcher, def, source, category) {
+  const dir = `data/${source.id}/${category.id}`;
+  await mkdir(dir, { recursive: true });
 
   let tableHtml, matchesHtml;
   try {
     [tableHtml, matchesHtml] = await Promise.all([
-      fetchWithRetry(URLS.table),
-      fetchWithRetry(URLS.matches),
+      fetcher(category.fetchTargets.table),
+      fetcher(category.fetchTargets.matches),
     ]);
   } catch (e) {
-    console.error('network_error:', e.message);
-    await writeMeta('network_error');
-    process.exit(1);
+    console.error(`network_error [${source.id}/${category.id}]:`, e.message);
+    await writeMeta(dir, source.id, category.id, 'network_error', false);
+    return false;
   }
 
-  let tableData, matchesData;
+  let table, matches;
   try {
-    tableData = parseTable(parseHTML(tableHtml).document);
-    matchesData = parseMatches(parseHTML(matchesHtml).document);
-    if (!tableData.groups?.MH) throw new Error('parser returned no MH group');
-    if (!matchesData.matches?.length) throw new Error('parser returned no matches');
+    table = def.parseTable(parseHTML(tableHtml).document);
+    matches = def.parseMatches(parseHTML(matchesHtml).document);
+    table = applyGroupFilter(table, category.groupFilter);
+    matches = filterMatches(matches, category.groupFilter);
+    if (!Object.keys(table.groups ?? {}).length) throw new Error('parser returned no groups');
+    if (!matches.matches?.length) throw new Error('parser returned no matches');
   } catch (e) {
-    console.error('parse_error:', e.message);
-    await writeMeta('parse_error');
-    process.exit(1);
+    console.error(`parse_error [${source.id}/${category.id}]:`, e.message);
+    await writeMeta(dir, source.id, category.id, 'parse_error', false);
+    return false;
   }
 
   const nowIso = new Date().toISOString();
   const tableChanged = await writeIfDataChanged(
-    'data/table.json',
-    { scraped_at: nowIso, ...tableData },
+    `${dir}/table.json`,
+    { scraped_at: nowIso, ...table },
   );
   const matchesChanged = await writeIfDataChanged(
-    'data/matches.json',
-    { category: 24, scraped_at: nowIso, ...matchesData },
+    `${dir}/matches.json`,
+    { category: category.id, scraped_at: nowIso, ...matches },
   );
-  await writeMeta('ok', tableChanged || matchesChanged);
+  await writeMeta(dir, source.id, category.id, 'ok', tableChanged || matchesChanged);
+  return true;
 }
 
-main().catch(e => {
-  console.error('unexpected error:', e);
-  process.exit(1);
-});
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
+
+async function main() {
+  let anyFailed = false;
+  for (const source of SOURCES) {
+    const def = (await source.load()).default;
+    const fetcher = makeFetcher();
+    for (const category of def.categories) {
+      const ok = await scrapeCategory(fetcher, def, source, category);
+      if (!ok) anyFailed = true;
+    }
+  }
+  if (anyFailed) process.exit(1);
+}
+
+// Entry guard: importing this module in tests must NOT trigger main() or any
+// network calls.
+if (
+  import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('scrape.mjs')
+) {
+  main().catch(e => {
+    console.error('unexpected:', e);
+    process.exit(1);
+  });
+}
