@@ -5,7 +5,7 @@ import { renderStaticBracket, renderPhaseList } from '../../../sources/ostravske
 
 const FOCUS = 'FBC Tigers Poruba';
 const read = (p) => readFileSync(new URL(p, import.meta.url), 'utf8');
-const data = (scn, f) => JSON.parse(readFileSync(new URL(`../../../data/demo/${scn}/${f}.json`, import.meta.url), 'utf8'));
+const data = (scn, f) => JSON.parse(readFileSync(new URL(`../../../sources/ostravske-hry-2026/demos/B13/${scn}/${f}.json`, import.meta.url), 'utf8'));
 
 for (const scn of ['po-skupine', 'po-16f', 'turnaj-dohran']) {
   test(`pavouk parity: ${scn}`, () => {
