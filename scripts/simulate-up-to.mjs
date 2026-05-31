@@ -7,7 +7,8 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const CUTOFF = process.argv[2] || '2026-05-24 11:31';
-const OUTPUT_DIR = process.argv[3] || 'data';
+const OUTPUT_DIR = process.argv[3] || 'sources/ostravske-hry-2026/demos/B13';
+const DEMO_BASE = 'sources/ostravske-hry-2026/demos/B13/_base';
 
 function mulberry32(seed) {
   return () => {
@@ -34,9 +35,8 @@ const POSITION_GROUPS = { A: 'MA', B: 'MB', C: 'MC', D: 'MD', E: 'ME', F: 'MF', 
 
 // Čistý placeholder základ (všechny play-off zápasy jako kódy) — NE živá data, která už
 // jsou rozehraná a token-based rozklad by na nich selhal.
-const BASE_DIR = 'data/demo/_base';
-const matchData = JSON.parse(await readFile(`${BASE_DIR}/matches.json`, 'utf8'));
-const tableData = JSON.parse(await readFile(`${BASE_DIR}/table.json`, 'utf8'));
+const matchData = JSON.parse(await readFile(`${DEMO_BASE}/matches.json`, 'utf8'));
+const tableData = JSON.parse(await readFile(`${DEMO_BASE}/table.json`, 'utf8'));
 
 // Uložit originální placeholdery PŘED jakoukoli modifikací cells.
 for (const m of matchData.matches) {
