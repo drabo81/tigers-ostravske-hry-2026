@@ -1,5 +1,5 @@
-import { parseTable, parseMatches, normalizeTeamName } from './lib/parser.js';
-import { tigersBracketPath, renderStaticBracket, isPlaceholderCell } from './lib/bracket.js';
+import { SOURCES } from './sources/registry.js';
+import { normalizeTeamName, escapeHtml, fmtDate, fmtDateTime } from './lib/shared.js';
 import { fetchViaProxy } from './lib/proxy.js';
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 import svgPanZoom from 'https://esm.sh/svg-pan-zoom@3.6.1';
@@ -20,14 +20,81 @@ mermaid.initialize({
   },
 });
 
-const TIGERS_FRAGMENT = 'tigers poruba';
 const REFRESH_DEBOUNCE_MS = 5_000;
-
 const $ = (id) => document.getElementById(id);
 
-function isTigers(name) {
-  return name ? normalizeTeamName(name).includes(TIGERS_FRAGMENT) : false;
+// ─── Stav výběru ───────────────────────────────────────────────────────────────
+const LS_SOURCE = 'tv.source', LS_CATEGORY = 'tv.category', LS_TEAM = 'tv.team';
+let state = { sourceId: null, categoryId: null, focusTeam: null, def: null, category: null };
+let lastData = { table: null, matches: null, meta: null };
+let tigersFilterMode = 'tigers';
+let refreshLocked = false;
+let bracketPanZoom = null;
+
+function isActive(src, now = new Date()) {
+  return now >= new Date(src.activeFrom) && now < new Date(src.activeTo);
 }
+
+function isFocus(name) {
+  return name && state.focusTeam
+    ? normalizeTeamName(name) === normalizeTeamName(state.focusTeam)
+    : false;
+}
+
+// ─── URL / localStorage helpers ────────────────────────────────────────────────
+function readUrlParams() {
+  const p = new URLSearchParams(location.search);
+  return { source: p.get('source'), category: p.get('category'), team: p.get('team') };
+}
+
+function writeUrl() {
+  const p = new URLSearchParams();
+  if (state.sourceId)   p.set('source',   state.sourceId);
+  if (state.categoryId) p.set('category', state.categoryId);
+  if (state.focusTeam)  p.set('team',     state.focusTeam);
+  history.replaceState(null, '', `?${p.toString()}`);
+}
+
+function resolveInitialSelection() {
+  const url = readUrlParams();
+  const sourceId = url.source || localStorage.getItem(LS_SOURCE)
+    || (SOURCES.find(isActive) || SOURCES[0])?.id;
+  const src = SOURCES.find(s => s.id === sourceId) || SOURCES[0];
+  const meta = src.categories;
+  const categoryId = url.category || localStorage.getItem(LS_CATEGORY) || meta[0]?.id;
+  const catMeta = meta.find(c => c.id === categoryId) || meta[0];
+  const focusTeam = url.team ?? localStorage.getItem(LS_TEAM) ?? catMeta?.defaultFocusTeam ?? null;
+  return { sourceId: src.id, categoryId: catMeta?.id, focusTeam };
+}
+
+async function selectSource(sourceId, categoryId, focusTeam) {
+  const src = SOURCES.find(s => s.id === sourceId) || SOURCES[0];
+  state.def = (await src.load()).default;
+  state.sourceId = src.id;
+  state.category = state.def.categories.find(c => c.id === categoryId) || state.def.categories[0];
+  state.categoryId = state.category.id;
+  state.focusTeam = focusTeam !== undefined ? focusTeam : state.category.defaultFocusTeam ?? null;
+  localStorage.setItem(LS_SOURCE, state.sourceId);
+  localStorage.setItem(LS_CATEGORY, state.categoryId);
+  if (state.focusTeam) localStorage.setItem(LS_TEAM, state.focusTeam);
+  else localStorage.removeItem(LS_TEAM);
+  writeUrl();
+  document.title = `${state.def.label} — ${state.category.label}`;
+}
+
+// ─── Datová cesta ───────────────────────────────────────────────────────────────
+function dataDir() { return `data/${state.sourceId}/${state.categoryId}`; }
+
+async function loadJson(filename) {
+  const url = `${dataDir()}/${filename}?t=${Date.now()}`;
+  const r = await fetch(url, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(`fetch ${filename}: HTTP ${r.status}`);
+  return r.json();
+}
+
+// ─── Pomocné funkce ────────────────────────────────────────────────────────────
+function isValidTable(t)   { return t && typeof t === 'object' && t.groups && typeof t.groups === 'object'; }
+function isValidMatches(m) { return m && Array.isArray(m.matches); }
 
 function toast(message, level = 'info') {
   const el = document.createElement('div');
@@ -37,39 +104,14 @@ function toast(message, level = 'info') {
   setTimeout(() => el.remove(), 6_000);
 }
 
-function fmtDateTime(isoString) {
-  if (!isoString) return '—';
-  try {
-    return new Intl.DateTimeFormat('cs-CZ', { dateStyle: 'short', timeStyle: 'short' })
-      .format(new Date(isoString));
-  } catch {
-    return isoString;
-  }
+// ─── Focus matches (nahrazuje tigersBracketPath) ───────────────────────────────
+function focusMatches(matches) {
+  return (matches.matches || [])
+    .filter(m => isFocus(m.home) || isFocus(m.away))
+    .sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
 }
 
-function fmtDate(iso) {
-  if (!iso) return '';
-  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-  if (!m) return iso;
-  return `${parseInt(m[3], 10)}. ${parseInt(m[2], 10)}.`;
-}
-
-// ─── Data mode (live vs demo scénáře) ────────────────────────────────────────
-const DATA_MODE_STORAGE_KEY = 'tigers.dataMode';
-let currentDataMode = localStorage.getItem(DATA_MODE_STORAGE_KEY) || 'live';
-
-function dataPathPrefix(mode) {
-  return mode === 'live' ? 'data/' : `data/demo/${mode.replace(/^demo:/, '')}/`;
-}
-
-async function loadJson(filename) {
-  const path = `${dataPathPrefix(currentDataMode)}${filename}`;
-  const url = `${path}?t=${Date.now()}`;
-  const r = await fetch(url, { cache: 'no-cache' });
-  if (!r.ok) throw new Error(`fetch ${path}: HTTP ${r.status}`);
-  return r.json();
-}
-
+// ─── Render funkce ─────────────────────────────────────────────────────────────
 function renderHeader(meta) {
   const span = $('last-updated');
   if (!meta || !meta.last_success_at) {
@@ -90,14 +132,15 @@ function renderHeader(meta) {
 }
 
 function renderTable(table) {
-  const rows = table?.groups?.MH ?? [];
+  const groupKey = state.category?.defaultGroup;
+  const rows = (groupKey ? table?.groups?.[groupKey] : Object.values(table?.groups ?? {})[0]) ?? [];
   if (!Array.isArray(rows) || rows.length === 0) {
     $('table-content').innerHTML = '<p>Tabulka zatím není k dispozici.</p>';
     return;
   }
   const rowsHtml = rows.map(r => {
-    const tigers = isTigers(r.team);
-    return `<tr class="${tigers ? 'tigers-row' : ''}">
+    const focus = isFocus(r.team);
+    return `<tr class="${focus ? 'tigers-row' : ''}">
       <td>${r.rank}</td>
       <td>${escapeHtml(r.team)}</td>
       <td>${r.scored}:${r.conceded}</td>
@@ -110,28 +153,17 @@ function renderTable(table) {
   </table>`;
 }
 
-let tigersFilterMode = 'tigers';
-
-function matchCardHtml(m, isTigersMatch) {
-  const homePh = isPlaceholderCell(m.home);
-  const awayPh = isPlaceholderCell(m.away);
-  const hasPlaceholder = homePh || awayPh;
-
+function matchCardHtml(m, isFocusMatch) {
   let body;
   if (m.score) {
     body = `<div class="score"><strong>${escapeHtml(m.home)}</strong> <span class="score-num">${m.score.home} : ${m.score.away}</span> <strong>${escapeHtml(m.away)}</strong></div>`;
-  } else if (hasPlaceholder && isTigersMatch) {
-    // Tigers do tohohle zápasu postupují, ale soupeř/strana ještě není známý
-    body = `<div class="vs"><strong>FBC TIGERS PORUBA</strong> – <em>soupeř bude určen</em> <span class="pending">(zatím nehrané)</span></div>`;
-  } else if (hasPlaceholder) {
-    body = `<div class="vs"><em>soupeři budou určeni</em> <span class="pending">(zatím nehrané)</span></div>`;
   } else {
     body = `<div class="vs"><strong>${escapeHtml(m.home)}</strong> – <strong>${escapeHtml(m.away)}</strong> <span class="pending">(zatím nehrané)</span></div>`;
   }
 
-  const klass = `match-card${isTigersMatch ? ' is-tigers' : ''}${!m.score ? ' is-pending' : ''}`;
+  const klass = `match-card${isFocusMatch ? ' is-tigers' : ''}${!m.score ? ' is-pending' : ''}`;
   return `<div class="${klass}">
-    <div><span class="phase">${m.phase === 'group' ? `${m.group ?? 'MH'} skupina` : m.phase}</span>
+    <div><span class="phase">${m.phase === 'group' ? `${m.group ?? ''} skupina` : m.phase}</span>
       <span class="when">${fmtDate(m.date)} ${m.time ?? ''} — ${escapeHtml(m.venue ?? '')}</span></div>
     ${body}
   </div>`;
@@ -140,7 +172,7 @@ function matchCardHtml(m, isTigersMatch) {
 function renderTigersMatches(matches, table) {
   let list;
   if (tigersFilterMode === 'tigers') {
-    list = tigersBracketPath(matches, table);
+    list = focusMatches(matches);
   } else {
     list = (matches.matches || [])
       .slice()
@@ -150,13 +182,14 @@ function renderTigersMatches(matches, table) {
     $('tigers-content').innerHTML = '<p>Žádné zápasy v rozpisu.</p>';
     return;
   }
-  const tigersIds = new Set(tigersBracketPath(matches, table).map(m => m.id));
-  const cards = list.map(m => matchCardHtml(m, tigersIds.has(m.id))).join('');
+  const focusIds = new Set(focusMatches(matches).map(m => m.id));
+  const cards = list.map(m => matchCardHtml(m, focusIds.has(m.id))).join('');
   $('tigers-content').innerHTML = cards;
 }
 
 function renderAllMatches(matches) {
-  const mh = (matches?.matches ?? []).filter(m => m.phase === 'group' && m.group === 'MH');
+  const groupKey = state.category?.defaultGroup;
+  const mh = (matches?.matches ?? []).filter(m => m.phase === 'group' && m.group === groupKey);
   if (!mh.length) {
     $('all-matches-content').innerHTML = '<p>Žádné zápasy v rozpisu.</p>';
     return;
@@ -175,55 +208,8 @@ function renderAllMatches(matches) {
   </table>`;
 }
 
-let bracketPanZoom = null;
-
-async function renderBracket(matches, table) {
-  const mermaidSrc = renderStaticBracket(matches, table);
-  const container = $('bracket-content');
-  container.removeAttribute('data-processed');
-  container.textContent = mermaidSrc;
-  if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
-  try {
-    await mermaid.run({ nodes: [container] });
-    const svg = container.querySelector('svg');
-    if (svg) {
-      // Mermaid nastaví inline width/height na konkrétní px; pro pan-zoom potřebujeme
-      // 100% rozměry, ať SVG vyplní wrapper.
-      svg.removeAttribute('width');
-      svg.removeAttribute('height');
-      svg.style.width = '100%';
-      svg.style.height = '100%';
-      svg.style.maxWidth = 'none';
-      bracketPanZoom = svgPanZoom(svg, {
-        controlIconsEnabled: true,    // tlačítka +/-/reset
-        fit: true,                    // auto-fit na load
-        center: true,
-        minZoom: 0.2,
-        maxZoom: 8,
-        zoomScaleSensitivity: 0.3,
-        contain: false,
-      });
-    }
-  } catch (e) {
-    console.error('mermaid render failed', e);
-    container.textContent = mermaidSrc;
-  }
-}
-
-function escapeHtml(s) {
-  if (s == null) return '';
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-function isValidTable(t)    { return t && typeof t === 'object' && t.groups && typeof t.groups === 'object'; }
-function isValidMatches(m)  { return m && Array.isArray(m.matches); }
-
 function renderNextMatch(matches, table) {
-  const path = tigersBracketPath(matches, table);
+  const path = focusMatches(matches);
   const upcoming = path.find(m => !m.score);
   const el = $('next-match');
   if (!upcoming) {
@@ -231,15 +217,12 @@ function renderNextMatch(matches, table) {
     return;
   }
 
-  const homePh = isPlaceholderCell(upcoming.home);
-  const awayPh = isPlaceholderCell(upcoming.away);
   let opponent;
-  if (isTigers(upcoming.home))      opponent = upcoming.away;
-  else if (isTigers(upcoming.away)) opponent = upcoming.home;
-  else if (homePh || awayPh)        opponent = 'soupeř bude určen';
-  else                              opponent = `${upcoming.home} – ${upcoming.away}`;
+  if (isFocus(upcoming.home))      opponent = upcoming.away;
+  else if (isFocus(upcoming.away)) opponent = upcoming.home;
+  else                             opponent = `${upcoming.home} – ${upcoming.away}`;
 
-  const phaseLabel = upcoming.phase === 'group' ? `${upcoming.group ?? 'MH'} skupina` : upcoming.phase;
+  const phaseLabel = upcoming.phase === 'group' ? `${upcoming.group ?? ''} skupina` : upcoming.phase;
 
   el.innerHTML = `
     <span class="next-label">Další zápas (${escapeHtml(phaseLabel)})</span>
@@ -247,6 +230,27 @@ function renderNextMatch(matches, table) {
     <span class="next-time">${fmtDate(upcoming.date)} ${upcoming.time ?? ''}</span>
     <span class="next-venue">${escapeHtml(upcoming.venue ?? '')}</span>
   `;
+}
+
+async function renderBracket(matches, table) {
+  const container = $('bracket-content');
+  const fn = state.category?.renderBracket;
+  if (typeof fn !== 'function') { $('section-bracket').hidden = true; return; }
+  $('section-bracket').hidden = false;
+  const mermaidSrc = fn(matches, table, state.focusTeam);
+  container.removeAttribute('data-processed');
+  container.textContent = mermaidSrc;
+  if (bracketPanZoom) { bracketPanZoom.destroy(); bracketPanZoom = null; }
+  try {
+    await mermaid.run({ nodes: [container] });
+    const svg = container.querySelector('svg');
+    if (svg) {
+      svg.removeAttribute('width'); svg.removeAttribute('height');
+      svg.style.width = '100%'; svg.style.height = '100%'; svg.style.maxWidth = 'none';
+      bracketPanZoom = svgPanZoom(svg, { controlIconsEnabled: true, fit: true, center: true,
+        minZoom: 0.2, maxZoom: 8, zoomScaleSensitivity: 0.3, contain: false });
+    }
+  } catch (e) { console.error('mermaid render failed', e); container.textContent = mermaidSrc; }
 }
 
 async function renderAll(table, matches, meta) {
@@ -262,9 +266,7 @@ async function renderAll(table, matches, meta) {
   await renderBracket(matches, table);
 }
 
-let lastData = { table: null, matches: null, meta: null };
-let refreshLocked = false;
-
+// ─── Načítání dat ──────────────────────────────────────────────────────────────
 async function initialLoad() {
   try {
     const [table, matches, meta] = await Promise.all([
@@ -287,24 +289,14 @@ async function forceRefresh() {
   btn.disabled = true;
   setTimeout(() => { refreshLocked = false; btn.disabled = false; }, REFRESH_DEBOUNCE_MS);
 
-  // V demo módu refresh prostě reloadne demo data ze stejné cesty.
-  if (currentDataMode !== 'live') {
-    toast('Načítám demo data…', 'info');
-    await initialLoad();
-    toast('Demo data načtena.', 'info');
-    return;
-  }
-
   toast('Stahuji čerstvá data…', 'info');
   try {
     const [tableHtml, matchesHtml] = await Promise.all([
-      fetchViaProxy('https://ostravskehry.cz/florbal/table/'),
-      fetchViaProxy('https://ostravskehry.cz/florbal/matches/?category=24'),
+      fetchViaProxy(state.category.fetchTargets.table),
+      fetchViaProxy(state.category.fetchTargets.matches),
     ]);
-    const tableDoc = new DOMParser().parseFromString(tableHtml, 'text/html');
-    const matchesDoc = new DOMParser().parseFromString(matchesHtml, 'text/html');
-    const table = parseTable(tableDoc);
-    const matches = parseMatches(matchesDoc);
+    const table = state.def.parseTable(new DOMParser().parseFromString(tableHtml, 'text/html'));
+    const matches = state.def.parseMatches(new DOMParser().parseFromString(matchesHtml, 'text/html'));
     const nowIso = new Date().toISOString();
     lastData = {
       table,
@@ -317,6 +309,7 @@ async function forceRefresh() {
       },
     };
     await renderAll(lastData.table, lastData.matches, lastData.meta);
+    populateTeamSelect();
     toast('Aktualizováno.', 'info');
   } catch (e) {
     console.error(e);
@@ -324,29 +317,55 @@ async function forceRefresh() {
   }
 }
 
-async function populateDataModeSelect() {
-  const select = $('data-mode-select');
-  // Default Live option
-  select.innerHTML = `<option value="live">Live (skutečná data)</option>`;
-  try {
-    const demos = await (await fetch(`data/demo/index.json?t=${Date.now()}`)).json();
-    for (const d of demos) {
-      const opt = document.createElement('option');
-      opt.value = d.slug;
-      opt.textContent = `Demo · ${d.label}`;
-      select.appendChild(opt);
-    }
-  } catch (e) {
-    console.warn('demo index nedostupný', e);
-  }
-  select.value = currentDataMode;
-  select.addEventListener('change', async () => {
-    currentDataMode = select.value;
-    localStorage.setItem(DATA_MODE_STORAGE_KEY, currentDataMode);
+// ─── Přepínače ─────────────────────────────────────────────────────────────────
+function populateSourceSelect() {
+  const sel = $('source-select');
+  if (!sel) return;
+  sel.innerHTML = SOURCES.map(s => `<option value="${s.id}">${escapeHtml(s.label)}</option>`).join('');
+  sel.value = state.sourceId;
+  sel.onchange = async () => {
+    await selectSource(sel.value, undefined, undefined);
+    populateCategorySelect();
+    populateTeamSelect();
     await initialLoad();
-  });
+  };
 }
 
+function populateCategorySelect() {
+  const sel = $('category-select');
+  if (!sel) return;
+  sel.innerHTML = state.def.categories.map(c =>
+    `<option value="${c.id}">${escapeHtml(c.label)}</option>`
+  ).join('');
+  sel.value = state.categoryId;
+  sel.onchange = async () => {
+    await selectSource(state.sourceId, sel.value, undefined);
+    populateTeamSelect();
+    await initialLoad();
+  };
+}
+
+function populateTeamSelect() {
+  const sel = $('team-select');
+  if (!sel) return;
+  const teams = new Set();
+  const groups = lastData.table?.groups ?? {};
+  for (const rows of Object.values(groups)) for (const r of rows) teams.add(r.team);
+  const opts = ['<option value="">(bez zvýraznění)</option>']
+    .concat([...teams].sort((a, b) => a.localeCompare(b, 'cs'))
+      .map(t => `<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`));
+  sel.innerHTML = opts.join('');
+  sel.value = state.focusTeam ?? '';
+  sel.onchange = async () => {
+    state.focusTeam = sel.value || null;
+    if (state.focusTeam) localStorage.setItem(LS_TEAM, state.focusTeam);
+    else localStorage.removeItem(LS_TEAM);
+    writeUrl();
+    await renderAll(lastData.table, lastData.matches, lastData.meta);
+  };
+}
+
+// ─── Build info + návštěvník ───────────────────────────────────────────────────
 async function loadBuildInfo() {
   const el = $('build-info');
   if (!el) return;
@@ -391,9 +410,13 @@ async function bumpVisitorCount() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// ─── Bootstrap ─────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
+  const sel = resolveInitialSelection();
+  await selectSource(sel.sourceId, sel.categoryId, sel.focusTeam);
   $('refresh-btn').addEventListener('click', forceRefresh);
-  populateDataModeSelect();
+  populateSourceSelect();
+  populateCategorySelect();
   bumpVisitorCount();
   loadBuildInfo();
   document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -409,5 +432,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-  initialLoad();
+  await initialLoad();
+  populateTeamSelect();   // až po načtení tabulky (potřebuje seznam týmů)
 });
