@@ -100,7 +100,9 @@ function toast(message, level = 'info') {
   const el = document.createElement('div');
   el.className = `toast ${level}`;
   el.textContent = message;
-  $('toast-container').appendChild(el);
+  const container = $('toast-container');
+  if (!container) return;
+  container.appendChild(el);
   setTimeout(() => el.remove(), 6_000);
 }
 
@@ -125,7 +127,7 @@ function renderHeader(meta) {
   const okText = `Stav z ${fmtDateTime(meta.last_success_at)}`;
   if (meta.last_attempt_status && meta.last_attempt_status !== 'ok'
       && meta.last_attempt_at !== meta.last_success_at) {
-    span.innerHTML = `${okText} <span style="opacity:0.85">(poslední pokus ${fmtDateTime(meta.last_attempt_at)} selhal: ${meta.last_attempt_status})</span>`;
+    span.innerHTML = `${okText} <span style="opacity:0.85">(poslední pokus ${fmtDateTime(meta.last_attempt_at)} selhal: ${escapeHtml(meta.last_attempt_status)})</span>`;
   } else {
     span.textContent = okText;
   }
@@ -234,6 +236,7 @@ function renderNextMatch(matches, table) {
 
 async function renderBracket(matches, table) {
   const container = $('bracket-content');
+  if (!container) return;
   const fn = state.category?.renderBracket;
   if (typeof fn !== 'function') { $('section-bracket').hidden = true; return; }
   $('section-bracket').hidden = false;
@@ -286,8 +289,8 @@ async function forceRefresh() {
   if (refreshLocked) return;
   refreshLocked = true;
   const btn = $('refresh-btn');
-  btn.disabled = true;
-  setTimeout(() => { refreshLocked = false; btn.disabled = false; }, REFRESH_DEBOUNCE_MS);
+  if (btn) btn.disabled = true;
+  setTimeout(() => { refreshLocked = false; if (btn) btn.disabled = false; }, REFRESH_DEBOUNCE_MS);
 
   toast('Stahuji čerstvá data…', 'info');
   try {
@@ -414,7 +417,7 @@ async function bumpVisitorCount() {
 document.addEventListener('DOMContentLoaded', async () => {
   const sel = resolveInitialSelection();
   await selectSource(sel.sourceId, sel.categoryId, sel.focusTeam);
-  $('refresh-btn').addEventListener('click', forceRefresh);
+  $('refresh-btn')?.addEventListener('click', forceRefresh);
   populateSourceSelect();
   populateCategorySelect();
   bumpVisitorCount();
