@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FBC Tigers Poruba B13 — Ostravské hry 2026</title>
+  <title>Tournament Viewer</title>
 
   <!-- Performance optimization: preconnect to CDNs -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -17,8 +17,8 @@
   <a href="#main-content" class="skip-link">Přejít na obsah</a>
 
   <header class="site-header">
-    <h1>FBC Tigers Poruba B13</h1>
-    <p class="subtitle">Ostravské hry 2026 — kategorie B13 5+1, skupina MH</p>
+    <h1 id="page-title">Tournament Viewer</h1>
+    <p class="subtitle" id="page-subtitle"></p>
     <div class="next-match" id="next-match"></div>
     <div class="status">
       <span id="last-updated">Načítám…</span>
@@ -27,6 +27,11 @@
         <span>Zdroj:</span>
         <select id="data-mode-select" aria-label="Vybrat zdroj dat (live nebo demo scénář)"></select>
       </label>
+    </div>
+    <div class="selectors">
+      <label><span>Zdroj:</span><select id="source-select"></select></label>
+      <label><span>Kategorie:</span><select id="category-select"></select></label>
+      <label><span>Tým:</span><select id="team-select"></select></label>
     </div>
   </header>
 
@@ -46,7 +51,7 @@
     </section>
 
     <section id="section-bracket">
-      <h2>Cesta Tigers turnajem</h2>
+      <h2>Pavouk / cesta turnajem</h2>
       <div class="bracket-view-toggle" role="tablist" aria-label="Zobrazení pavouka">
         <button type="button" data-view="pavouk" role="tab" aria-selected="true">🌳 Pavouk</button>
         <button type="button" data-view="seznam" role="tab" aria-selected="false">📋 Seznam</button>
