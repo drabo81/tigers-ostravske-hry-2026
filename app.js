@@ -80,6 +80,8 @@ async function selectSource(sourceId, categoryId, focusTeam) {
   else localStorage.removeItem(LS_TEAM);
   writeUrl();
   document.title = `${state.def.label} — ${state.category.label}`;
+  const titleEl = $('page-title'); if (titleEl) titleEl.textContent = state.def.label;
+  const subEl = $('page-subtitle'); if (subEl) subEl.textContent = state.category?.label ?? '';
 }
 
 // ─── Datová cesta ───────────────────────────────────────────────────────────────

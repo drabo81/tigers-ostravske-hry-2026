@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FBC Tigers Poruba B13 — Ostravské hry 2026</title>
+  <title>Tournament Viewer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <h1>FBC Tigers Poruba B13</h1>
-    <p class="subtitle">Ostravské hry 2026 — kategorie B13 5+1, skupina MH</p>
+    <h1 id="page-title">Tournament Viewer</h1>
+    <p class="subtitle" id="page-subtitle"></p>
     <div class="next-match" id="next-match"></div>
     <div class="status">
       <span id="last-updated">Načítám…</span>
-      <button id="refresh-btn" type="button" title="Stáhne čerstvá data z ostravskehry.cz bez čekání na cron">↻ Aktualizovat data</button>
-      <label class="data-mode">
-        <span>Zdroj:</span>
-        <select id="data-mode-select"></select>
-      </label>
+      <button id="refresh-btn" type="button" title="Stáhne čerstvá data bez čekání na cron">↻ Aktualizovat data</button>
+    </div>
+    <div class="selectors">
+      <label><span>Zdroj:</span><select id="source-select"></select></label>
+      <label><span>Kategorie:</span><select id="category-select"></select></label>
+      <label><span>Tým:</span><select id="team-select"></select></label>
     </div>
   </header>
 
@@ -37,7 +38,7 @@
     </section>
 
     <section id="section-bracket">
-      <h2>Cesta Tigers turnajem</h2>
+      <h2>Cesta turnajem</h2>
       <div class="bracket-scroll">
         <pre id="bracket-content" class="mermaid">flowchart TD
   loading["Načítám pavouka…"]
