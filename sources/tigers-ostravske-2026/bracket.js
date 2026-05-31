@@ -1,4 +1,4 @@
-import { normalizeTeamName, fmtDateCompact } from '../../lib/shared.js';
+import { normalizeTeamName } from '../../lib/shared.js';
 import { resolveCode as engineResolveCode } from '../../lib/bracket-engine.js';
 
 const TIGERS_FRAGMENT = 'tigers poruba';
@@ -122,24 +122,6 @@ function findMatchByCodeAndPhase(matches, phase, code, focusCode, focusTeam) {
   return matches.matches.find(m => m.phase === phase && matchContainsCode(m, code));
 }
 
-function fmtScore(score) {
-  return score ? ` ${score.home}:${score.away}` : '';
-}
-
-function shortVenue(venue) {
-  if (!venue) return '';
-  return venue
-    .replace(/^SH\s+/, '')
-    .replace(/\s*-\s*hřiště.*$/i, '')
-    .replace(/\s*\([^)]*\)\s*/g, '')
-    .trim();
-}
-
-function shortTeam(name) {
-  if (!name) return '';
-  return name.replace(/^FBC\s+/i, '').trim();
-}
-
 function tigersHighlightedNodes(matches, table, focusTeam) {
   const set = new Set(['ZC1', 'ZC2', 'ZC3', 'START']);
   const rank = focusPositionCode(table, focusTeam);
@@ -202,12 +184,6 @@ function tigersHighlightedNodes(matches, table, focusTeam) {
 
   set.add(inBranchA ? 'FINAL_A' : 'FINAL_B');
   return set;
-}
-
-function opponentName(match, focusCode, focusTeam) {
-  if (!match) return null;
-  const homeContainsUs = isFocusTeam(match.home, focusTeam) || matchContainsCode({ home: match.home, away: '' }, focusCode ?? '');
-  return homeContainsUs ? match.away : match.home;
 }
 
 function nodeLabelStatic(template, match, table, tigersCode, matches) {
