@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { matchCardHtml } from '../lib/bracket.js';
+import { matchCardHtml } from '../sources/ostravske-hry-2026/bracket.js';
 
 const baseMatch = {
   id: 100,

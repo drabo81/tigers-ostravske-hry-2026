@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderStaticBracket, tigersBracketPath } from '../lib/bracket.js';
+import { renderStaticBracket, tigersBracketPath } from '../sources/ostravske-hry-2026/bracket.js';
 
 // Stav po dohrání skupin: ostravskehry.cz nahradila placeholdery (H2, D3…)
 // reálnými jmény týmů ve fázi 16F-A. Skutečný los se NESHODUJE se statickým
