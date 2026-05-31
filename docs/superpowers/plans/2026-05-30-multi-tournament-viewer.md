@@ -478,7 +478,14 @@ git commit -m "refactor(tigers): move parser into source plugin, share normalize
 
 ---
 
-## Task 5: `buildBracketModel` v pluginu (refactor `lib/bracket.js` na IR)
+## Task 5: `renderBracket` v pluginu (přesun `lib/bracket.js`)
+
+> **⚠️ ODCHYLKA OD PŮVODNÍHO PLÁNU (rozhodnuto při implementaci 2026-05-31):**
+> Původní záměr „plugin vyrobí IR `{nodes,edges}` a generický engine ho vykreslí" **neprošel realitou**: stávající Tigers pavouk je příliš specifický (subgrafy Play-off A/B, tečkované alternativy `-.->`, řetězené hrany, a hlavně highlight přes `tigersHighlightedNodes`, který zvýrazňuje i placeholder uzly `✖ H1/D4`, kam focus tým teprve postupuje — generický `highlightPath` přes jména to nereprodukuje). Bytová parita by vynutila přepis enginu do kopie starého kódu.
+>
+> **Nový přístup (ctí spec §5.3 „renderBracket → Mermaid/HTML"):** plugin exportuje **`renderBracket(matches, table, focusTeam) → Mermaid string`** vzniklý **přesunem** `renderStaticBracket` + jeho pomocníků z `lib/bracket.js` do pluginu, **beze změny logiky** — jen `Tigers` → `focusTeam` parametrizace a lokální `resolveCode` → `resolveCode(code, table, POSITION_GROUPS)` z enginu. **Parita = bytová shoda s dnešním `renderStaticBracket`** (triviálně drží, kód se v podstatě nemění).
+>
+> Engine `highlightPath`/`renderMermaid` (Task 2–3) **zůstávají** jako volitelné utility pro budoucí jednoduché brackety (otestované), Tigers je nepoužije. Dopady na další tasky: **Task 6** kontrakt používá `renderBracket` místo `buildBracketModel`; **Task 10** app.js volá `category.renderBracket(...) → string` (ne přes engine); **`_contract.md`** popisuje `renderBracket`. Ignoruj níže uvedený IR kód (`nodeFields`, `buildBracketModel`) — nahrazuje ho přesun popsaný výše.
 
 **Files:**
 - Create: `sources/tigers-ostravske-2026/bracket.js`
