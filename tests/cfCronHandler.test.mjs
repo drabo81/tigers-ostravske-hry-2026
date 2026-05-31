@@ -1,6 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { handleScheduled } from '../infra/cloudflare-cron/src/index.js';
+import { SOURCES } from '../sources/registry.js';
+
+// Počet zdrojů × kategorií (pro výpočet počtu fetch volání).
+const SOURCE_CATEGORY_COUNT = SOURCES.reduce((n, s) => n + s.categories.length, 0);
 
 // Fake matches: turnaj 22.5. 09:00 → 24.5. 15:30 local Prague (DST → UTC -2h).
 const matchesFixture = {
@@ -10,7 +14,15 @@ const matchesFixture = {
   ],
 };
 
-function mockFetcher({ matchesStatus = 200, matchesBody = matchesFixture, dispatchStatus = 204, dispatchBody = '' } = {}) {
+// Fixture mimo okno (prázdné matches — žádný platný čas).
+const emptyFixture = { matches: [] };
+
+function mockFetcher({
+  matchesStatus = 200,
+  matchesBody = matchesFixture,
+  dispatchStatus = 204,
+  dispatchBody = '',
+} = {}) {
   const calls = [];
   const fetcher = async (url, opts) => {
     calls.push({ url, opts });
@@ -39,8 +51,9 @@ test('handleScheduled: in window + PAT → dispatches', async () => {
   const now = new Date('2026-05-23T12:00:00Z');
   const result = await handleScheduled(env, now, fetcher);
   assert.equal(result.dispatched, true, `expected dispatched=true, got: ${JSON.stringify(result)}`);
-  assert.equal(calls.length, 2, 'expected 2 fetch calls (matches + dispatch)');
-  const dispatchCall = calls[1];
+  // SOURCE_CATEGORY_COUNT fetches pro matches + 1 dispatch
+  assert.equal(calls.length, SOURCE_CATEGORY_COUNT + 1, `expected ${SOURCE_CATEGORY_COUNT + 1} fetch calls`);
+  const dispatchCall = calls[calls.length - 1];
   assert.ok(dispatchCall.opts.headers.Authorization === 'Bearer ghp_abc', 'PAT must be in Authorization header');
   const body = JSON.parse(dispatchCall.opts.body);
   assert.equal(body.ref, 'main');
@@ -54,7 +67,38 @@ test('handleScheduled: outside window → no dispatch', async () => {
   const result = await handleScheduled(env, now, fetcher);
   assert.equal(result.dispatched, false);
   assert.equal(result.reason, 'outside tournament window');
-  assert.equal(calls.length, 1, 'only matches.json should be fetched');
+  // Všechny matches fetche, žádný dispatch
+  assert.equal(calls.length, SOURCE_CATEGORY_COUNT, `expected ${SOURCE_CATEGORY_COUNT} fetch calls (no dispatch)`);
+});
+
+test('handleScheduled: aggregation — ANY source in window triggers dispatch', async () => {
+  // Připravíme dva fetche: první mimo okno, druhý v okně.
+  // Simulujeme více zdrojů tím, že první volání vrátí emptyFixture,
+  // druhé vrátí matchesFixture. Pokud je SOURCE_CATEGORY_COUNT < 2,
+  // přeskočíme (nemáme co agregovat s jedním zdrojem).
+  if (SOURCE_CATEGORY_COUNT < 2) {
+    // Jeden zdroj — agregace je totéž co single. Test se netýká.
+    return;
+  }
+  let callCount = 0;
+  const calls = [];
+  const fetcher = async (url, opts) => {
+    calls.push({ url, opts });
+    if (url.includes('raw.githubusercontent.com')) {
+      callCount++;
+      // První zdroj mimo okno, druhý v okně.
+      const body = callCount === 1 ? emptyFixture : matchesFixture;
+      return { ok: true, status: 200, json: async () => body };
+    }
+    if (url.includes('/actions/workflows/')) {
+      return { ok: true, status: 204, text: async () => '' };
+    }
+    throw new Error(`unexpected url: ${url}`);
+  };
+  const env = { GH_DISPATCH_PAT: 'ghp_abc' };
+  const now = new Date('2026-05-23T12:00:00Z');
+  const result = await handleScheduled(env, now, fetcher);
+  assert.equal(result.dispatched, true, `ANY-in-window must dispatch; got: ${JSON.stringify(result)}`);
 });
 
 test('handleScheduled: missing PAT → no dispatch', async () => {
